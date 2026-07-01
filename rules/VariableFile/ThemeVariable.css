@@ -1,0 +1,97 @@
+/* !!! 注意：以下为全局主题变量，谨慎改动 */
+:root {
+  
+  /*! 标准色 */
+  /* /1.主题色 */
+  --primary: #1890ff;
+  /* /2.悬停色 */
+  --primary-hover: #40a9ff;
+  /* /3.激活色 */
+  --primary-active: #2d85e4;
+  /* /4.背景色 */
+  --primary-bg: #e9f3ff;
+  /* /5.边框色 */
+  --primary-border: #bad0f8;
+
+  /*! 功能色 - 成功色 */
+  /* /1.成功色 */
+  --success: #22bd14;
+  /* /2.悬停色 */
+  --success-hover: #23cf13;
+  /* /3.激活色 */
+  --success-active: #15af07;
+  /* /4.背景色 */
+  --success-bg: #e8f5e9;
+  /* /5.边框色 */
+  --success-border: #c8e6c9;
+
+  /*! 功能色 - 警告色 */
+  /* /1.警告色 */
+  --warning: #eba51b;
+  /* /2.悬停色 */
+  --warning-hover: #fab120;
+  /* /3.激活色 */
+  --warning-active: #db9200;
+  /* /4.背景色 */
+  --warning-bg: #fff3e0;
+  /* /5.边框色 */
+  --warning-border: #ffe0b2;
+
+  /*! 功能色 - 信息色 */
+  /* /1.信息色 */
+  --info: #9c9c9c;
+  /* /2.悬停色 */
+  --info-hover: #BBBBBB;
+  /* /3.激活色 */
+  --info-active: #E4E4E8;
+  /* /4.背景色 */
+  --info-bg: #F2F2F6;
+  /* /5.边框色 */
+  --info-border: #e4e4e4;
+
+  /*! 功能色 - 错误色 */
+  /* /1.错误色 */
+  --error: #f05e45;
+  /* /2.悬停色 */
+  --error-hover: #fa755e;
+  /* /3.激活色 */
+  --error-active: #eb3939;
+  /* /4.背景色 */
+  --error-bg: #fbe9e7;
+  /* /5.边框色 */
+  --error-border: #ffc9b8;
+
+  /*! 辅助色 */
+  /* /1.悬停色 */
+  --hover: #F0F1F2;
+  /* /2.边框色 */
+  --border: #e4e5e7;
+  /* /3.分隔线 */
+  --divider: #f0f0f0;
+  /* /4.背景色 */
+  --bg: #f3f4f6;
+  /* /5.白色 */
+  --white: #ffffff;
+  /* /6.黑色 */
+  --black: #000000;
+
+  /*! 文本色 - 浅色背景 */
+  /* /1.标题 */
+  --title: #262626;
+  /* /2.主要文本 */
+  --main-text: #595959;
+  /* /3.次要文本 */
+  --secondary-text: #8c8c8c;
+  /* /4.禁用文本 */
+  --disabled-text: #bfbfbf;
+
+  /*! 文本色 - 深色背景 */
+  /* /1.标题 */
+  --title-dark: #d9d9d9;
+  /* /2.主要文本 */
+  --main-text-dark: #a6a6a6;
+  /* /3.次要文本 */
+  --secondary-text-dark: #737373;
+  /* /4.禁用文本 */
+  --disabled-text-dark: #4d4d4d;
+}

@@ -1,0 +1,1512 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/public/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>puffseed-ui-浅色模式</title>
+    <link rel="stylesheet" href="../VariableFile/ThemeVariable.css" />
+    <link rel="stylesheet" href="../VariableFile/SystemVariable.css" />
+    <style>
+      /* 预览页专用变量（非 Token 源码） */
+      :root {
+        --font-sans:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC",
+          "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+        --font-mono:
+          ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--white);
+        color: var(--main-text);
+        font-family: var(--font-sans);
+        font-size: var(--fs-14);
+        font-weight: 400;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 var(--size-32);
+        height: var(--size-48);
+        background: var(--white);
+        border-bottom: var(--solid);
+        box-shadow: var(--shadow-bottom);
+      }
+
+      .nav-brand {
+        font-size: var(--fs-14);
+        font-weight: 600;
+        color: var(--title);
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: var(--size-24);
+        list-style: none;
+      }
+
+      .nav-links a {
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+        text-decoration: none;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-cta {
+        display: inline-block;
+        background: var(--primary);
+        color: var(--white);
+        padding: var(--size-4) var(--size-12);
+        border-radius: var(--size-100);
+        font-size: var(--fs-12);
+        text-decoration: none;
+      }
+
+      .nav-cta:hover {
+        background: var(--primary-hover);
+      }
+
+      .nav-cta:active {
+        background: var(--primary-active);
+      }
+
+      .hero {
+        padding: var(--size-48) var(--size-32) var(--size-40);
+        text-align: center;
+        background: var(--bg);
+      }
+
+      .hero h1 {
+        font-size: var(--fs-30);
+        font-weight: 600;
+        line-height: 1.2;
+        color: var(--title);
+        margin-bottom: var(--size-16);
+      }
+
+      .hero p {
+        font-size: var(--fs-16);
+        color: var(--secondary-text);
+        max-width: 640px;
+        margin: 0 auto var(--size-24);
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: var(--size-16);
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        background: var(--primary);
+        color: var(--white);
+        padding: var(--size-8) var(--size-20);
+        border-radius: var(--size-100);
+        border: none;
+        font-size: var(--fs-14);
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-hover);
+      }
+
+      .btn-primary:active {
+        background: var(--primary-active);
+      }
+
+      .btn-outline-primary {
+        display: inline-block;
+        background: var(--white);
+        color: var(--primary);
+        padding: var(--size-8) var(--size-20);
+        border-radius: var(--size-100);
+        border: var(--solid);
+        border-color: var(--primary);
+        font-size: var(--fs-14);
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .btn-outline-primary:hover {
+        background: var(--primary-bg);
+      }
+
+      .section {
+        padding: var(--size-48) var(--size-32);
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      .section-label {
+        font-size: var(--fs-12);
+        font-weight: 600;
+        color: var(--secondary-text);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: var(--size-8);
+      }
+
+      .section-title {
+        font-size: var(--fs-24);
+        font-weight: 600;
+        color: var(--title);
+        line-height: 1.3;
+        margin-bottom: var(--size-24);
+      }
+
+      .section-divider {
+        border: none;
+        border-top: var(--line);
+        margin: 0;
+      }
+
+      .section-dark {
+        background: var(--black);
+        color: var(--title-dark);
+        padding: var(--size-48) var(--size-32);
+      }
+
+      .section-dark .section-inner {
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      .section-dark .section-label {
+        color: var(--secondary-text-dark);
+      }
+
+      .section-dark .section-title {
+        color: var(--title-dark);
+      }
+
+      .section-gray {
+        background: var(--bg);
+        padding: var(--size-48) var(--size-32);
+      }
+
+      .section-gray .section-inner {
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      .color-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+        gap: var(--size-12);
+        margin-bottom: var(--size-24);
+      }
+
+      .color-swatch {
+        border-radius: var(--size-8);
+        overflow: hidden;
+        background: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      .color-swatch-block {
+        height: 72px;
+        width: 100%;
+      }
+
+      .color-swatch-info {
+        padding: var(--size-12);
+      }
+
+      .color-swatch-name {
+        font-size: var(--fs-14);
+        font-weight: 600;
+        color: var(--title);
+        margin-bottom: var(--size-4);
+      }
+
+      .color-swatch-hex {
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+        font-family: var(--font-mono);
+        letter-spacing: 0.02em;
+      }
+
+      .color-group-label {
+        font-size: var(--fs-14);
+        font-weight: 600;
+        color: var(--title);
+        margin: var(--size-24) 0 var(--size-12);
+      }
+
+      .color-group-label:first-child {
+        margin-top: 0;
+      }
+
+      .type-sample {
+        margin-bottom: var(--size-24);
+        padding-bottom: var(--size-24);
+        border-bottom: var(--line);
+      }
+
+      .type-sample:last-child {
+        border-bottom: none;
+      }
+
+      .type-meta {
+        font-family: var(--font-mono);
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+        margin-top: var(--size-8);
+      }
+
+      .button-row {
+        display: flex;
+        gap: var(--size-20);
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .button-item {
+        text-align: center;
+      }
+
+      .button-label {
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+        margin-top: var(--size-8);
+        line-height: 1.35;
+      }
+
+      .btn-success {
+        display: inline-block;
+        background: var(--success);
+        color: var(--white);
+        padding: var(--size-8) var(--size-16);
+        border-radius: var(--size-8);
+        border: none;
+        font-size: var(--fs-14);
+        cursor: pointer;
+      }
+
+      .btn-success:hover {
+        background: var(--success-hover);
+      }
+
+      .btn-warning {
+        display: inline-block;
+        background: var(--warning);
+        color: var(--white);
+        padding: var(--size-8) var(--size-16);
+        border-radius: var(--size-8);
+        border: none;
+        font-size: var(--fs-14);
+        cursor: pointer;
+      }
+
+      .btn-warning:hover {
+        background: var(--warning-hover);
+      }
+
+      .btn-error {
+        display: inline-block;
+        background: var(--error);
+        color: var(--white);
+        padding: var(--size-8) var(--size-16);
+        border-radius: var(--size-8);
+        border: none;
+        font-size: var(--fs-14);
+        cursor: pointer;
+      }
+
+      .btn-error:hover {
+        background: var(--error-hover);
+      }
+
+      .btn-ghost {
+        display: inline-block;
+        background: var(--hover);
+        color: var(--main-text);
+        padding: var(--size-8) var(--size-16);
+        border-radius: var(--size-8);
+        border: var(--solid);
+        font-size: var(--fs-14);
+        cursor: pointer;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--size-20);
+      }
+
+      .card {
+        background: var(--white);
+        border-radius: var(--size-8);
+        padding: var(--size-24);
+        border: var(--solid);
+        transition: box-shadow 0.2s;
+      }
+
+      .card:hover {
+        box-shadow: var(--shadow);
+      }
+
+      .card h3 {
+        font-size: var(--fs-18);
+        font-weight: 600;
+        color: var(--title);
+        margin-bottom: var(--size-8);
+      }
+
+      .card p {
+        font-size: var(--fs-14);
+        color: var(--main-text);
+        line-height: 1.5;
+      }
+
+      .card-link {
+        font-size: var(--fs-14);
+        color: var(--primary);
+        text-decoration: none;
+        margin-top: var(--size-12);
+        display: inline-block;
+      }
+
+      .card-link:hover {
+        color: var(--primary-hover);
+        text-decoration: underline;
+      }
+
+      .card-dark {
+        background: #1f1f1f;
+        border-color: var(--secondary-text-dark);
+        color: var(--title-dark);
+      }
+
+      .card-dark h3 {
+        color: var(--title-dark);
+      }
+
+      .card-dark p {
+        color: var(--main-text-dark);
+      }
+
+      .card-dark .card-link {
+        color: var(--primary-hover);
+      }
+
+      .form-group {
+        margin-bottom: var(--size-20);
+        max-width: 400px;
+      }
+
+      .form-label {
+        display: block;
+        font-size: var(--fs-14);
+        font-weight: 600;
+        color: var(--title);
+        margin-bottom: var(--size-6);
+      }
+
+      .form-input {
+        width: 100%;
+        background: var(--white);
+        color: var(--title);
+        border: var(--solid);
+        padding: var(--size-8) var(--size-12);
+        border-radius: var(--size-8);
+        font-family: inherit;
+        font-size: var(--fs-14);
+        outline: none;
+      }
+
+      .form-input:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 2px var(--primary-border);
+      }
+
+      .form-input--focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 2px var(--primary-border);
+      }
+
+      .form-input--error {
+        border-color: var(--error);
+        box-shadow: 0 0 0 2px var(--error-border);
+      }
+
+      .form-textarea {
+        width: 100%;
+        min-height: 80px;
+        background: var(--white);
+        color: var(--title);
+        border: var(--solid);
+        padding: var(--size-8) var(--size-12);
+        border-radius: var(--size-8);
+        font-family: inherit;
+        font-size: var(--fs-14);
+        resize: vertical;
+        outline: none;
+      }
+
+      .form-state-label {
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+        margin-top: var(--size-4);
+      }
+
+      .spacing-row {
+        display: flex;
+        align-items: flex-end;
+        gap: var(--size-12);
+        flex-wrap: wrap;
+        margin-bottom: var(--size-24);
+      }
+
+      .spacing-item {
+        text-align: center;
+      }
+
+      .spacing-block {
+        background: var(--primary);
+        border-radius: var(--size-4);
+        margin-bottom: var(--size-6);
+        height: 28px;
+      }
+
+      .spacing-value {
+        font-family: var(--font-mono);
+        font-size: var(--fs-12);
+        color: var(--title);
+        font-weight: 500;
+      }
+
+      .spacing-desc {
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+        margin-top: var(--size-4);
+        max-width: 7em;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.35;
+      }
+
+      .radius-row {
+        display: flex;
+        gap: var(--size-16);
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .radius-item {
+        text-align: center;
+      }
+
+      .radius-box {
+        width: 64px;
+        height: 64px;
+        background: var(--primary);
+        margin-bottom: var(--size-6);
+      }
+
+      .radius-label {
+        font-family: var(--font-mono);
+        font-size: var(--fs-12);
+        color: var(--title);
+        font-weight: 500;
+      }
+
+      .radius-desc {
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+        margin-top: var(--size-4);
+      }
+
+      .elevation-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--size-20);
+      }
+
+      .elevation-card {
+        background: var(--white);
+        border-radius: var(--size-8);
+        padding: var(--size-24);
+        text-align: center;
+        border: var(--solid);
+      }
+
+      .elevation-label {
+        font-size: var(--fs-14);
+        font-weight: 600;
+        color: var(--title);
+        margin-bottom: var(--size-4);
+      }
+
+      .elevation-desc {
+        font-family: var(--font-mono);
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+        line-height: 1.45;
+      }
+
+      .icon-row {
+        display: flex;
+        gap: var(--size-24);
+        flex-wrap: wrap;
+        align-items: flex-end;
+      }
+
+      .icon-demo {
+        width: var(--wh-32);
+        height: var(--wh-32);
+        background: var(--primary-bg);
+        border: var(--solid);
+        border-color: var(--primary-border);
+        border-radius: var(--size-8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: var(--fs-12);
+        color: var(--primary);
+      }
+
+      .icon-demo.wh-12 {
+        width: var(--wh-12);
+        height: var(--wh-12);
+      }
+
+      .icon-demo.wh-16 {
+        width: var(--wh-16);
+        height: var(--wh-16);
+      }
+
+      .icon-demo.wh-20 {
+        width: var(--wh-20);
+        height: var(--wh-20);
+      }
+
+      .icon-demo.wh-24 {
+        width: var(--wh-24);
+        height: var(--wh-24);
+      }
+
+      .text-on-light h4 {
+        font-size: var(--fs-14);
+        color: var(--title);
+        margin-bottom: var(--size-8);
+      }
+
+      .text-on-light .line {
+        margin: var(--size-8) 0;
+        font-size: var(--fs-14);
+      }
+
+      .text-on-light .line.title {
+        color: var(--title);
+      }
+
+      .text-on-light .line.main {
+        color: var(--main-text);
+      }
+
+      .text-on-light .line.secondary {
+        color: var(--secondary-text);
+      }
+
+      .text-on-light .line.disabled {
+        color: var(--disabled-text);
+      }
+
+      .text-on-dark {
+        background: var(--black);
+        padding: var(--size-24);
+        border-radius: var(--size-8);
+        margin-top: var(--size-16);
+      }
+
+      .text-on-dark h4 {
+        font-size: var(--fs-14);
+        color: var(--title-dark);
+        margin-bottom: var(--size-8);
+      }
+
+      .text-on-dark .line {
+        margin: var(--size-8) 0;
+        font-size: var(--fs-14);
+      }
+
+      .text-on-dark .line.title {
+        color: var(--title-dark);
+      }
+
+      .text-on-dark .line.main {
+        color: var(--main-text-dark);
+      }
+
+      .text-on-dark .line.secondary {
+        color: var(--secondary-text-dark);
+      }
+
+      .text-on-dark .line.disabled {
+        color: var(--disabled-text-dark);
+      }
+
+      .text-hex-note {
+        font-family: var(--font-mono);
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+        margin-left: var(--size-8);
+        font-weight: 400;
+      }
+
+      .footer {
+        padding: var(--size-32);
+        text-align: center;
+        background: var(--bg);
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+      }
+
+      .footer a {
+        color: var(--primary);
+      }
+
+      .spec-note {
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+        margin-bottom: var(--size-16);
+        line-height: 1.5;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: var(--fs-24);
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .section,
+        .section-dark,
+        .section-gray {
+          padding: var(--size-32) var(--size-20);
+        }
+
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+</head>
+
+  <body>
+    <nav class="nav">
+      <a class="nav-brand" href="#">puffseed· ui</a>
+      <ul class="nav-links">
+        <li><a href="#colors">色彩</a></li>
+        <li><a href="#typography">字号</a></li>
+        <li><a href="#text-colors">文本色</a></li>
+        <li><a href="#buttons">按钮</a></li>
+        <li><a href="#cards">卡片</a></li>
+        <li><a href="#forms">表单</a></li>
+        <li><a href="#spacing">间距</a></li>
+        <li><a href="#border-shadow">线型与阴影</a></li>
+        <li><a href="#icons">图标尺寸</a></li>
+      </ul>
+      <a class="nav-cta" href="./DarkDesignSpec.html">深色模式</a>
+    </nav>
+
+    <section class="hero">
+      <h1>UI 设计规范预览</h1>
+      <p>
+        本页通过样式引入
+        <code
+          style="
+            font-family: var(--font-mono);
+            font-size: var(--fs-12);
+            background: var(--divider);
+            padding: 2px 6px;
+            border-radius: var(--size-4);
+          "
+          >ThemeVariable.css</code
+        >、<code
+          style="
+            font-family: var(--font-mono);
+            font-size: var(--fs-12);
+            background: var(--divider);
+            padding: 2px 6px;
+            border-radius: var(--size-4);
+          "
+          >SystemVariable.css</code
+        >
+        相同的规范；<strong>色板区仅展示十六进制色值</strong>（不展示变量名），组件区仍按变量渲染。
+      </p>
+      <div class="hero-buttons">
+        <a class="btn-primary" href="#colors">标准色与功能色</a>
+        <a class="btn-outline-primary" href="#spacing">间距与圆角</a>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <section class="section" id="colors">
+      <div class="section-label">01 / ThemeVariable · 色彩</div>
+      <h2 class="section-title">标准色与功能色</h2>
+      <p class="spec-note">
+        下列色块与文案中的颜色均以
+        <span style="font-family: var(--font-mono)">#RRGGBB</span>
+        表示，与源码中对应变量取值一致。
+      </p>
+
+      <div class="color-group-label">标准色 · 主题色</div>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #1890ff"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">主题色</div>
+            <div class="color-swatch-hex">#1890ff</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #40a9ff"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">悬停色</div>
+            <div class="color-swatch-hex">#40a9ff</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #2d85e4"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">激活色</div>
+            <div class="color-swatch-hex">#2d85e4</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div
+            class="color-swatch-block"
+            style="background: #e9f3ff; border-bottom: solid 0.5px #e4e5e7"
+          ></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">背景色</div>
+            <div class="color-swatch-hex">#e9f3ff</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #bad0f8"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">边框色</div>
+            <div class="color-swatch-hex">#bad0f8</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="color-group-label">功能色 · 成功色</div>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #22bd14"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">成功色</div>
+            <div class="color-swatch-hex">#22bd14</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #23cf13"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">悬停色</div>
+            <div class="color-swatch-hex">#23cf13</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #15af07"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">激活色</div>
+            <div class="color-swatch-hex">#15af07</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div
+            class="color-swatch-block"
+            style="background: #e8f5e9; border-bottom: solid 0.5px #e4e5e7"
+          ></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">背景色</div>
+            <div class="color-swatch-hex">#e8f5e9</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #c8e6c9"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">边框色</div>
+            <div class="color-swatch-hex">#c8e6c9</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="color-group-label">功能色 · 警告色</div>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #eba51b"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">警告色</div>
+            <div class="color-swatch-hex">#eba51b</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #fab120"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">悬停色</div>
+            <div class="color-swatch-hex">#fab120</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #db9200"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">激活色</div>
+            <div class="color-swatch-hex">#db9200</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div
+            class="color-swatch-block"
+            style="background: #fff3e0; border-bottom: solid 0.5px #e4e5e7"
+          ></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">背景色</div>
+            <div class="color-swatch-hex">#fff3e0</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #ffe0b2"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">边框色</div>
+            <div class="color-swatch-hex">#ffe0b2</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="color-group-label">功能色 · 信息色</div>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #9c9c9c"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">信息色</div>
+            <div class="color-swatch-hex">#9c9c9c</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #bbbbbb"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">悬停色</div>
+            <div class="color-swatch-hex">#BBBBBB</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #e4e4e8"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">激活色</div>
+            <div class="color-swatch-hex">#E4E4E8</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div
+            class="color-swatch-block"
+            style="background: #f2f2f6; border-bottom: solid 0.5px #e4e5e7"
+          ></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">背景色</div>
+            <div class="color-swatch-hex">#F2F2F6</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #e4e4e4"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">边框色</div>
+            <div class="color-swatch-hex">#e4e4e4</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="color-group-label">功能色 · 错误色</div>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #f05e45"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">错误色</div>
+            <div class="color-swatch-hex">#f05e45</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #fa755e"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">悬停色</div>
+            <div class="color-swatch-hex">#fa755e</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #eb3939"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">激活色</div>
+            <div class="color-swatch-hex">#eb3939</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div
+            class="color-swatch-block"
+            style="background: #fbe9e7; border-bottom: solid 0.5px #e4e5e7"
+          ></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">背景色</div>
+            <div class="color-swatch-hex">#fbe9e7</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #ffc9b8"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">边框色</div>
+            <div class="color-swatch-hex">#ffc9b8</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="color-group-label">辅助色</div>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div
+            class="color-swatch-block"
+            style="background: #f0f1f2; border-bottom: solid 0.5px #e4e5e7"
+          ></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">悬停色</div>
+            <div class="color-swatch-hex">#F0F1F2</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #e4e5e7"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">边框色</div>
+            <div class="color-swatch-hex">#e4e5e7</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #f0f0f0"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">分隔线</div>
+            <div class="color-swatch-hex">#f0f0f0</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #f3f4f6"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">背景色</div>
+            <div class="color-swatch-hex">#f3f4f6</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div
+            class="color-swatch-block"
+            style="background: #ffffff; border-bottom: solid 0.5px #e4e5e7"
+          ></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">白色</div>
+            <div class="color-swatch-hex">#ffffff</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-block" style="background: #000000"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">黑色</div>
+            <div class="color-swatch-hex">#000000</div>
+          </div>
+        </div>
+      </div>
+</section>
+
+    <hr class="section-divider" />
+
+    <section class="section" id="typography">
+      <div class="section-label">02 / ThemeVariable · 字体</div>
+      <h2 class="section-title">字号阶梯（--fs-*）</h2>
+      <p class="spec-note">
+        与源码注释一致：/1 辅助文字 12px … /10 超大展示 68px。
+      </p>
+
+      <div class="type-sample">
+        <div
+          style="
+            font-size: var(--fs-68);
+            font-weight: 600;
+            line-height: 1.15;
+            color: var(--title);
+          "
+        >
+          数据大屏超大标题
+        </div>
+        <div class="type-meta">68px · /10 展示标题</div>
+      </div>
+      <div class="type-sample">
+        <div
+          style="
+            font-size: var(--fs-56);
+            font-weight: 600;
+            line-height: 1.15;
+            color: var(--title);
+          "
+        >
+          数据大屏主标题
+        </div>
+        <div class="type-meta">56px · /9 展示标题</div>
+      </div>
+      <div class="type-sample">
+        <div
+          style="
+            font-size: var(--fs-46);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--title);
+          "
+        >
+          数据大屏展示标题
+        </div>
+        <div class="type-meta">46px · /8 展示标题</div>
+      </div>
+      <div class="type-sample">
+        <div
+          style="font-size: var(--fs-30); font-weight: 600; color: var(--title)"
+        >
+          首页 Banner 标题
+        </div>
+        <div class="type-meta">30px · /7 超大标题</div>
+      </div>
+      <div class="type-sample">
+        <div
+          style="font-size: var(--fs-24); font-weight: 600; color: var(--title)"
+        >
+          登录页 / 欢迎页标题
+        </div>
+        <div class="type-meta">24px · /6 特大标题</div>
+      </div>
+      <div class="type-sample">
+        <div
+          style="font-size: var(--fs-20); font-weight: 600; color: var(--title)"
+        >
+          页面主标题
+        </div>
+        <div class="type-meta">20px · /5 大标题</div>
+      </div>
+      <div class="type-sample">
+        <div
+          style="font-size: var(--fs-18); font-weight: 600; color: var(--title)"
+        >
+          页面区域标题
+        </div>
+        <div class="type-meta">18px · /4 中标题</div>
+      </div>
+      <div class="type-sample">
+        <div
+          style="font-size: var(--fs-16); font-weight: 600; color: var(--title)"
+        >
+          卡片标题 / 表单分组
+        </div>
+        <div class="type-meta">16px · /3 小标题</div>
+      </div>
+      <div class="type-sample">
+        <div style="font-size: var(--fs-14); color: var(--main-text)">
+          正文：段落文本、列表内容。
+        </div>
+        <div class="type-meta">14px · /2 正文 · 字色 #595959</div>
+      </div>
+      <div class="type-sample">
+        <div style="font-size: var(--fs-12); color: var(--secondary-text)">
+          辅助文字：表单提示、标签。
+        </div>
+        <div class="type-meta">12px · /1 辅助 · 字色 #8c8c8c</div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <section class="section" id="text-colors">
+      <div class="section-label">03 / ThemeVariable · 文本色</div>
+      <h2 class="section-title">浅色底 / 深色底</h2>
+      <div class="text-on-light">
+        <h4>浅色背景 · 文本色</h4>
+        <div class="line title">
+          标题<span class="text-hex-note">#262626</span>
+        </div>
+        <div class="line main">
+          主要文本<span class="text-hex-note">#595959</span>
+        </div>
+        <div class="line secondary">
+          次要文本<span class="text-hex-note">#8c8c8c</span>
+        </div>
+        <div class="line disabled">
+          禁用文本<span class="text-hex-note">#bfbfbf</span>
+        </div>
+      </div>
+      <div class="text-on-dark">
+        <h4>深色背景 · 文本色</h4>
+        <div class="line title">
+          标题<span class="text-hex-note">#d9d9d9</span>
+        </div>
+        <div class="line main">
+          主要文本<span class="text-hex-note">#a6a6a6</span>
+        </div>
+        <div class="line secondary">
+          次要文本<span class="text-hex-note">#737373</span>
+        </div>
+        <div class="line disabled">
+          禁用文本<span class="text-hex-note">#4d4d4d</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <section class="section" id="buttons">
+      <div class="section-label">04 / 组件 · 按钮</div>
+      <h2 class="section-title">功能色按钮（样式仍由规范驱动）</h2>
+      <div class="button-row">
+        <div class="button-item">
+          <button type="button" class="btn-primary">主要</button>
+          <div class="button-label">填充 #1890ff<br />悬停 #40a9ff</div>
+        </div>
+        <div class="button-item">
+          <button type="button" class="btn-outline-primary">线框</button>
+          <div class="button-label">描边 #1890ff<br />浅底 #e9f3ff</div>
+        </div>
+        <div class="button-item">
+          <button type="button" class="btn-success">成功</button>
+          <div class="button-label">#22bd14</div>
+        </div>
+        <div class="button-item">
+          <button type="button" class="btn-warning">警告</button>
+          <div class="button-label">#eba51b</div>
+        </div>
+        <div class="button-item">
+          <button type="button" class="btn-error">危险</button>
+          <div class="button-label">#f05e45</div>
+        </div>
+        <div class="button-item">
+          <button type="button" class="btn-ghost">次要</button>
+          <div class="button-label">底 #F0F1F2<br />边 #e4e5e7</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <div class="section-dark" id="cards">
+      <section class="section-inner" id="cards-dark">
+        <div class="section-label">05 / 卡片 · 深色底</div>
+        <h2 class="section-title">深色背景上的卡片</h2>
+        <div class="card-grid">
+          <div class="card card-dark">
+            <h3>模块标题</h3>
+            <p>正文色阶见上文「深色背景 · 文本色」十六进制标注。</p>
+            <a class="card-link" href="#">查看详情</a>
+          </div>
+          <div class="card card-dark" style="box-shadow: var(--shadow)">
+            <h3>带阴影抬升</h3>
+            <p>阴影见「线型与阴影」一节中的 rgba 定义。</p>
+            <a class="card-link" href="#">查看详情</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="section-gray">
+      <div class="section-inner" id="cards-light">
+        <div class="section-label">05 / 卡片 · 浅色底</div>
+        <h2 class="section-title">页面背景 #f3f4f6 上的卡片</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>白底卡片</h3>
+            <p>边框 1px #e4e5e7；悬停可加规范中的组合阴影。</p>
+            <a class="card-link" href="#">链接 #1890ff</a>
+          </div>
+          <div class="card" style="box-shadow: var(--shadow)">
+            <h3>已抬升</h3>
+            <p>与 SystemVariable 中基础阴影一致。</p>
+            <a class="card-link" href="#">链接 #1890ff</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <section class="section" id="forms">
+      <div class="section-label">06 / 表单</div>
+      <h2 class="section-title">边框、焦点与错误态</h2>
+      <div class="form-group">
+        <label class="form-label">用户名</label
+        ><input class="form-input" type="text" placeholder="请输入" />
+        <div class="form-state-label">默认 · 边框 1px #e4e5e7</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">密码</label
+        ><input
+          class="form-input form-input--focus"
+          type="password"
+          value="••••••"
+        />
+        <div class="form-state-label">焦点 · 描边 #1890ff，外环 #bad0f8</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">邮箱</label
+        ><input class="form-input form-input--error" type="text" value="bad@" />
+        <div class="form-state-label">错误 · 描边 #f05e45，外环 #ffc9b8</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">备注</label
+        ><textarea class="form-textarea" placeholder="多行文本"></textarea>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <section class="section" id="spacing">
+      <div class="section-label">07 / SystemVariable · 间距与尺寸</div>
+      <h2 class="section-title">元素间距（--size-*）</h2>
+      <p class="spec-note">
+        与源码注释一致：如 /4 强关联 4px、/6 元素间距 8px、/13 页面边距 40px。
+      </p>
+      <div class="spacing-row">
+        <div class="spacing-item">
+          <div class="spacing-block" style="width: var(--size-line)"></div>
+          <div class="spacing-value">0.5px</div>
+          <div class="spacing-desc">/1 边框线</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-block" style="width: var(--size-0)"></div>
+          <div class="spacing-value">0</div>
+          <div class="spacing-desc">/2 清空</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-block" style="width: var(--size-1)"></div>
+          <div class="spacing-value">1px</div>
+          <div class="spacing-desc">/3 常规线</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-block" style="width: var(--size-4)"></div>
+          <div class="spacing-value">4px</div>
+          <div class="spacing-desc">/4 强关联</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-block" style="width: var(--size-6)"></div>
+          <div class="spacing-value">6px</div>
+          <div class="spacing-desc">/5 非关联</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-block" style="width: var(--size-8)"></div>
+          <div class="spacing-value">8px</div>
+          <div class="spacing-desc">/6 元素间距</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-block" style="width: var(--size-12)"></div>
+          <div class="spacing-value">12px</div>
+          <div class="spacing-desc">/7 列间距</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-block" style="width: var(--size-16)"></div>
+          <div class="spacing-value">16px</div>
+          <div class="spacing-desc">/8 栏目间距</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-block" style="width: var(--size-20)"></div>
+          <div class="spacing-value">20px</div>
+          <div class="spacing-desc">/9 内容边距</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-block" style="width: var(--size-24)"></div>
+          <div class="spacing-value">24px</div>
+          <div class="spacing-desc">/10 模块间距</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-block" style="width: var(--size-30)"></div>
+          <div class="spacing-value">30px</div>
+          <div class="spacing-desc">/11 标语间距</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-block" style="width: var(--size-32)"></div>
+          <div class="spacing-value">32px</div>
+          <div class="spacing-desc">/12 卡片列表</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-block" style="width: var(--size-40)"></div>
+          <div class="spacing-value">40px</div>
+          <div class="spacing-desc">/13 页面边距</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-block" style="width: var(--size-48)"></div>
+          <div class="spacing-value">48px</div>
+          <div class="spacing-desc">/14 单元间距</div>
+        </div>
+        <div class="spacing-item">
+          <div
+            class="spacing-block"
+            style="width: var(--size-100); border-radius: var(--size-100)"
+          ></div>
+          <div class="spacing-value">100px</div>
+          <div class="spacing-desc">圆角 pill</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <section class="section" id="border-shadow">
+      <div class="section-label">08 / SystemVariable · 圆角、线型与阴影</div>
+      <h2 class="section-title">圆角示例</h2>
+      <div class="radius-row">
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius: var(--size-4)"></div>
+          <div class="radius-label">4px</div>
+          <div class="radius-desc">间距刻度 4px</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius: var(--size-8)"></div>
+          <div class="radius-label">8px</div>
+          <div class="radius-desc">间距刻度 8px</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius: var(--size-12)"></div>
+          <div class="radius-label">12px</div>
+          <div class="radius-desc">间距刻度 12px</div>
+        </div>
+        <div class="radius-item">
+          <div
+            class="radius-box"
+            style="border-radius: var(--size-100); width: 88px"
+          ></div>
+          <div class="radius-label">100px</div>
+          <div class="radius-desc">胶囊 pill</div>
+        </div>
+      </div>
+      <h2 class="section-title" style="margin-top: var(--size-32)">
+        边框线（基于 #e4e5e7）
+      </h2>
+      <p class="spec-note" style="margin-bottom: var(--size-12)">
+        线型在变量中为 border-style + width + 颜色引用。
+      </p>
+      <div
+        style="
+          padding: var(--size-16);
+          border: var(--line);
+          border-radius: var(--size-8);
+          margin-bottom: var(--size-12);
+          background: var(--white);
+        "
+      >
+        基础实线：0.5px，色 #e4e5e7
+      </div>
+      <div
+        style="
+          padding: var(--size-16);
+          border: var(--solid);
+          border-radius: var(--size-8);
+          margin-bottom: var(--size-12);
+          background: var(--white);
+        "
+      >
+        常规实线：1px，色 #e4e5e7
+      </div>
+      <div
+        style="
+          padding: var(--size-16);
+          border: var(--dashed);
+          border-radius: var(--size-8);
+          background: var(--white);
+        "
+      >
+        常规虚线：2px，色 #e4e5e7
+      </div>
+      <h2 class="section-title" style="margin-top: var(--size-32)">
+        阴影（rgba 数值与源码一致）
+      </h2>
+      <div class="elevation-grid">
+        <div class="elevation-card" style="box-shadow: var(--shadow)">
+          <div class="elevation-label">基础阴影</div>
+          <div class="elevation-desc">
+            0 6px 10px rgba(0,0,0,.08)<br />+ 0 0 1px rgba(0,0,0,.15)
+          </div>
+        </div>
+        <div class="elevation-card" style="box-shadow: var(--shadow-top)">
+          <div class="elevation-label">上阴影</div>
+          <div class="elevation-desc">0 -20px 40px rgba(0,0,0,.06)</div>
+        </div>
+        <div class="elevation-card" style="box-shadow: var(--shadow-bottom)">
+          <div class="elevation-label">下阴影</div>
+          <div class="elevation-desc">0 20px 40px rgba(0,0,0,.06)</div>
+        </div>
+        <div class="elevation-card" style="box-shadow: var(--shadow-left)">
+          <div class="elevation-label">左阴影</div>
+          <div class="elevation-desc">-20px 0 40px rgba(0,0,0,.06)</div>
+        </div>
+        <div class="elevation-card" style="box-shadow: var(--shadow-right)">
+          <div class="elevation-label">右阴影</div>
+          <div class="elevation-desc">20px 0 40px rgba(0,0,0,.06)</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <section class="section" id="icons">
+      <div class="section-label">09 / SystemVariable · 图标</div>
+      <h2 class="section-title">图标占位宽高（--wh-*）</h2>
+      <div class="icon-row">
+        <div class="button-item">
+          <div class="icon-demo wh-12">12</div>
+          <div class="button-label">12px · 提示图标</div>
+        </div>
+        <div class="button-item">
+          <div class="icon-demo wh-16">16</div>
+          <div class="button-label">16px · 字体图标</div>
+        </div>
+        <div class="button-item">
+          <div class="icon-demo wh-20">20</div>
+          <div class="button-label">20px · 表格图标</div>
+        </div>
+        <div class="button-item">
+          <div class="icon-demo wh-24">24</div>
+          <div class="button-label">24px · 卡片操作</div>
+        </div>
+        <div class="button-item">
+          <div class="icon-demo wh-32">32</div>
+          <div class="button-label">32px · 常用操作</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      规范以
+      <code style="font-family: var(--font-mono)">ThemeVariable.css</code>、
+      <code style="font-family: var(--font-mono)">SystemVariable.css</code>
+      为准；本页通过样式引入加载 Token，色板仅作十六进制速查。
+    </footer>
+  </body>
+</html>
