@@ -18,6 +18,31 @@ OpenCodeRules 是一套面向 **AI 辅助前端开发（VibeCoding）** 的规�
 
 ---
 
+## 使用说明
+
+1. **新手使用前，请仔细阅读本使用说明文档**（`README.md`），了解规范目录结构、引入方式与 AI 协作约定后再开始开发。
+2. **将本仓库中的 `rules/` 文件夹与 `AGENTS.md` 复制到你的业务项目根目录**（例如 `demo/` 文件夹），保持相对路径不变。示例目录结构如下：
+
+```
+demo/                                  # 你的业务项目根目录
+├── AGENTS.md                          # 从 OpenCodeRules 复制 · AI 全局入口指南
+├── rules/                             # 从 OpenCodeRules 复制 · 规范与样式 Token
+│   ├── CodeConduct.md
+│   ├── CodingSpec.md
+│   ├── DESIGN.md
+│   ├── VariableFile/
+│   └── PreView/
+├── src/                               # 你的业务源码（示例）
+├── package.json
+└── ...
+```
+
+项目开发前，向 AI 发起任务时建议说明：
+
+> 请根据 AGENTS.md 进行编码开发。
+
+---
+
 ## 目录结构
 
 ```
