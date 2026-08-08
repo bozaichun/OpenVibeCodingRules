@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenVibeCodingRules · 项目说明</title>
+    <meta
+      name="description"
+      content="OpenVibeCodingRules — AI 辅助多语言开发规范（VibeCoding · puffseed）。快速了解目录、语言规则、质量基线与接入方式。"
+    />
+    <link
+      rel="stylesheet"
+      href="./rules/CodingSpec/JavaScript&TypeScript/WebVariable/ThemeVariable.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css"
+    />
+    <style>
+      :root {
+        --font-sans: "Segoe UI", "PingFang SC", "Microsoft YaHei",
+          "Helvetica Neue", sans-serif;
+        --font-mono: "SF Mono", Consolas, Monaco, monospace;
+        --hero-glow: radial-gradient(
+          120% 80% at 12% 0%,
+          var(--primary-bg) 0%,
+          transparent 55%
+        ),
+          radial-gradient(
+            90% 70% at 100% 10%,
+            #f0f7ff 0%,
+            var(--bg) 48%,
+            var(--white) 100%
+          );
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        font-size: var(--fs-14);
+        line-height: 1.6;
+        color: var(--main-text);
+        background: var(--bg);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--primary-hover);
+      }
+
+      code,
+      .mono {
+        font-family: var(--font-mono);
+        font-size: 0.92em;
+      }
+
+      /* —— Nav —— */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--size-16);
+        height: var(--size-48);
+        padding: 0 var(--size-32);
+        background: rgba(255, 255, 255, 0.92);
+        border-bottom: var(--solid);
+        backdrop-filter: blur(8px);
+      }
+
+      .nav-brand {
+        font-weight: 700;
+        font-size: var(--fs-14);
+        color: var(--title);
+        white-space: nowrap;
+      }
+
+      .nav-brand span {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--size-16);
+        list-style: none;
+        justify-content: flex-end;
+      }
+
+      .nav-links a {
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        height: var(--size-32);
+        padding: 0 var(--size-16);
+        border-radius: var(--size-4);
+        background: var(--primary);
+        color: var(--white) !important;
+        font-size: var(--fs-12);
+        font-weight: 600;
+        transition: background 0.18s ease;
+      }
+
+      .nav-cta:hover {
+        background: var(--primary-hover);
+        color: var(--white) !important;
+      }
+
+      /* —— Layout —— */
+      .wrap {
+        width: min(1120px, calc(100% - var(--size-40)));
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: var(--size-48) 0;
+      }
+
+      .section + .section {
+        border-top: var(--line);
+      }
+
+      .section-label {
+        font-size: var(--fs-12);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--secondary-text);
+        margin-bottom: var(--size-8);
+      }
+
+      .section h2 {
+        font-size: var(--fs-24);
+        color: var(--title);
+        font-weight: 700;
+        margin-bottom: var(--size-8);
+      }
+
+      .section .lead {
+        max-width: 640px;
+        color: var(--secondary-text);
+        margin-bottom: var(--size-24);
+      }
+
+      /* —— Hero —— */
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: var(--size-48) 0 var(--size-40);
+        background: var(--hero-glow);
+        border-bottom: var(--solid);
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: var(--size-40);
+        align-items: end;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: var(--size-12);
+        font-size: var(--fs-12);
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .hero h1 {
+        font-size: clamp(var(--fs-30), 4vw, var(--fs-46));
+        line-height: 1.15;
+        color: var(--title);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: var(--size-16);
+      }
+
+      .hero-desc {
+        font-size: var(--fs-16);
+        color: var(--main-text);
+        max-width: 36em;
+        margin-bottom: var(--size-24);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--size-12);
+        margin-bottom: var(--size-24);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: var(--size-40);
+        padding: 0 var(--size-20);
+        border-radius: var(--size-4);
+        font-size: var(--fs-14);
+        font-weight: 600;
+        border: var(--solid);
+        transition: background 0.18s ease, border-color 0.18s ease,
+          transform 0.18s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: var(--white);
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-hover);
+        border-color: var(--primary-hover);
+        color: var(--white);
+      }
+
+      .btn-ghost {
+        background: var(--white);
+        color: var(--title);
+      }
+
+      .btn-ghost:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--size-16);
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+      }
+
+      .hero-meta strong {
+        color: var(--title);
+        font-weight: 600;
+      }
+
+      .hero-panel {
+        background: var(--white);
+        border: var(--solid);
+        border-radius: var(--size-8);
+        box-shadow: var(--shadow);
+        padding: var(--size-20);
+        animation: rise 0.6s ease both;
+      }
+
+      .hero-panel h3 {
+        font-size: var(--fs-14);
+        color: var(--title);
+        margin-bottom: var(--size-12);
+      }
+
+      .priority-list {
+        list-style: none;
+        display: grid;
+        gap: var(--size-8);
+      }
+
+      .priority-list li {
+        display: grid;
+        grid-template-columns: var(--size-24) 1fr;
+        gap: var(--size-8);
+        align-items: start;
+        font-size: var(--fs-12);
+        color: var(--main-text);
+      }
+
+      .priority-list .n {
+        width: var(--size-24);
+        height: var(--size-24);
+        border-radius: var(--size-4);
+        background: var(--primary-bg);
+        color: var(--primary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: var(--fs-12);
+      }
+
+      /* —— Pillars —— */
+      .pillars {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--size-16);
+      }
+
+      .pillar {
+        background: var(--white);
+        border: var(--solid);
+        border-radius: var(--size-8);
+        padding: var(--size-20);
+        transition: border-color 0.18s ease, box-shadow 0.18s ease;
+      }
+
+      .pillar:hover {
+        border-color: var(--primary-border);
+        box-shadow: var(--shadow);
+      }
+
+      .pillar .tag {
+        font-size: var(--fs-12);
+        color: var(--primary);
+        font-weight: 600;
+        margin-bottom: var(--size-8);
+      }
+
+      .pillar h3 {
+        font-size: var(--fs-16);
+        color: var(--title);
+        margin-bottom: var(--size-8);
+      }
+
+      .pillar p {
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+      }
+
+      .pillar a {
+        display: inline-block;
+        margin-top: var(--size-12);
+        font-size: var(--fs-12);
+        font-weight: 600;
+      }
+
+      /* —— Languages —— */
+      .lang-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--size-12);
+      }
+
+      .lang-item {
+        display: block;
+        background: var(--white);
+        border: var(--solid);
+        border-radius: var(--size-8);
+        padding: var(--size-16);
+        color: inherit;
+        transition: border-color 0.18s ease, transform 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+
+      .lang-item:hover {
+        border-color: var(--primary);
+        color: inherit;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+      }
+
+      .lang-item .name {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: var(--size-8);
+        margin-bottom: var(--size-4);
+      }
+
+      .lang-item .name strong {
+        color: var(--title);
+        font-size: var(--fs-14);
+      }
+
+      .lang-item .name em {
+        font-style: normal;
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+      }
+
+      .lang-item .stack {
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+      }
+
+      .lang-item.featured {
+        border-color: var(--primary-border);
+        background: linear-gradient(180deg, var(--primary-bg), var(--white));
+      }
+
+      /* —— Steps —— */
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--size-16);
+      }
+
+      .step {
+        background: var(--white);
+        border: var(--solid);
+        border-radius: var(--size-8);
+        padding: var(--size-20);
+      }
+
+      .step .idx {
+        font-size: var(--fs-12);
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: var(--size-8);
+      }
+
+      .step h3 {
+        font-size: var(--fs-16);
+        color: var(--title);
+        margin-bottom: var(--size-8);
+      }
+
+      .step p,
+      .step li {
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+      }
+
+      .step ol {
+        margin-left: var(--size-16);
+      }
+
+      .code-block {
+        margin-top: var(--size-12);
+        padding: var(--size-16);
+        border-radius: var(--size-8);
+        background: #1e1e2e;
+        color: #cdd6f4;
+        font-family: var(--font-mono);
+        font-size: var(--fs-12);
+        line-height: 1.55;
+        overflow-x: auto;
+      }
+
+      .quote {
+        margin-top: var(--size-16);
+        padding: var(--size-16) var(--size-20);
+        border-left: solid 3px var(--primary);
+        background: var(--primary-bg);
+        color: var(--title);
+        font-size: var(--fs-14);
+      }
+
+      /* —— Tables —— */
+      .table-wrap {
+        overflow-x: auto;
+        border: var(--solid);
+        border-radius: var(--size-8);
+        background: var(--white);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: var(--fs-12);
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: var(--size-12) var(--size-16);
+        border-bottom: var(--line);
+        vertical-align: top;
+      }
+
+      th {
+        background: var(--bg);
+        color: var(--title);
+        font-weight: 600;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      /* —— Quality —— */
+      .quality-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--size-16);
+      }
+
+      .quality {
+        background: var(--white);
+        border: var(--solid);
+        border-radius: var(--size-8);
+        padding: var(--size-20);
+      }
+
+      .quality h3 {
+        font-size: var(--fs-16);
+        color: var(--title);
+        margin-bottom: var(--size-12);
+      }
+
+      .quality ul {
+        margin-left: var(--size-16);
+        color: var(--secondary-text);
+        font-size: var(--fs-12);
+      }
+
+      .quality li + li {
+        margin-top: var(--size-6);
+      }
+
+      /* —— FAQ —— */
+      details {
+        background: var(--white);
+        border: var(--solid);
+        border-radius: var(--size-8);
+        padding: var(--size-16) var(--size-20);
+      }
+
+      details + details {
+        margin-top: var(--size-8);
+      }
+
+      summary {
+        cursor: pointer;
+        font-weight: 600;
+        color: var(--title);
+        list-style: none;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      summary::after {
+        content: "+";
+        float: right;
+        color: var(--secondary-text);
+      }
+
+      details[open] summary::after {
+        content: "–";
+      }
+
+      details p {
+        margin-top: var(--size-12);
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+      }
+
+      /* —— Footer —— */
+      .footer {
+        padding: var(--size-32) 0;
+        border-top: var(--solid);
+        background: var(--white);
+        font-size: var(--fs-12);
+        color: var(--secondary-text);
+      }
+
+      .footer .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: var(--size-12);
+      }
+
+      .footer strong {
+        color: var(--title);
+      }
+
+      /* —— Motion —— */
+      .reveal {
+        opacity: 0;
+        transform: translateY(12px);
+        animation: rise 0.55s ease forwards;
+      }
+
+      .reveal:nth-child(2) {
+        animation-delay: 0.06s;
+      }
+
+      .reveal:nth-child(3) {
+        animation-delay: 0.12s;
+      }
+
+      .reveal:nth-child(4) {
+        animation-delay: 0.18s;
+      }
+
+      @keyframes rise {
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .nav {
+          padding: 0 var(--size-16);
+          height: auto;
+          min-height: var(--size-48);
+          padding-top: var(--size-8);
+          padding-bottom: var(--size-8);
+          flex-wrap: wrap;
+        }
+
+        .hero-grid,
+        .pillars,
+        .lang-grid,
+        .steps,
+        .quality-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .wrap {
+          width: calc(100% - var(--size-32));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 顶栏 -->
+    <nav class="nav" aria-label="页面导航">
+      <a class="nav-brand" href="#top">OpenVibeCodingRules · <span>puffseed</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">概览</a></li>
+        <li><a href="#languages">多语言</a></li>
+        <li><a href="#start">快速开始</a></li>
+        <li><a href="#quality">质量基线</a></li>
+        <li><a href="#map">规范地图</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li>
+          <a
+            class="nav-cta"
+            href="./rules/CodingSpec/JavaScript&TypeScript/PreView/LightDesignSpec.html"
+            >Token 预览</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- 首屏 -->
+    <header class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">VibeCoding · AI 辅助多语言开发规范</p>
+          <h1>OpenVibeCodingRules</h1>
+          <p class="hero-desc">
+            消除 AI 编码痕迹，统一工程与质量约定。覆盖全球热门语言与主流框架，适配个人 /
+            团队 / 业务项目；前端视觉体系以 <strong>puffseed</strong> 标识落地。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="./AGENTS.md">阅读 AGENTS.md</a>
+            <a class="btn btn-ghost" href="./README.md">Markdown 版说明</a>
+            <a class="btn btn-ghost" href="#languages">浏览语言规范</a>
+          </div>
+          <div class="hero-meta">
+            <span><strong>18</strong> 语言规范</span>
+            <span><strong>QualityBaseline</strong> 全语言质量门禁</span>
+            <span><strong>WebVariable</strong> 前端 Token</span>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="规范优先级">
+          <h3>规范选用优先级</h3>
+          <ol class="priority-list">
+            <li>
+              <span class="n">1</span>
+              <span>行为与范围 → <code>CodeConduct.md</code></span>
+            </li>
+            <li>
+              <span class="n">2</span>
+              <span>质量门禁 → <code>QualityBaseline.md</code></span>
+            </li>
+            <li>
+              <span class="n">3</span>
+              <span>怎么写 → <code>CodingSpec/&lt;语言&gt;/</code></span>
+            </li>
+            <li>
+              <span class="n">4</span>
+              <span>长什么样 → <code>DESIGN.md</code> + WebVariable</span>
+            </li>
+            <li>
+              <span class="n">5</span>
+              <span>冲突时以<strong>业务仓已定稿实现</strong>为准</span>
+            </li>
+          </ol>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <!-- 这是什么 -->
+      <section class="section" id="about">
+        <div class="wrap">
+          <p class="section-label">01 / About</p>
+          <h2>这是什么</h2>
+          <p class="lead">
+            OpenVibeCodingRules 是面向 AI 协作的规范仓库：约束「如何思考、如何写、如何验收」，按语言拆分规则，避免上下文一次性塞入全部文档。
+          </p>
+          <div class="pillars">
+            <article class="pillar reveal">
+              <div class="tag">行为</div>
+              <h3>CodeConduct</h3>
+              <p>先问再做、最小 diff、不做推测性实现。</p>
+              <a href="./rules/CodeConduct.md">打开规范 →</a>
+            </article>
+            <article class="pillar reveal">
+              <div class="tag">质量</div>
+              <h3>QualityBaseline</h3>
+              <p>风格门禁、分层、接口契约、类型、依赖与技术债。</p>
+              <a href="./rules/CodingSpec/QualityBaseline.md">打开基线 →</a>
+            </article>
+            <article class="pillar reveal">
+              <div class="tag">语言</div>
+              <h3>CodingSpec</h3>
+              <p>按语言落地业务编码格式、逻辑复用与自检清单。</p>
+              <a href="#languages">查看语言 →</a>
+            </article>
+            <article class="pillar reveal">
+              <div class="tag">视觉</div>
+              <h3>DESIGN · WebVariable</h3>
+              <p>前端 Token、布局与组件视觉；PreView 浏览器验收。</p>
+              <a
+                href="./rules/CodingSpec/JavaScript&TypeScript/DESIGN.md"
+                >打开设计规范 →</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 多语言 -->
+      <section class="section" id="languages">
+        <div class="wrap">
+          <p class="section-label">02 / Languages</p>
+          <h2>多语言规则一览</h2>
+          <p class="lead">
+            先识别仓库语言与框架，再只加载对应
+            <code>CodingSpec.md</code>。点击卡片可直达规范文件。
+          </p>
+          <div class="lang-grid">
+            <a
+              class="lang-item featured"
+              href="./rules/CodingSpec/JavaScript&TypeScript/CodingSpec.md"
+            >
+              <div class="name">
+                <strong>JavaScript &amp; TypeScript</strong>
+                <em>前端</em>
+              </div>
+              <div class="stack">Vue · React · Next.js · DESIGN · WebVariable</div>
+            </a>
+            <a class="lang-item" href="./rules/CodingSpec/Node.js/CodingSpec.md">
+              <div class="name"><strong>Node.js</strong><em>后端</em></div>
+              <div class="stack">NestJS · Express</div>
+            </a>
+            <a class="lang-item" href="./rules/CodingSpec/Python/CodingSpec.md">
+              <div class="name"><strong>Python</strong><em>后端</em></div>
+              <div class="stack">FastAPI · Django</div>
+            </a>
+            <a class="lang-item" href="./rules/CodingSpec/Java/CodingSpec.md">
+              <div class="name"><strong>Java</strong><em>后端</em></div>
+              <div class="stack">Spring Boot · 阿里 P3C</div>
+            </a>
+            <a class="lang-item" href="./rules/CodingSpec/Go/CodingSpec.md">
+              <div class="name"><strong>Go</strong><em>后端</em></div>
+              <div class="stack">Gin</div>
+            </a>
+            <a class="lang-item" href="./rules/CodingSpec/PHP/CodingSpec.md">
+              <div class="name"><strong>PHP</strong><em>后端</em></div>
+              <div class="stack">Laravel</div>
+            </a>
+            <a class="lang-item" href="./rules/CodingSpec/CSharp/CodingSpec.md">
+              <div class="name"><strong>C#</strong><em>后端</em></div>
+              <div class="stack">ASP.NET Core · .NET</div>
+            </a>
+            <a class="lang-item" href="./rules/CodingSpec/Rust/CodingSpec.md">
+              <div class="name"><strong>Rust</strong><em>系统 / 服务</em></div>
+              <div class="stack">Axum · Actix · Tokio</div>
+            </a>
+            <a class="lang-item" href="./rules/CodingSpec/C/CodingSpec.md">
+              <div class="name"><strong>C</strong><em>系统</em></div>
+              <div class="stack">嵌入式 · C ABI</div>
+            </a>
+            <a class="lang-item" href="./rules/CodingSpec/C++/CodingSpec.md">
+              <div class="name"><strong>C++</strong><em>系统</em></div>
+              <div class="stack">现代 C++ · CMake / Qt</div>
+            </a>
+            <a class="lang-item" href="./rules/CodingSpec/Kotlin/CodingSpec.md">
+              <div class="name"><strong>Kotlin</strong><em>移动 / 服务</em></div>
+              <div class="stack">Ktor · Spring · Android</div>
+            </a>
+            <a class="lang-item" href="./rules/CodingSpec/Swift/CodingSpec.md">
+              <div class="name"><strong>Swift</strong><em>移动 / 服务</em></div>
+              <div class="stack">SwiftUI · Vapor</div>
+            </a>
+            <a class="lang-item" href="./rules/CodingSpec/Dart/CodingSpec.md">
+              <div class="name"><strong>Dart</strong><em>跨端</em></div>
+              <div class="stack">Flutter</div>
+            </a>
+            <a class="lang-item" href="./rules/CodingSpec/Ruby/CodingSpec.md">
+              <div class="name"><strong>Ruby</strong><em>后端</em></div>
+              <div class="stack">Rails</div>
+            </a>
+            <a class="lang-item" href="./rules/CodingSpec/Scala/CodingSpec.md">
+              <div class="name"><strong>Scala</strong><em>后端</em></div>
+              <div class="stack">Play · http4s · ZIO</div>
+            </a>
+            <a class="lang-item" href="./rules/CodingSpec/SQL/CodingSpec.md">
+              <div class="name"><strong>SQL</strong><em>数据</em></div>
+              <div class="stack">PostgreSQL · MySQL · SQL Server</div>
+            </a>
+            <a class="lang-item" href="./rules/CodingSpec/R/CodingSpec.md">
+              <div class="name"><strong>R</strong><em>数据科学</em></div>
+              <div class="stack">tidyverse · Shiny</div>
+            </a>
+            <a class="lang-item" href="./rules/CodingSpec/Shell/CodingSpec.md">
+              <div class="name"><strong>Shell</strong><em>运维</em></div>
+              <div class="stack">Bash · POSIX</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 快速开始 -->
+      <section class="section" id="start">
+        <div class="wrap">
+          <p class="section-label">03 / Quick Start</p>
+          <h2>快速开始</h2>
+          <p class="lead">把规范拷进业务仓，告诉 AI 按 AGENTS 编码，再按语言加载规则。</p>
+          <div class="steps">
+            <article class="step">
+              <div class="idx">STEP 01</div>
+              <h3>复制到业务项目</h3>
+              <p>将 <code>AGENTS.md</code> 与 <code>rules/</code> 放到项目根目录，保持相对路径。</p>
+              <pre class="code-block">demo/
+├── AGENTS.md
+├── rules/
+│   ├── CodeConduct.md
+│   └── CodingSpec/
+│       ├── QualityBaseline.md
+│       ├── JavaScript&amp;TypeScript/
+│       └── …/
+└── src/</pre>
+            </article>
+            <article class="step">
+              <div class="idx">STEP 02</div>
+              <h3>前端引入 WebVariable</h3>
+              <p>不要复制 Token 源码，只在入口按序引入：</p>
+              <pre class="code-block">ThemeVariable.css
+→ SystemVariable.css
+→ ProjectReset.css
+→ 应用级 CSS</pre>
+              <p style="margin-top: var(--size-12)">
+                路径：
+                <code>rules/CodingSpec/JavaScript&amp;TypeScript/WebVariable/</code>
+              </p>
+            </article>
+            <article class="step">
+              <div class="idx">STEP 03</div>
+              <h3>在 Cursor 中启用</h3>
+              <ol>
+                <li>根目录保留 <code>AGENTS.md</code></li>
+                <li><code>CodeConduct.md</code> 默认 alwaysApply</li>
+                <li>按任务 <code>@</code> 引用语言 CodingSpec</li>
+                <li>UI 任务再加 DESIGN / WebVariable</li>
+              </ol>
+            </article>
+          </div>
+          <p class="quote">
+            向 AI 发起任务时建议写明：请根据 AGENTS.md 进行编码开发；先识别语言与技术栈，再编码。
+          </p>
+        </div>
+      </section>
+
+      <!-- AI 加载 -->
+      <section class="section" id="ai-load">
+        <div class="wrap">
+          <p class="section-label">04 / AI Context</p>
+          <h2>AI 应加载哪些规范</h2>
+          <p class="lead">按任务最小加载，节约 Token，避免无关规则干扰。</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>任务类型</th>
+                  <th>应加载</th>
+                  <th>通常不必加载</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>任意起步</td>
+                  <td><code>AGENTS.md</code> · <code>CodeConduct.md</code></td>
+                  <td>其他语言 CodingSpec</td>
+                </tr>
+                <tr>
+                  <td>任意业务代码</td>
+                  <td>
+                    + <code>QualityBaseline.md</code> + 对应语言
+                    <code>CodingSpec.md</code>
+                  </td>
+                  <td>无关语言规范</td>
+                </tr>
+                <tr>
+                  <td>前端 UI / 样式</td>
+                  <td>+ <code>DESIGN.md</code> · WebVariable</td>
+                  <td>PreView HTML 全文</td>
+                </tr>
+                <tr>
+                  <td>改主题色 / 间距</td>
+                  <td><code>ThemeVariable.css</code> / <code>SystemVariable.css</code></td>
+                  <td>—</td>
+                </tr>
+                <tr>
+                  <td>深浅色视觉验收</td>
+                  <td>浏览器打开 PreView</td>
+                  <td>勿将 HTML 喂给 AI</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 质量基线 -->
+      <section class="section" id="quality">
+        <div class="wrap">
+          <p class="section-label">05 / Quality</p>
+          <h2>质量基线（全语言）</h2>
+          <p class="lead">
+            详见
+            <a href="./rules/CodingSpec/QualityBaseline.md">QualityBaseline.md</a>
+            ；各语言 CodingSpec 另有「质量与工程门禁」落点。
+          </p>
+          <div class="quality-grid">
+            <article class="quality">
+              <h3>1. 代码规范</h3>
+              <ul>
+                <li>命名 · 注释 · 格式统一</li>
+                <li>ESLint / Prettier / 阿里 P3C 等按语言启用</li>
+                <li><strong>提交阶段强制校验</strong></li>
+                <li>目录分层：控制 / 业务 / 数据 · 公共 · 工具 · 类型 · 配置</li>
+                <li>接口信封 · 错误码 · HTTP · 幂等 · 版本 · 文档同步</li>
+              </ul>
+            </article>
+            <article class="quality">
+              <h3>2. 代码质量</h3>
+              <ul>
+                <li>高内聚低耦合，三层职责清晰</li>
+                <li>模块化复用，减少重复</li>
+                <li>强类型 · 参数校验 · 空值 / 异常边界</li>
+                <li>lockfile + 依赖漏洞扫描</li>
+                <li>技术债登记，禁止无主临时代码</li>
+              </ul>
+            </article>
+            <article class="quality">
+              <h3>3. 可维护性</h3>
+              <ul>
+                <li>代码可读，关键路径有注释</li>
+                <li>业务注释保留 <strong>puffseed</strong> 标识</li>
+                <li>README 写清启动与目录地图</li>
+                <li>新人可快速上手主路径</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 规范地图 -->
+      <section class="section" id="map">
+        <div class="wrap">
+          <p class="section-label">06 / Map</p>
+          <h2>规范文件速查</h2>
+          <p class="lead">不确定该读哪份文件时，按下表定位。</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>文件</th>
+                  <th>何时查阅</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="./AGENTS.md">AGENTS.md</a></td>
+                  <td>任何 AI 协作任务开始前</td>
+                </tr>
+                <tr>
+                  <td><a href="./rules/CodeConduct.md">rules/CodeConduct.md</a></td>
+                  <td>判断范围、避免过度实现</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="./rules/CodingSpec/QualityBaseline.md"
+                      >QualityBaseline.md</a
+                    >
+                  </td>
+                  <td>风格门禁、分层、接口、质量、技术债</td>
+                </tr>
+                <tr>
+                  <td><code>CodingSpec/&lt;语言&gt;/CodingSpec.md</code></td>
+                  <td>写对应语言业务代码</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="./rules/CodingSpec/JavaScript&TypeScript/DESIGN.md"
+                      >DESIGN.md</a
+                    >
+                  </td>
+                  <td>UI 布局、组件视觉、主题</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="./rules/CodingSpec/JavaScript&TypeScript/WebVariable/ThemeVariable.css"
+                      >WebVariable/*.css</a
+                    >
+                  </td>
+                  <td>改色值、间距、reset</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="./rules/CodingSpec/JavaScript&TypeScript/PreView/LightDesignSpec.html"
+                      >PreView（浅色）</a
+                    >
+                    ·
+                    <a
+                      href="./rules/CodingSpec/JavaScript&TypeScript/PreView/DarkDesignSpec.html"
+                      >深色</a
+                    >
+                  </td>
+                  <td>浏览器视觉验收（puffseed-ui）</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 识别流程 -->
+      <section class="section" id="flow">
+        <div class="wrap">
+          <p class="section-label">07 / Workflow</p>
+          <h2>开发前识别流程</h2>
+          <div class="steps">
+            <article class="step">
+              <div class="idx">01</div>
+              <h3>识别语言 / 框架</h3>
+              <p>看依赖与入口：如 <code>vue</code>、<code>fastapi</code>、<code>Cargo.toml</code>、<code>pubspec.yaml</code> 等。</p>
+            </article>
+            <article class="step">
+              <div class="idx">02</div>
+              <h3>前端再判项目模式</h3>
+              <p>
+                无 <code>public/plugin.json</code> → 普通项目；存在 → uTools 插件（仅
+                React / Vue）。
+              </p>
+            </article>
+            <article class="step">
+              <div class="idx">03</div>
+              <h3>按最小集加载规范</h3>
+              <p>
+                <code>CodeConduct</code> + <code>QualityBaseline</code> + 语言
+                <code>CodingSpec</code>；（UI）再加 DESIGN / WebVariable。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section" id="faq">
+        <div class="wrap">
+          <p class="section-label">08 / FAQ</p>
+          <h2>常见问题</h2>
+          <details>
+            <summary>VariableFile 去哪了？</summary>
+            <p>
+              已更名为 <strong>WebVariable</strong>，位于
+              <code>rules/CodingSpec/JavaScript&amp;TypeScript/WebVariable/</code>，专用于前端项目变量。
+            </p>
+          </details>
+          <details>
+            <summary>可以把 WebVariable 复制到 src/styles/ 吗？</summary>
+            <p>不建议。应通过入口 <code>import</code> / <code>&lt;link&gt;</code> 引用，保证 Token 单一维护源。</p>
+          </details>
+          <details>
+            <summary>后端也要 WebVariable 吗？</summary>
+            <p>不需要。后端加载 <code>QualityBaseline</code> 与对应语言 <code>CodingSpec.md</code> 即可。</p>
+          </details>
+          <details>
+            <summary>AI 没有遵守规范怎么办？</summary>
+            <p>
+              显式 <code>@AGENTS.md</code>、<code>@QualityBaseline.md</code> 与对应语言
+              <code>CodingSpec.md</code>；任务中写明「遵循 OpenVibeCodingRules /
+              puffseed，最小 diff」。
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div>
+          <strong>OpenVibeCodingRules</strong> · VibeCoding · puffseed
+        </div>
+        <div>
+          <a href="./LICENSE">LICENSE</a>
+          ·
+          <a href="./README.md">README.md</a>
+          ·
+          <a href="./AGENTS.md">AGENTS.md</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

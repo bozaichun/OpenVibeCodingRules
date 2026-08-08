@@ -1,6 +1,9 @@
 # 主题规范
 
-> 用于维护 `SystemVariable`、`ThemeVariable`文件的，若要更新相关主题规范，请在如下表格中修改，然后对[Agent 说（根据这个`SubjectAuthority.md`文件对 `SystemVariable`、`ThemeVariable`文件进行更新同步）]
+> **权威源**：本文件用于维护 `SystemVariable.css`、`ThemeVariable.css`。  
+> **维护方式**：先在下方表格中修改场景 / 变量 / 值，再对 Agent 说：  
+> 「根据这个 `SubjectAuthority.md` 对 `SystemVariable.css`、`ThemeVariable.css` 进行更新同步」。  
+> **完整说明**（团队换肤、扩展套件、推荐话术）见同目录 [`README.md`](./README.md)。
 
 ## 一、系统变量
 
@@ -33,6 +36,39 @@
 |表格图标|20px|--wh-20|
 |卡片操作|24px|--wh-24|
 |常用操作|32px|--wh-32|
+
+### 1.3 字体
+
+|场景名称|尺寸|变量|
+|---|---|---|
+|辅助文字：表单提示文字、标签文字|12px|--fs-12|
+|正文：段落文本、列表内容|14px|--fs-14|
+|小标题：卡片标题、表单分组标题|16px|--fs-16|
+|中标题：页面区域标题、模块标题|18px|--fs-18|
+|大标题：页面主标题|20px|--fs-20|
+|特大标题：登录页标题、欢迎页标题|24px|--fs-24|
+|超大标题：首页Banner标题|30px|--fs-30|
+|展示标题：数据大屏展示标题|46px|--fs-46|
+|展示标题：数据大屏主标题|56px|--fs-56|
+|展示标题：数据大屏超大标题|68px|--fs-68|
+
+### 1.4 边框线
+
+|场景名称|值|变量|
+|---|---|---|
+|基础实线|solid 0.5px var(--border)|--line|
+|常规实线|solid 1px var(--border)|--solid|
+|常规虚线|dashed 2px var(--border)|--dashed|
+
+### 1.5 阴影
+
+|场景名称|值|变量|
+|---|---|---|
+|基础阴影|0 6px 10px 0 rgba(0, 0, 0, 0.08), 0 0 1px 0 rgba(0, 0, 0, 0.15)|--shadow|
+|上阴影|0px -20px 40px 0px rgba(0, 0, 0, 0.06)|--shadow-top|
+|下阴影|0px 20px 40px 0px rgba(0, 0, 0, 0.06)|--shadow-bottom|
+|左阴影|-20px 0px 40px 0px rgba(0, 0, 0, 0.06)|--shadow-left|
+|右阴影|20px 0px 40px 0px rgba(0, 0, 0, 0.06)|--shadow-right|
 
 ## 二、主题变量
 
