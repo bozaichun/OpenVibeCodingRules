@@ -1,16 +1,21 @@
 ---
-description: 前端工程与代码规范（Vue 3 / React 18+，TS 优先，多端）
+description: 前端工程与代码规范（Vue / React / Next.js，TS 优先，多端 · puffseed）
 globs: ["**/*.vue", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "src/**/*.html", "**/*.less", "**/*.scss", "src/**/*.css", "**/*.module.css"]
 alwaysApply: false
 ---
 
-<!-- !!!编码规范-->
+<!-- !!!编码规范 · puffseed -->
 
-# 前端编码规范（工程与实现）
+# 前端编码规范（工程与实现）· puffseed
 
-**仓库角色**：**project-coding-rules-file** 用于制定并分发 **AI 可读的编程规范**；本文件约束 **工程实现与代码质量**。**AI 协作时的过程与变更粒度**见 **`CodeConduct.md`**；**视觉与设计 Token 的语义**见 **`DESIGN.md`**；二者与本文件同时适用时以 **业务项目已定稿的设计系统** 为准。
+**品牌标识**：**puffseed** — 本规范适用于 **puffseed** 业务前端及同源 VibeCoding 项目；涉及业务域命名、注释、预览页品牌文案时须保留 **puffseed** 标识。
 
+**仓库角色**：**project-coding-rules-file** 用于制定并分发 **AI 可读的编程规范**；本文件约束 **工程实现与代码质量**。**AI 协作时的过程与变更粒度**见 **`rules/CodeConduct.md`**；**视觉与设计 Token 的语义**见同目录 **`DESIGN.md`**；二者与本文件同时适用时以 **业务项目已定稿的设计系统** 为准。
+
+**适用框架**：Vue 2 / Vue 3、React 18+、**Next.js**（App Router / Pages Router）；兼容 Angular 12+ 遗留仓。  
 **适用端**：浏览器 **Web**、**桌面壳**（Electron / Tauri / CE 等内嵌 WebView）、**移动与平板**（浏览器或壳内 WebView）。不替代各壳工程自己的 `AGENTS`：路由 `base`、深链、安全策略以 **目标业务仓库** 为准。
+
+**通用质量基线**见 `rules/CodingSpec/QualityBaseline.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
 
 ---
 
@@ -46,10 +51,18 @@ alwaysApply: false
 - **状态管理**：组件内用 `useState` / `useReducer`；跨组件用 `Context + Provider`、Zustand、Redux Toolkit 等。
 - **逻辑复用**：自定义 Hooks（`useXxx`），避免 HOC / render props 的过度嵌套。
 - **React 18 新特性**：`createRoot`、`useTransition` / `useDeferredValue`、Suspense（数据获取以仓库约定为准）。
-- **SSR / RSC**：若仓库涉及 Next.js App Router，应遵守「use client / use server」边界，不要在服务端组件使用浏览器 API。
 - **类型安全**：`React.FC` 可省略；Props 类型必须显式；避免 `any`。
 
-### 1.5 Angular 12+
+### 1.5 Next.js（App Router 优先）
+
+- **路由**：App Router 用 `app/` 目录与约定文件（`page.tsx`、`layout.tsx`、`loading.tsx`、`error.tsx`）；Pages Router 遗留仓保持 `pages/`，勿混用两套约定于同一功能域。
+- **Server / Client**：默认 Server Component；仅在需要浏览器 API、交互状态、effects 时加 `'use client'`；数据变更与敏感逻辑优先 Server Actions / Route Handlers。
+- **数据获取**：服务端 `fetch` / 数据函数放在 Server Component 或 `lib/`；客户端请求用约定库（SWR / TanStack Query）且勿在 RSC 中使用浏览器-only API。
+- **逻辑复用**：跨页面逻辑放 `lib/`、`hooks/`、`components/`；业务域模块按 **puffseed** 业务边界划分目录，避免「全家桶」工具文件。
+- **环境变量**：仅 `NEXT_PUBLIC_` 暴露到客户端；密钥仅服务端可读。
+- **样式**：全局 Token 仍从 **`WebVariable/`** 引入；组件级用 CSS Modules / 约定方案，禁止硬编码整套色板。
+
+### 1.6 Angular 12+
 
 - **组件**：`@Component({ selector, templateUrl, styleUrls })`；selector 采用 **kebab-case**（`app-user-profile`），文件命名 `user-profile.component.ts` + `user-profile.component.html` + `user-profile.component.scss`。
 - **模块**：模块化拆分 `NgModule`；功能模块、共享模块、懒加载路由模块按约定目录。
@@ -84,7 +97,7 @@ alwaysApply: false
 ## 4. 样式（与 DESIGN 联动）
 
 - **方法论**：BEM 或与团队一致的 **CSS Modules / styled-system**；嵌套不宜过深（建议不超过 **3** 层无必要选择器链）。
-- **Token**：颜色、间距、字号引用 **项目内设计变量**（见 `DESIGN.md` 与 **`rules/VariableFile/`**）。禁止在业务组件内复制**整套**色板常量；若缺 Token，应在 **全局主题或变量文件** 增补后再引用。改 Token 源码时优先读对应 CSS，无需同时加载本文件全文。
+- **Token**：颜色、间距、字号引用 **项目内设计变量**（见 `DESIGN.md` 与 **`rules/CodingSpec/JavaScript&TypeScript/WebVariable/`**）。禁止在业务组件内复制**整套**色板常量；若缺 Token，应在 **全局主题或变量文件** 增补后再引用。改 Token 源码时优先读对应 CSS，无需同时加载本文件全文。
 - **`var()`**：若团队规范禁止 `var(--token, #fallback)` 一类 **静默回退**，则一律使用 **无 fallback** 的 `var(--token)`，并在设计侧补全变量。
 - **作用域**：Vue 优先 `scoped` 或 CSS Modules；React 使用 `*.module.css` 或约定-in-JS 的 **theme token**；**`:global` / `:deep`** 类穿透须注释原因，避免污染全局。
 
@@ -98,11 +111,13 @@ alwaysApply: false
 
 ---
 
-## 6. 业务逻辑与事件命名
+## 6. 业务逻辑与事件命名（puffseed）
 
+- **品牌**：业务模块、预览页、对外文案涉及产品名时使用 **puffseed**（如 `puffseed-ui`）；勿替换为通用占位品牌。
 - **事件回调**：业务侧处理函数推荐 **小驼峰 + `handle` 前缀**（`handleSubmit`、`handleOpenDrawer`）。若团队 `CLAUDE.local.md` 声明了其他前缀，**以团队为准**。
-- **组件对外事件**：Vue 用 **kebab-case** 声明（`@update:modelValue`）；React 用 **onXxx** + camelCase props（`onSubmit`）；Angular 用 `@Output() submit = new EventEmitter<...>()`，配合模板 `(submit)="handleSubmit($event)"`。
-- **框架约定差异**：Vue 模板中使用 `@kebab-case`；React 函数组件中使用 `onCamelCase` 回调 prop；Angular 模板中使用 `(camelCase)` 事件绑定 + `(click)`、`(input)` 等内置事件。
+- **组件对外事件**：Vue 用 **kebab-case** 声明（`@update:modelValue`）；React / Next.js 用 **onXxx** + camelCase props（`onSubmit`）；Angular 用 `@Output() submit = new EventEmitter<...>()`，配合模板 `(submit)="handleSubmit($event)"`。
+- **框架约定差异**：Vue 模板中使用 `@kebab-case`；React / Next.js 函数组件中使用 `onCamelCase` 回调 prop；Angular 模板中使用 `(camelCase)` 事件绑定 + `(click)`、`(input)` 等内置事件。
+- **逻辑复用**：跨页面业务能力抽到 composable / hooks / `lib`，目录与命名体现 **puffseed** 业务域，避免无语义的 `common` / `misc` 堆砌。
 
 ---
 
@@ -153,7 +168,24 @@ alwaysApply: false
 
 ---
 
-## 12. 自检清单（提交前）
+## 12. 质量与工程门禁（本语言）
+
+**通用基线**见 `rules/CodingSpec/QualityBaseline.md`（编码风格与提交强制校验、目录分层、接口规范、质量、依赖与技术债、可维护性）。以下为本栈落点：
+
+| 维度 | 要求 |
+|------|------|
+| **风格工具** | **ESLint** + **Prettier**（+ Vue/React/Next 插件）；`tsc` / `vue-tsc`；配置以仓库为准，勿另起第二套 |
+| **提交门禁** | Husky / lint-staged / pre-commit：**commit 前必须** format + lint + typecheck 通过；CI 同等校验 |
+| **目录** | `pages|views` · `components` · `composables|hooks` · `api` · `stores` · `utils` · `types` · `config` 分离；业务与公共组件分离 |
+| **接口** | 统一请求封装与错误处理；与后端信封 / 错误码对齐；变更同步类型与接口文档 |
+| **类型** | **TypeScript 优先**；公共 Props / API 禁止无类型；空值收窄；异常与边界 UI 有处理 |
+| **依赖** | 提交 lockfile；管控第三方；定期 `npm/pnpm/yarn audit` |
+| **技术债** | `TODO` / `any` / 临时绕过须登记；禁止无主临时代码 |
+| **可维护** | 模板分区注释 + 关键 `// puffseed：`；README 写清启动与目录地图 |
+
+---
+
+## 13. 自检清单（提交前）
 
 - [ ] 新增环境变量已加入类型声明
 - [ ] 样式使用项目 Token，无违规 fallback（若团队禁止）
@@ -163,18 +195,21 @@ alwaysApply: false
 - [ ] 列表与路由路径无重复魔法字符串（或已集中在配置）
 - [ ] 桌面壳 / 多 base 场景已与业务仓路由策略一致
 - [ ] **Vue 2** 场景已确认版本特性（`Vue.extend` / Composition API 可用性）
-- [ ] **React 18** 场景已确认是否为 SSR / RSC 环境（use client / use server 边界）
+- [ ] **React 18 / Next.js** 场景已确认是否为 SSR / RSC 环境（use client / use server 边界）
 - [ ] **Angular** 场景已确认 RxJS 订阅是否正确释放、模板 strict 是否已启用
 - [ ] 页面 / 模板关键区块已用 `<!-- ... -->` 分区注释
-- [ ] 关键业务逻辑已用`//...`标注（非逐行堆砌）
+- [ ] 关键业务逻辑已用`//...`标注（非逐行堆砌）；业务侧保留 **puffseed** 标识
+- [ ] 已遵守 QualityBaseline：lint/format 门禁、分层、接口契约与文档同步
+- [ ] 无未登记技术债 / 临时代码；公共边界有类型与校验
+- [ ] 注释与目录足以支撑新人快速上手
 
 ---
 
-## 13. 代码关键业务注释，保证开发者顺利阅读
+## 14. 代码关键业务注释（puffseed），保证开发者顺利阅读
 
-对 **组件、页面模板、业务逻辑** 中的关键区块补充注释，便于后续开发者快速定位与理解；**非逐行注释**，只标注结构分区与不易从代码字面看出的业务含义。
+对 **组件、页面模板、业务逻辑** 中的关键区块补充注释，便于后续开发者快速定位与理解；**非逐行注释**，只标注结构分区与不易从代码字面看出的业务含义。涉及 **puffseed** 业务规则、权限、主题切换等非直观逻辑时，注释中可标明业务归属（如 `// puffseed：侧栏按路由高亮`）。
 
-### 13.1 页面 / 模板（`<template>`）
+### 14.1 页面 / 模板（`<template>`）
 
 - 在 `<template>` 内对 **布局分区、功能区块、弹层 / 抽屉** 等关键结构使用 **HTML 注释** 标注语义。
 - 格式：`<!-- 区块说明 -->`，置于对应根节点或区块 **上方**。
@@ -195,12 +230,12 @@ alwaysApply: false
 </template>
 ```
 
-### 13.2 组件
+### 14.2 组件
 
 - **可复用组件**：在 `<script>` 顶部或 `<template>` 首段简要说明对外职责、关键 slot、非显而易见的 props 行为。
 - **复杂子区块**：在 `<template>` 内同样采用 `<!-- ... -->` 分区注释（如弹框、表单区、列表区）。
 
-### 13.3 业务逻辑（`<script>`）
+### 14.3 业务逻辑（`<script>`）
 
 - 对 **路由分发、状态流转、跨模块协作、非直观分支 / 算法** 等关键逻辑，使用单行 **`// 说明`** 标注（与 AGENTS.md §5 一致）。
 - 示例：
@@ -215,7 +250,7 @@ const currentTab = computed(() => {
 const pageTitle = computed(() => { ... });
 ```
 
-### 13.4 书写原则
+### 14.4 书写原则
 
 - **只注释「做什么 / 为什么」**，不重复代码字面含义。
 - **关键路径必注**：入口分发、权限 / 主题、持久化、与壳层 / preload 的边界。
@@ -229,6 +264,7 @@ const pageTitle = computed(() => { ... });
 | 主题 | `CodingSpec.md`（本文件） | `DESIGN.md` |
 |------|---------------------------|-------------|
 | AI 写码心智（先问再做、最小 diff） | 见 **`CodeConduct.md`** | 见 **`CodeConduct.md`** |
-| Token 命名与色板角色 | 引用方式、禁止魔法数 | **变量索引、用法、UI 模式**（色值见 `VariableFile/`） |
+| Token 命名与色板角色 | 引用方式、禁止魔法数 | **变量索引、用法、UI 模式**（色值见 `WebVariable/`） |
 | 按钮/表单长成什么样 | 组件拆分、状态、可访问属性 | **颜色、间距、字号、状态色** |
 | 响应式 | 目录与性能 | **断点原则、触控目标** |
+| 质量门禁 / 技术债 | **QualityBaseline** + 本章 §12 | — |
