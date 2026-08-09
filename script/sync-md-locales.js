@@ -54,11 +54,20 @@ function tally(r) {
   else if (r === "skipped") skipped++;
 }
 
-for (const base of ["QualityBaseline", "CodeConduct"]) {
+for (const base of ["CodeConduct"]) {
   const dir = path.join(csRoot, base);
   const zh = path.join(dir, base + "-Zh-CN.md");
   for (const loc of LOCALES) {
     tally(syncFile(zh, path.join(dir, base + "-" + loc.file + ".md")));
+  }
+}
+
+// QualityBaseline 始终在 rules/QualityBaseline/（不在 CodingSpec 下）
+{
+  const dir = path.join(root, "rules", "QualityBaseline");
+  const zh = path.join(dir, "QualityBaseline-Zh-CN.md");
+  for (const loc of LOCALES) {
+    tally(syncFile(zh, path.join(dir, "QualityBaseline-" + loc.file + ".md")));
   }
 }
 

@@ -13,7 +13,7 @@ alwaysApply: false
 
 **AI 協作過程**见 `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。衝突時以**目標業務倉庫已定稿實作**為準。
 
-**通用品質基線**见 `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`（編碼風格 / 提交門禁 / 分層 / 介面 / 品質 / 技術債 / 可維護性）。
+**通用品質基線**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`（編碼風格 / 提交門禁 / 分層 / 介面 / 品質 / 技術債 / 可維護性）。
 
 **适用壳**：**Bash**（優先）、POSIX `sh`；PowerShell 见倉庫若另有约定（Windows 自动化可单独脚本，风格自洽）。
 
@@ -91,7 +91,7 @@ readonly ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 ## 6. 品質與工程門禁（本語言）
 
-**通用基線**见 `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`（介面=脚本入参/退出码契约）。
+**通用基線**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`（介面=脚本入参/退出码契约）。
 
 | 維度 | 要求 |
 |------|------|

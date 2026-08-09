@@ -13,7 +13,7 @@ alwaysApply: false
 
 **AI collaboration process**see `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
 
-**Shared quality baseline**see `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
+**Shared quality baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
 
 **适用壳**：**Bash** (Prefer)、POSIX `sh`；PowerShell see仓库若另有Convention (Windows 自动化可单独脚本，风格自洽)。
 
@@ -91,7 +91,7 @@ readonly ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 ## 6. Quality & engineering gates (this language)
 
-**Shared baseline**see `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` (APIs=脚本入参/退出码契约)。
+**Shared baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (APIs=脚本入参/退出码契约)。
 
 | Area | Requirement |
 |------|------|

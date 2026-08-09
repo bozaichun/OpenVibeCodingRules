@@ -16,7 +16,7 @@ alwaysApply: false
 **Frameworks**: Vue 2 / Vue 3, React 18+, **Next.js** (App Router / Pages Router), **UniApp** (Vue2 / Vue3 + multi-end); Angular 12+ legacy repos supported.  
 **Targets**: browser **Web**, **mini-programs / App** (UniApp), **desktop shells** (Electron / Tauri / CE WebViews), **mobile & tablet** (browser or in-shell WebView). Does not replace each shell’s own `AGENTS`: route `base`, deep links, and security follow the **product repo**.
 
-**Shared quality baseline** → `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability).
+**Shared quality baseline** → `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability).
 
 ---
 

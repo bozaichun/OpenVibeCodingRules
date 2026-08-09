@@ -13,7 +13,7 @@ alwaysApply: false
 
 **Процесс AI-коллаборации**见 `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。При конфликте действует**принятая реализация продуктового репозитория**。
 
-**Общая база качества**见 `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
+**Общая база качества**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
 
 **Фреймворки**：**Gin**（及其他以 Gin 为主的 HTTP 服务仓）。
 
@@ -101,7 +101,7 @@ pkg/         # 可对外复用的稳定库（慎用）
 
 ## 6. Качество и инженерные ворота (этот язык)
 
-**通用基线**见 `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`。
+**通用基线**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`。
 
 | 维度 | 要求 |
 |------|------|

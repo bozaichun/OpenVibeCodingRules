@@ -13,7 +13,7 @@ alwaysApply: false
 
 **AI 協作過程**见 `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。衝突時以**目標業務倉庫已定稿實作**為準。
 
-**通用品質基線**见 `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`（編碼風格 / 提交門禁 / 分層 / 介面 / 品質 / 技術債 / 可維護性）。
+**通用品質基線**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`（編碼風格 / 提交門禁 / 分層 / 介面 / 品質 / 技術債 / 可維護性）。
 
 **適用框架**：**Gin**（及其他以 Gin 为主的 HTTP 服务仓）。
 
@@ -101,7 +101,7 @@ pkg/         # 可对外复用的稳定库（慎用）
 
 ## 6. 品質與工程門禁（本語言）
 
-**通用基線**见 `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`。
+**通用基線**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`。
 
 | 維度 | 要求 |
 |------|------|

@@ -13,7 +13,7 @@ alwaysApply: false
 
 **Процесс AI-коллаборации**见 `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。При конфликте действует**принятая реализация продуктового репозитория**。
 
-**Общая база качества**见 `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
+**Общая база качества**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
 
 **适用引擎**：**PostgreSQL**、**MySQL / MariaDB**、**SQL Server** 等（以仓库实际方言；勿混用方言特有语法到错误引擎）。
 
@@ -85,7 +85,7 @@ alwaysApply: false
 
 ## 6. Качество и инженерные ворота (этот язык)
 
-**通用基线**见 `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`（目录= schema/迁移分层；接口= 视图/过程契约）。
+**通用基线**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`（目录= schema/迁移分层；接口= 视图/过程契约）。
 
 | 维度 | 要求 |
 |------|------|

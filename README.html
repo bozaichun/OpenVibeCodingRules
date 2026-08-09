@@ -1273,7 +1273,7 @@
               <div class="tag" data-i18n="about.tag.quality">质量</div>
               <h3>QualityBaseline</h3>
               <p data-i18n="about.quality.desc">风格门禁、分层、接口契约、类型、依赖与技术债。</p>
-              <a href="./rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md" data-i18n="about.open.quality">打开基线 →</a>
+              <a href="./rules/QualityBaseline/QualityBaseline-Zh-CN.md" data-i18n="about.open.quality">打开基线 →</a>
             </article>
             <article class="pillar reveal">
               <div class="tag" data-i18n="about.tag.lang">语言</div>
@@ -1401,9 +1401,9 @@
 ├── AGENTS.md
 ├── rules/
 │   ├── AGENTS/ · README/
+│   ├── QualityBaseline/QualityBaseline-Zh-CN.md
 │   └── CodingSpec/
 │       ├── CodeConduct/CodeConduct-Zh-CN.md
-│       ├── QualityBaseline/QualityBaseline-Zh-CN.md
 │       └── JavaScript&amp;TypeScript/CodingSpec-Zh-CN.md
 └── src/</pre>
             </article>
@@ -1494,7 +1494,7 @@
           <h2 data-i18n="quality.title">质量基线（全语言）</h2>
           <p class="lead" data-i18n="quality.lead" data-i18n-html>
             详见
-            <a href="./rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md">QualityBaseline.md</a>
+            <a href="./rules/QualityBaseline/QualityBaseline-Zh-CN.md">QualityBaseline.md</a>
             ；各语言 CodingSpec 另有「质量与工程门禁」落点。
           </p>
           <div class="quality-grid">
@@ -1721,7 +1721,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <a href="./rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md"
+                    <a href="./rules/QualityBaseline/QualityBaseline-Zh-CN.md"
                       >QualityBaseline.md</a
                     >
                   </td>
@@ -2034,10 +2034,10 @@
             return keys;
           }
 
-          // QualityBaseline-*-Tag under CodingSpec/QualityBaseline/
+          // QualityBaseline-*-Tag 始终在 rules/QualityBaseline/
           if (/QualityBaseline/i.test(key)) {
-            pushUnique("rules/CodingSpec/QualityBaseline/QualityBaseline-" + fileTag + ".md");
-            pushUnique("rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md");
+            pushUnique("rules/QualityBaseline/QualityBaseline-" + fileTag + ".md");
+            pushUnique("rules/QualityBaseline/QualityBaseline-Zh-CN.md");
             return keys;
           }
 
@@ -2053,7 +2053,7 @@
             return keys;
           }
 
-          // CodingSpec / QualityBaseline / DESIGN locale suffix swap
+          // CodingSpec / DESIGN / CodeConduct locale suffix swap
           var m = key.match(
             /^(rules\/CodingSpec\/.+\/)(CodingSpec|DESIGN)-(Zh-CN|Zh-TW|En|Ja|Ru)(\.md)$/i
           );
@@ -2063,7 +2063,15 @@
             return keys;
           }
           m = key.match(
-            /^(rules\/CodingSpec\/(?:CodeConduct|QualityBaseline)\/)(CodeConduct|QualityBaseline)-(Zh-CN|Zh-TW|En|Ja|Ru)(\.md)$/i
+            /^(rules\/CodingSpec\/CodeConduct\/)(CodeConduct)-(Zh-CN|Zh-TW|En|Ja|Ru)(\.md)$/i
+          );
+          if (m) {
+            pushUnique(m[1] + m[2] + "-" + fileTag + m[4]);
+            pushUnique(m[1] + m[2] + "-Zh-CN" + m[4]);
+            return keys;
+          }
+          m = key.match(
+            /^(rules\/QualityBaseline\/)(QualityBaseline)-(Zh-CN|Zh-TW|En|Ja|Ru)(\.md)$/i
           );
           if (m) {
             pushUnique(m[1] + m[2] + "-" + fileTag + m[4]);
@@ -2080,9 +2088,12 @@
             if (bare[2].toLowerCase() === "design") pushUnique(bare[1] + "DESIGN.md");
             return keys;
           }
-          if (/^rules\/CodingSpec\/QualityBaseline\.md$/i.test(key)) {
-            pushUnique("rules/CodingSpec/QualityBaseline/QualityBaseline-" + fileTag + ".md");
-            pushUnique("rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md");
+          if (
+            /^rules\/QualityBaseline\.md$/i.test(key) ||
+            /^rules\/CodingSpec\/QualityBaseline\.md$/i.test(key)
+          ) {
+            pushUnique("rules/QualityBaseline/QualityBaseline-" + fileTag + ".md");
+            pushUnique("rules/QualityBaseline/QualityBaseline-Zh-CN.md");
             return keys;
           }
 
@@ -2098,15 +2109,15 @@
             var abs = new URL(key, location.href).href;
             var cached = lookupBundleByKey(key);
             if (location.protocol === "file:" && cached != null) {
-              return cached;
+              return { text: cached, key: key };
             }
             try {
               var res = await fetch(abs, { cache: "no-cache" });
               if (!res.ok) throw new Error("HTTP " + res.status);
-              return await res.text();
+              return { text: await res.text(), key: key };
             } catch (err) {
               lastErr = err;
-              if (cached != null) return cached;
+              if (cached != null) return { text: cached, key: key };
             }
           }
           throw lastErr || new Error("markdown not found");
@@ -2419,7 +2430,11 @@
           openModal();
 
           try {
-            currentRaw = await loadMarkdownText(abs);
+            var loaded = await loadMarkdownText(abs);
+            currentRaw = loaded.text;
+            // 展示实际解析到的语种文件路径（随界面语言切换）
+            titleEl.textContent = fileNameFromHref(loaded.key);
+            pathEl.textContent = "./" + loaded.key.replace(/^\.\//, "");
             // 渲染链接仍相对逻辑原文路径，避免跳进 language/md 目录
             currentHref = abs;
             paintBody();

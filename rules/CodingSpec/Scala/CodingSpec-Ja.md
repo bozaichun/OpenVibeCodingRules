@@ -13,7 +13,7 @@ alwaysApply: false
 
 **AI 協働プロセス**见 `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。衝突時は**業務リポジトリの確定実装**を優先。
 
-**共通品質ベースライン**见 `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
+**共通品質ベースライン**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
 
 **適用フレームワーク**：**Play**、**http4s**、**Akka / Pekko**、**ZIO** / **Cats Effect**（以仓库效应栈を優先，勿混用两套效应系统于同一边界）。
 
@@ -88,7 +88,7 @@ infra
 
 ## 6. 品質とエンジニアリング門禁（本言語）
 
-**通用基线**见 `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`。
+**通用基线**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`。
 
 | 维度 | 要求 |
 |------|------|

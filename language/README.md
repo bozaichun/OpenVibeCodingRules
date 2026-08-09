@@ -11,7 +11,7 @@
 | 说明入口 | `README.md`（含语种切换） |
 | README 译文 | `rules/README/README-{Tag}.md` |
 | CodeConduct | `rules/CodingSpec/CodeConduct/CodeConduct-{Tag}.md` |
-| QualityBaseline | `rules/CodingSpec/QualityBaseline/QualityBaseline-{Tag}.md` |
+| QualityBaseline | `rules/QualityBaseline/QualityBaseline-{Tag}.md` |
 | CodingSpec | `rules/CodingSpec/<语言>/CodingSpec-{Tag}.md` |
 
 Tag：`Zh-CN` · `Zh-TW` · `En` · `Ja` · `Ru`（由 `AGENTS.md` 按协作语种解析）。

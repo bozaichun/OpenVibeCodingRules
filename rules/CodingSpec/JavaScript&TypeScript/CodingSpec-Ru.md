@@ -16,7 +16,7 @@ alwaysApply: false
 **Фреймворки**: Vue 2 / Vue 3, React 18+, **Next.js** (App Router / Pages Router), **UniApp** (Vue2 / Vue3 + multi-end); поддерживаются legacy Angular 12+.  
 **Цели**: браузерный **Web**, **мини-программы / App** (UniApp), **десктоп-оболочки** (Electron / Tauri / CE WebView), **mobile & tablet**. Не заменяет собственные `AGENTS` оболочки: `base` маршрутов, deep link и security — по **продуктовому репо**.
 
-**Общая база качества** → `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` (стиль / commit-гейты / слои / API / качество / техдолг / сопровождаемость).
+**Общая база качества** → `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (стиль / commit-гейты / слои / API / качество / техдолг / сопровождаемость).
 
 > Ниже — полная инженерная спецификация на английском (термины унифицированы; структура совпадает с zh-CN).
 

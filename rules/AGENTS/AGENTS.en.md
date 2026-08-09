@@ -61,7 +61,7 @@ Agents must identify the **target product repo** language and framework first, t
 ### Paths (fall back to `Zh-CN` if missing)
 
 - `rules/CodingSpec/CodeConduct/CodeConduct-{Tag}.md`
-- `rules/CodingSpec/QualityBaseline/QualityBaseline-{Tag}.md`
+- `rules/QualityBaseline/QualityBaseline-{Tag}.md`
 - `rules/CodingSpec/<lang>/CodingSpec-{Tag}.md`
 - Frontend UI: `DESIGN-{Tag}.md` or `DESIGN.md` + `WebVariable/`
 
@@ -88,7 +88,7 @@ Agents must identify the **target product repo** language and framework first, t
 | Spec file | Role | When to open |
 |---------|------|---------|
 | `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md` | AI coding behavior (ask first, minimal diff) | **Before any coding task** |
-| `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` | **All-language** style / quality / maintainability baseline | **When writing or changing product code** |
+| `rules/QualityBaseline/QualityBaseline-Zh-CN.md` | **All-language** style / quality / maintainability baseline | **When writing or changing product code** |
 | `rules/CodingSpec/JavaScript&TypeScript/CodingSpec.md` | Frontend engineering (Vue / React / Next.js / UniApp) | Frontend product code |
 | `rules/CodingSpec/JavaScript&TypeScript/DESIGN.md` | UI design (Token · visual · layout) | **UI layout, styles, theme, responsive** |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/` | Frontend design tokens | Colors, spacing, type, reset |
@@ -170,7 +170,7 @@ Follow `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`:
 
 ### 3.1 QualityBaseline summary
 
-When writing product code, obey `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` (style gates, layering, API envelope, types, deps, tech debt, maintainability). Language-specific tooling lives in each `CodingSpec.md`.
+When writing product code, obey `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (style gates, layering, API envelope, types, deps, tech debt, maintainability). Language-specific tooling lives in each `CodingSpec.md`.
 
 ---
 

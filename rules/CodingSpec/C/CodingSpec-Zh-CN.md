@@ -12,7 +12,7 @@ alwaysApply: false
 
 **AI 协作过程**见 `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。冲突时以**目标业务仓库已定稿实现**为准。
 
-**通用质量基线**见 `rules/CodingSpec/QualityBaseline.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
+**通用质量基线**见 `rules/QualityBaseline/QualityBaseline-{Tag}.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
 
 **适用场景**：POSIX / Linux 服务组件、嵌入式固件、与其他语言互操作的 C ABI 库。C++ 见 `CodingSpec/C++/`。
 
@@ -89,7 +89,7 @@ tests/
 
 ## 6. 质量与工程门禁（本语言）
 
-**通用基线**见 `rules/CodingSpec/QualityBaseline.md`（接口节适用于对外库 ABI / 服务封装）。
+**通用基线**见 `rules/QualityBaseline/QualityBaseline-{Tag}.md`（接口节适用于对外库 ABI / 服务封装）。
 
 | 维度 | 要求 |
 |------|------|

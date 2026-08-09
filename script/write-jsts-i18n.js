@@ -192,7 +192,7 @@ alwaysApply: false
 **Фреймворки**: Vue 2 / Vue 3, React 18+, **Next.js** (App Router / Pages Router), **UniApp** (Vue2 / Vue3 + multi-end); поддерживаются legacy Angular 12+.  
 **Цели**: браузерный **Web**, **мини-программы / App** (UniApp), **десктоп-оболочки** (Electron / Tauri / CE WebView), **mobile & tablet**. Не заменяет собственные \`AGENTS\` оболочки: \`base\` маршрутов, deep link и security — по **продуктовому репо**.
 
-**Общая база качества** → \`rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md\` (стиль / commit-гейты / слои / API / качество / техдолг / сопровождаемость).
+**Общая база качества** → \`rules/QualityBaseline/QualityBaseline-Zh-CN.md\` (стиль / commit-гейты / слои / API / качество / техдолг / сопровождаемость).
 
 > Ниже — полная инженерная спецификация на английском (термины унифицированы; структура совпадает с zh-CN).`,
 
@@ -213,7 +213,7 @@ alwaysApply: false
 **適用フレームワーク**: Vue 2 / Vue 3、React 18+、**Next.js**（App Router / Pages Router）、**UniApp**（Vue2 / Vue3 + 多端）。Angular 12+ のレガシーも可。  
 **適用端**: ブラウザ **Web**、**小プログラム / App**（UniApp）、**デスクトップシェル**（Electron / Tauri / CE WebView）、**モバイル / タブレット**。各シェル独自の \`AGENTS\` は置換しない。\`base\`・ディープリンク・セキュリティは **業務リポジトリ** 準拠。
 
-**共通品質ベースライン** → \`rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md\`（スタイル / 提出ゲート / 層 / API / 品質 / 技術的負債 / 保守性）。
+**共通品質ベースライン** → \`rules/QualityBaseline/QualityBaseline-Zh-CN.md\`（スタイル / 提出ゲート / 層 / API / 品質 / 技術的負債 / 保守性）。
 
 > 以下は完全なエンジニアリング規範本文です（英語。用語統一のため。構成は zh-CN と同一）。`
 };

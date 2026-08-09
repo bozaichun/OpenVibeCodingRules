@@ -61,7 +61,7 @@
 | 用途 | 路径模板 |
 |------|---------|
 | 行为准则 | `rules/CodingSpec/CodeConduct/CodeConduct-{Tag}.md` |
-| 质量基线 | `rules/CodingSpec/QualityBaseline/QualityBaseline-{Tag}.md` |
+| 质量基线 | `rules/QualityBaseline/QualityBaseline-{Tag}.md` |
 | 语言工程规范 | `rules/CodingSpec/<编程语言>/CodingSpec-{Tag}.md` |
 | 前端设计（可选译文） | `rules/CodingSpec/JavaScript&TypeScript/DESIGN-{Tag}.md`；若无则用 `DESIGN.md` |
 | 前端 Token / 预览 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/` · `PreView/`（与语种无关） |
@@ -97,7 +97,7 @@
 | 规范文件 | 职责 | 何时查阅 |
 |---------|------|---------|
 | `rules/CodingSpec/CodeConduct/CodeConduct-{Tag}.md` | AI 编码行为与变更心智（先问再做、最小 diff） | **任何编码任务开始前** |
-| `rules/CodingSpec/QualityBaseline/QualityBaseline-{Tag}.md` | **全语言**代码规范 / 质量 / 可维护性基线（风格门禁、分层、接口、类型、依赖、技术债） | **编写或修改任何业务代码时** |
+| `rules/QualityBaseline/QualityBaseline-{Tag}.md` | **全语言**代码规范 / 质量 / 可维护性基线（风格门禁、分层、接口、类型、依赖、技术债） | **编写或修改任何业务代码时** |
 | `rules/CodingSpec/JavaScript&TypeScript/CodingSpec-{Tag}.md` | 前端工程规范（Vue / React / Next.js / UniApp） | 编写或修改 **前端** 业务代码 |
 | `rules/CodingSpec/JavaScript&TypeScript/DESIGN.md`（或 `DESIGN-{Tag}.md`） | 界面设计规范（Token · 视觉 · 布局） | **UI 布局、样式、主题、响应式** |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/` | 前端设计 Token（原 VariableFile） | 改色值、间距、字号、reset |
@@ -256,7 +256,7 @@ import "./main.css";
 
 ## 3.1 代码规范 · 质量 · 可维护性（QualityBaseline）
 
-编写业务代码时**必须**遵守 `rules/CodingSpec/QualityBaseline/QualityBaseline-{Tag}.md`，摘要如下：
+编写业务代码时**必须**遵守 `rules/QualityBaseline/QualityBaseline-{Tag}.md`，摘要如下：
 
 | 支柱 | 要点 |
 |------|------|
@@ -330,4 +330,4 @@ import "./main.css";
 
 ---
 
-*最后同步：AGENTS/ · README/ · CodingSpec/{CodeConduct,QualityBaseline,*/CodingSpec}-{Tag}.md · language/ · script/ · WebVariable · PreView · puffseed*
+*最后同步：AGENTS/ · README/ · QualityBaseline/QualityBaseline-{Tag}.md · CodingSpec/{CodeConduct,*/CodingSpec}-{Tag}.md · language/ · script/ · WebVariable · PreView · puffseed*

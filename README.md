@@ -13,7 +13,7 @@
 OpenVibeCodingRules 是一套面向 **AI 辅助多语言开发（VibeCoding）** 的规范仓库，包含：
 
 - **行为准则**：控制 AI 如何思考、如何改代码（`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`）
-- **质量基线**：全语言代码规范 / 质量 / 可维护性（`rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`）
+- **质量基线**：全语言代码规范 / 质量 / 可维护性（`rules/QualityBaseline/QualityBaseline-Zh-CN.md`）
 - **按语言划分的工程规范**（`rules/CodingSpec/<语言>/`）
 - **前端设计规范与 Token**：`DESIGN.md` · **WebVariable**（原 VariableFile）· PreView
 
@@ -54,9 +54,9 @@ demo/
 ├── rules/
 │   ├── AGENTS/          # AGENTS.en.md · …（译文）
 │   ├── README/          # README-{Tag}.md
+│   ├── QualityBaseline/         # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
 │       ├── CodeConduct/         # CodeConduct-{Tag}.md
-│       ├── QualityBaseline/     # QualityBaseline-{Tag}.md
 │       └── JavaScript&TypeScript/
 │           ├── CodingSpec-{Tag}.md
 │           ├── DESIGN.md · WebVariable/ · PreView/
@@ -82,9 +82,9 @@ OpenVibeCodingRules/
 ├── rules/
 │   ├── AGENTS/                        # AGENTS.en.md · zh-TW · ja · ru
 │   ├── README/                        # README-{Tag}.md 译文
+│   ├── QualityBaseline/               # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
 │       ├── CodeConduct/               # CodeConduct-{Tag}.md
-│       ├── QualityBaseline/           # QualityBaseline-{Tag}.md
 │       └── <Lang>/
 │           ├── CodingSpec-{Tag}.md
 │           └── (JS/TS: DESIGN · WebVariable · PreView)
@@ -199,7 +199,7 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 |------|---------|
 | `AGENTS.md` | 任何 AI 协作任务开始前 |
 | `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md` | 判断范围、避免过度实现 |
-| `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` | 风格门禁、分层、接口、质量、技术债、可维护性 |
+| `rules/QualityBaseline/QualityBaseline-Zh-CN.md` | 风格门禁、分层、接口、质量、技术债、可维护性 |
 | `rules/CodingSpec/<语言>/CodingSpec-Zh-CN.md` | 写对应语言业务代码 |
 | `.../JavaScript&TypeScript/DESIGN.md` | UI 布局、组件视觉 |
 | `.../WebVariable/*.css` | 改色值、间距、reset |

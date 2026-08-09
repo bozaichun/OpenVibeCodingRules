@@ -14,7 +14,7 @@
 OpenVibeCodingRules — репозиторий правил для **AI-assisted многоязычной разработки (VibeCoding)**. Включает:
 
 - **Кодекс поведения**: как AI думает и меняет код (`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`)
-- **База качества**: кросс-языковые стандарты / качество / сопровождаемость (`rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`)
+- **База качества**: кросс-языковые стандарты / качество / сопровождаемость (`rules/QualityBaseline/QualityBaseline-Zh-CN.md`)
 - **Инженерные правила по языкам** (`rules/CodingSpec/<язык>/`)
 - **Фронтенд-дизайн и Token**: `DESIGN.md` · **WebVariable** (ранее VariableFile) · PreView
 
@@ -55,9 +55,9 @@ demo/
 ├── rules/
 │   ├── AGENTS/          # AGENTS.en.md · …（译文）
 │   ├── README/          # README-{Tag}.md
+│   ├── QualityBaseline/         # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
 │       ├── CodeConduct/         # CodeConduct-{Tag}.md
-│       ├── QualityBaseline/     # QualityBaseline-{Tag}.md
 │       └── JavaScript&TypeScript/
 │           ├── CodingSpec-{Tag}.md
 │           ├── DESIGN.md · WebVariable/ · PreView/
@@ -83,9 +83,9 @@ OpenVibeCodingRules/
 ├── rules/
 │   ├── AGENTS/                        # AGENTS.en.md · zh-TW · ja · ru
 │   ├── README/                        # README-{Tag}.md 译文
+│   ├── QualityBaseline/               # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
 │       ├── CodeConduct/               # CodeConduct-{Tag}.md
-│       ├── QualityBaseline/           # QualityBaseline-{Tag}.md
 │       └── <Lang>/
 │           ├── CodingSpec-{Tag}.md
 │           └── (JS/TS: DESIGN · WebVariable · PreView)
@@ -200,7 +200,7 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 |------|----------------|
 | `AGENTS.md` | Перед любой AI-задачей |
 | `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md` | Границы объёма, без оверинжиниринга |
-| `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` | Стиль, слои, API, качество, техдолг, сопровождаемость |
+| `rules/QualityBaseline/QualityBaseline-Zh-CN.md` | Стиль, слои, API, качество, техдолг, сопровождаемость |
 | `rules/CodingSpec/<язык>/CodingSpec-Zh-CN.md` | Код на соответствующем языке |
 | `.../JavaScript&TypeScript/DESIGN.md` | UI-вёрстка и визуал компонентов |
 | `.../WebVariable/*.css` | Цвета, отступы, reset |

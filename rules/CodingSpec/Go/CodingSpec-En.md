@@ -13,7 +13,7 @@ alwaysApply: false
 
 **AI collaboration process**see `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
 
-**Shared quality baseline**see `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
+**Shared quality baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
 
 **Frameworks**：**Gin** (及其他以 Gin 为主的 HTTP 服务仓)。
 
@@ -101,7 +101,7 @@ pkg/         # 可对外复用的稳定库 (慎用)
 
 ## 6. Quality & engineering gates (this language)
 
-**Shared baseline**see `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`。
+**Shared baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md`。
 
 | Area | Requirement |
 |------|------|

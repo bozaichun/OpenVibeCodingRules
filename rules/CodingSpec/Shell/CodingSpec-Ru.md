@@ -13,7 +13,7 @@ alwaysApply: false
 
 **Процесс AI-коллаборации**见 `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。При конфликте действует**принятая реализация продуктового репозитория**。
 
-**Общая база качества**见 `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
+**Общая база качества**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
 
 **适用壳**：**Bash**（优先）、POSIX `sh`；PowerShell 见仓库若另有约定（Windows 自动化可单独脚本，风格自洽）。
 
@@ -91,7 +91,7 @@ readonly ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 ## 6. Качество и инженерные ворота (этот язык)
 
-**通用基线**见 `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`（接口=脚本入参/退出码契约）。
+**通用基线**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`（接口=脚本入参/退出码契约）。
 
 | 维度 | 要求 |
 |------|------|

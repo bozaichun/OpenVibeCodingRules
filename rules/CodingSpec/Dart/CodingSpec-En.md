@@ -13,7 +13,7 @@ alwaysApply: false
 
 **AI collaboration process**see `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
 
-**Shared quality baseline**see `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
+**Shared quality baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
 
 **Frameworks**：**Flutter** (移动 / 桌面 / Web)；纯 Dart CLI / 服务follow the repo。
 
@@ -91,7 +91,7 @@ lib/
 
 ## 6. Quality & engineering gates (this language)
 
-**Shared baseline**see `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`。
+**Shared baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md`。
 
 | Area | Requirement |
 |------|------|

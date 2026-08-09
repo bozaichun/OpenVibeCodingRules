@@ -13,7 +13,7 @@ alwaysApply: false
 
 **AI collaboration process**see `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
 
-**Shared quality baseline**see `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
+**Shared quality baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
 
 **Frameworks**：**Axum**、**Actix-web**、**Tokio** 生态；库 crate 与 CLI 同样适用本文件的模块与错误Convention。
 
@@ -92,7 +92,7 @@ src/
 
 ## 6. Quality & engineering gates (this language)
 
-**Shared baseline**see `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`。
+**Shared baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md`。
 
 | Area | Requirement |
 |------|------|

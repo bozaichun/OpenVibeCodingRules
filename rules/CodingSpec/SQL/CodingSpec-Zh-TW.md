@@ -13,7 +13,7 @@ alwaysApply: false
 
 **AI 協作過程**见 `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。衝突時以**目標業務倉庫已定稿實作**為準。
 
-**通用品質基線**见 `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`（編碼風格 / 提交門禁 / 分層 / 介面 / 品質 / 技術債 / 可維護性）。
+**通用品質基線**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`（編碼風格 / 提交門禁 / 分層 / 介面 / 品質 / 技術債 / 可維護性）。
 
 **适用引擎**：**PostgreSQL**、**MySQL / MariaDB**、**SQL Server** 等（以倉庫实际方言為準；勿混用方言特有语法到错误引擎）。
 
@@ -85,7 +85,7 @@ alwaysApply: false
 
 ## 6. 品質與工程門禁（本語言）
 
-**通用基線**见 `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`（目錄= schema/迁移分層；介面= 视图/过程契约）。
+**通用基線**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`（目錄= schema/迁移分層；介面= 视图/过程契约）。
 
 | 維度 | 要求 |
 |------|------|

@@ -13,7 +13,7 @@ alwaysApply: false
 
 **AI collaboration process**see `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
 
-**Shared quality baseline**see `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
+**Shared quality baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
 
 **Scenarios**：POSIX / Linux service components, embedded firmware, and C ABI interop libraries。For C++ see `CodingSpec/C++/`。
 
@@ -90,7 +90,7 @@ tests/
 
 ## 6. Quality & engineering gates (this language)
 
-**Shared baseline**see `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` (APIs节适用于对外库 ABI / 服务封装)。
+**Shared baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (APIs节适用于对外库 ABI / 服务封装)。
 
 | Area | Requirement |
 |------|------|

@@ -15,7 +15,7 @@ alwaysApply: false
 **适用框架**：Vue 2 / Vue 3、React 18+、**Next.js**（App Router / Pages Router）、**UniApp**（Vue2 / Vue3 + 多端）；兼容 Angular 12+ 遗留仓。  
 **适用端**：浏览器 **Web**、**小程序 / App**（UniApp）、**桌面壳**（Electron / Tauri / CE 等内嵌 WebView）、**移动与平板**（浏览器或壳内 WebView）。不替代各壳工程自己的 `AGENTS`：路由 `base`、深链、安全策略以 **目标业务仓库** 为准。
 
-**通用质量基线**见 `rules/CodingSpec/QualityBaseline.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
+**通用质量基线**见 `rules/QualityBaseline/QualityBaseline-{Tag}.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
 
 ---
 
@@ -201,7 +201,7 @@ alwaysApply: false
 
 ## 12. 质量与工程门禁（本语言）
 
-**通用基线**见 `rules/CodingSpec/QualityBaseline.md`（编码风格与提交强制校验、目录分层、接口规范、质量、依赖与技术债、可维护性）。以下为本栈落点：
+**通用基线**见 `rules/QualityBaseline/QualityBaseline-{Tag}.md`（编码风格与提交强制校验、目录分层、接口规范、质量、依赖与技术债、可维护性）。以下为本栈落点：
 
 | 维度 | 要求 |
 |------|------|

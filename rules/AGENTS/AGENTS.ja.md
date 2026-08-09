@@ -61,7 +61,7 @@
 ### パス（欠落時は `Zh-CN` にフォールバック）
 
 - `rules/CodingSpec/CodeConduct/CodeConduct-{Tag}.md`
-- `rules/CodingSpec/QualityBaseline/QualityBaseline-{Tag}.md`
+- `rules/QualityBaseline/QualityBaseline-{Tag}.md`
 - `rules/CodingSpec/<言語>/CodingSpec-{Tag}.md`
 - UI: `DESIGN-{Tag}.md` または `DESIGN.md` + `WebVariable/`
 
@@ -88,7 +88,7 @@
 | ファイル | 役割 | 参照タイミング |
 |---------|------|---------|
 | `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md` | AI の振る舞い（先に確認、最小 diff） | **任意のコーディング前** |
-| `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` | **全言語**品質ベースライン | **業務コードの作成・変更時** |
+| `rules/QualityBaseline/QualityBaseline-Zh-CN.md` | **全言語**品質ベースライン | **業務コードの作成・変更時** |
 | `rules/CodingSpec/<言語>/CodingSpec-Zh-CN.md` | 言語別エンジニアリング規範 | 該当言語の業務コード |
 | `DESIGN.md` + `WebVariable/` | UI と Token | レイアウト・スタイル・テーマ |
 

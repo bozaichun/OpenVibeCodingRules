@@ -13,7 +13,7 @@ alwaysApply: false
 
 **Процесс AI-коллаборации**见 `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。При конфликте действует**принятая реализация продуктового репозитория**。
 
-**Общая база качества**见 `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
+**Общая база качества**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
 
 **Сценарии**：Современный C++ 服务 / 工具 / 原生模块；常见生态 **CMake**、**Qt**、**Boost**、gRPC 等以仓库。纯 C 见 `CodingSpec/C/`。
 
@@ -90,7 +90,7 @@ tests/
 
 ## 6. Качество и инженерные ворота (этот язык)
 
-**通用基线**见 `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`。
+**通用基线**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`。
 
 | 维度 | 要求 |
 |------|------|

@@ -13,7 +13,7 @@ alwaysApply: false
 
 **AI collaboration process**see `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
 
-**Shared quality baseline**see `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
+**Shared quality baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
 
 **适用引擎**：**PostgreSQL**、**MySQL / MariaDB**、**SQL Server** 等 (follow the repo 实际方言；勿混用方言特有语法到错误引擎)。
 
@@ -85,7 +85,7 @@ alwaysApply: false
 
 ## 6. Quality & engineering gates (this language)
 
-**Shared baseline**see `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` (Layout= schema/迁移分层；APIs= 视图/过程契约)。
+**Shared baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (Layout= schema/迁移分层；APIs= 视图/过程契约)。
 
 | Area | Requirement |
 |------|------|

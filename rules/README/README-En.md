@@ -14,7 +14,7 @@ Follow OpenVibeCodingRules to reduce AI coding artifacts, customize your design 
 OpenVibeCodingRules is a standards repo for **AI-assisted multilingual development (VibeCoding)**. It includes:
 
 - **Code of conduct**: how the AI should think and change code (`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`)
-- **Quality baseline**: cross-language standards / quality / maintainability (`rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`)
+- **Quality baseline**: cross-language standards / quality / maintainability (`rules/QualityBaseline/QualityBaseline-Zh-CN.md`)
 - **Per-language engineering specs** (`rules/CodingSpec/<lang>/`)
 - **Frontend design & tokens**: `DESIGN.md` · **WebVariable** (formerly VariableFile) · PreView
 
@@ -55,9 +55,9 @@ demo/
 ├── rules/
 │   ├── AGENTS/          # AGENTS.en.md · …（译文）
 │   ├── README/          # README-{Tag}.md
+│   ├── QualityBaseline/         # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
 │       ├── CodeConduct/         # CodeConduct-{Tag}.md
-│       ├── QualityBaseline/     # QualityBaseline-{Tag}.md
 │       └── JavaScript&TypeScript/
 │           ├── CodingSpec-{Tag}.md
 │           ├── DESIGN.md · WebVariable/ · PreView/
@@ -83,9 +83,9 @@ OpenVibeCodingRules/
 ├── rules/
 │   ├── AGENTS/                        # AGENTS.en.md · zh-TW · ja · ru
 │   ├── README/                        # README-{Tag}.md 译文
+│   ├── QualityBaseline/               # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
 │       ├── CodeConduct/               # CodeConduct-{Tag}.md
-│       ├── QualityBaseline/           # QualityBaseline-{Tag}.md
 │       └── <Lang>/
 │           ├── CodingSpec-{Tag}.md
 │           └── (JS/TS: DESIGN · WebVariable · PreView)
@@ -200,7 +200,7 @@ Then verify in `PreView/LightDesignSpec.html` or `DarkDesignSpec.html`.
 |------|------|
 | `AGENTS.md` | Before any AI collaboration |
 | `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md` | Scope decisions; avoid over-building |
-| `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` | Style gates, layers, APIs, quality, tech debt, maintainability |
+| `rules/QualityBaseline/QualityBaseline-Zh-CN.md` | Style gates, layers, APIs, quality, tech debt, maintainability |
 | `rules/CodingSpec/<lang>/CodingSpec-Zh-CN.md` | Writing product code in that language |
 | `.../JavaScript&TypeScript/DESIGN.md` | UI layout and component visuals |
 | `.../WebVariable/*.css` | Colors, spacing, reset |

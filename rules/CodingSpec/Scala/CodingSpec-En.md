@@ -13,7 +13,7 @@ alwaysApply: false
 
 **AI collaboration process**see `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
 
-**Shared quality baseline**see `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
+**Shared quality baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
 
 **Frameworks**：**Play**、**http4s**、**Akka / Pekko**、**ZIO** / **Cats Effect** (follow the repo 效应栈，勿混用两套效应系统于同一Boundary)。
 
@@ -88,7 +88,7 @@ infra
 
 ## 6. Quality & engineering gates (this language)
 
-**Shared baseline**see `rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md`。
+**Shared baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md`。
 
 | Area | Requirement |
 |------|------|

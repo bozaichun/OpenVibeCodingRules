@@ -124,7 +124,7 @@ const bodies = {
 OpenVibeCodingRules 是一套面向 **AI 輔助多語言開發（VibeCoding）** 的規範倉庫，包含：
 
 - **行為準則**：控制 AI 如何思考、如何改程式碼（\`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md\`）
-- **品質基線**：全語言程式碼規範 / 品質 / 可維護性（\`rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md\`）
+- **品質基線**：全語言程式碼規範 / 品質 / 可維護性（\`rules/QualityBaseline/QualityBaseline-Zh-CN.md\`）
 - **按語言劃分的工程規範**（\`rules/CodingSpec/<語言>/\`）
 - **前端設計規範與 Token**：\`DESIGN.md\` · **WebVariable**（原 VariableFile）· PreView
 
@@ -148,8 +148,9 @@ demo/
 ├── rules/
 │   ├── AGENTS.en.md · AGENTS.zh-TW.md · AGENTS.ru.md · AGENTS.ja.md
 │   ├── README-Zh-CN.md · README-En.md · …
+│   ├── QualityBaseline/         # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
-│       ├── CodeConduct-Zh-CN.md · QualityBaseline-Zh-CN.md
+│       ├── CodeConduct-Zh-CN.md
 │       └── JavaScript&TypeScript/
 │           ├── CodingSpec-Zh-CN.md · CodingSpec-En.md · …
 │           ├── DESIGN.md · WebVariable/ · PreView/
@@ -176,9 +177,9 @@ OpenVibeCodingRules/
 ├── rules/
 │   ├── AGENTS.en.md · AGENTS.zh-TW.md · AGENTS.ru.md · AGENTS.ja.md
 │   ├── README-Zh-CN.md · README-En.md · …
+│   ├── QualityBaseline/               # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
 │       ├── CodeConduct-Zh-CN.md · …-En.md · …
-│       ├── QualityBaseline-Zh-CN.md · …-En.md · …
 │       └── <Lang>/
 │           ├── CodingSpec-Zh-CN.md · CodingSpec-En.md · …
 │           └── (JS/TS: DESIGN · WebVariable · PreView)
@@ -293,7 +294,7 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 |------|---------|
 | \`AGENTS.md\` | 任何 AI 協作任務開始前 |
 | \`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md\` | 判斷範圍、避免過度實作 |
-| \`rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md\` | 風格門禁、分層、介面、品質、技術債、可維護性 |
+| \`rules/QualityBaseline/QualityBaseline-Zh-CN.md\` | 風格門禁、分層、介面、品質、技術債、可維護性 |
 | \`rules/CodingSpec/<語言>/CodingSpec-Zh-CN.md\` | 寫對應語言業務程式碼 |
 | \`.../JavaScript&TypeScript/DESIGN.md\` | UI 佈局、元件視覺 |
 | \`.../WebVariable/*.css\` | 改色值、間距、reset |
@@ -331,7 +332,7 @@ Follow OpenVibeCodingRules to reduce AI coding artifacts, customize your design 
 OpenVibeCodingRules is a standards repo for **AI-assisted multilingual development (VibeCoding)**. It includes:
 
 - **Code of conduct**: how the AI should think and change code (\`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md\`)
-- **Quality baseline**: cross-language standards / quality / maintainability (\`rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md\`)
+- **Quality baseline**: cross-language standards / quality / maintainability (\`rules/QualityBaseline/QualityBaseline-Zh-CN.md\`)
 - **Per-language engineering specs** (\`rules/CodingSpec/<lang>/\`)
 - **Frontend design & tokens**: \`DESIGN.md\` · **WebVariable** (formerly VariableFile) · PreView
 
@@ -355,8 +356,9 @@ demo/
 ├── rules/
 │   ├── AGENTS.en.md · AGENTS.zh-TW.md · AGENTS.ru.md · AGENTS.ja.md
 │   ├── README-Zh-CN.md · README-En.md · …
+│   ├── QualityBaseline/         # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
-│       ├── CodeConduct-Zh-CN.md · QualityBaseline-Zh-CN.md
+│       ├── CodeConduct-Zh-CN.md
 │       └── JavaScript&TypeScript/
 │           ├── CodingSpec-Zh-CN.md · CodingSpec-En.md · …
 │           ├── DESIGN.md · WebVariable/ · PreView/
@@ -383,9 +385,9 @@ OpenVibeCodingRules/
 ├── rules/
 │   ├── AGENTS.en.md · AGENTS.zh-TW.md · AGENTS.ru.md · AGENTS.ja.md
 │   ├── README-Zh-CN.md · README-En.md · …
+│   ├── QualityBaseline/               # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
 │       ├── CodeConduct-Zh-CN.md · …-En.md · …
-│       ├── QualityBaseline-Zh-CN.md · …-En.md · …
 │       └── <Lang>/
 │           ├── CodingSpec-Zh-CN.md · CodingSpec-En.md · …
 │           └── (JS/TS: DESIGN · WebVariable · PreView)
@@ -500,7 +502,7 @@ Then verify in \`PreView/LightDesignSpec.html\` or \`DarkDesignSpec.html\`.
 |------|------|
 | \`AGENTS.md\` | Before any AI collaboration |
 | \`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md\` | Scope decisions; avoid over-building |
-| \`rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md\` | Style gates, layers, APIs, quality, tech debt, maintainability |
+| \`rules/QualityBaseline/QualityBaseline-Zh-CN.md\` | Style gates, layers, APIs, quality, tech debt, maintainability |
 | \`rules/CodingSpec/<lang>/CodingSpec-Zh-CN.md\` | Writing product code in that language |
 | \`.../JavaScript&TypeScript/DESIGN.md\` | UI layout and component visuals |
 | \`.../WebVariable/*.css\` | Colors, spacing, reset |
@@ -538,7 +540,7 @@ See [LICENSE](./LICENSE).
 OpenVibeCodingRules — репозиторий правил для **AI-assisted многоязычной разработки (VibeCoding)**. Включает:
 
 - **Кодекс поведения**: как AI думает и меняет код (\`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md\`)
-- **База качества**: кросс-языковые стандарты / качество / сопровождаемость (\`rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md\`)
+- **База качества**: кросс-языковые стандарты / качество / сопровождаемость (\`rules/QualityBaseline/QualityBaseline-Zh-CN.md\`)
 - **Инженерные правила по языкам** (\`rules/CodingSpec/<язык>/\`)
 - **Фронтенд-дизайн и Token**: \`DESIGN.md\` · **WebVariable** (ранее VariableFile) · PreView
 
@@ -562,8 +564,9 @@ demo/
 ├── rules/
 │   ├── AGENTS.en.md · AGENTS.zh-TW.md · AGENTS.ru.md · AGENTS.ja.md
 │   ├── README-Zh-CN.md · README-En.md · …
+│   ├── QualityBaseline/         # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
-│       ├── CodeConduct-Zh-CN.md · QualityBaseline-Zh-CN.md
+│       ├── CodeConduct-Zh-CN.md
 │       └── JavaScript&TypeScript/
 │           ├── CodingSpec-Zh-CN.md · CodingSpec-En.md · …
 │           ├── DESIGN.md · WebVariable/ · PreView/
@@ -590,9 +593,9 @@ OpenVibeCodingRules/
 ├── rules/
 │   ├── AGENTS.en.md · AGENTS.zh-TW.md · AGENTS.ru.md · AGENTS.ja.md
 │   ├── README-Zh-CN.md · README-En.md · …
+│   ├── QualityBaseline/               # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
 │       ├── CodeConduct-Zh-CN.md · …-En.md · …
-│       ├── QualityBaseline-Zh-CN.md · …-En.md · …
 │       └── <Lang>/
 │           ├── CodingSpec-Zh-CN.md · CodingSpec-En.md · …
 │           └── (JS/TS: DESIGN · WebVariable · PreView)
@@ -707,7 +710,7 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 |------|----------------|
 | \`AGENTS.md\` | Перед любой AI-задачей |
 | \`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md\` | Границы объёма, без оверинжиниринга |
-| \`rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md\` | Стиль, слои, API, качество, техдолг, сопровождаемость |
+| \`rules/QualityBaseline/QualityBaseline-Zh-CN.md\` | Стиль, слои, API, качество, техдолг, сопровождаемость |
 | \`rules/CodingSpec/<язык>/CodingSpec-Zh-CN.md\` | Код на соответствующем языке |
 | \`.../JavaScript&TypeScript/DESIGN.md\` | UI-вёрстка и визуал компонентов |
 | \`.../WebVariable/*.css\` | Цвета, отступы, reset |
@@ -746,7 +749,7 @@ OpenVibeCodingRules に従い AI コーディングの痕跡を抑え、独自�
 OpenVibeCodingRules は **AI 補助の多言語開発（VibeCoding）** 向け規範リポジトリです。含むもの：
 
 - **行動規範**：AI の思考とコード変更の仕方（\`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md\`）
-- **品質ベースライン**：全言語の規範 / 品質 / 保守性（\`rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md\`）
+- **品質ベースライン**：全言語の規範 / 品質 / 保守性（\`rules/QualityBaseline/QualityBaseline-Zh-CN.md\`）
 - **言語別のエンジニアリング規範**（\`rules/CodingSpec/<言語>/\`）
 - **フロント設計と Token**：\`DESIGN.md\` · **WebVariable**（旧 VariableFile）· PreView
 
@@ -770,8 +773,9 @@ demo/
 ├── rules/
 │   ├── AGENTS.en.md · AGENTS.zh-TW.md · AGENTS.ru.md · AGENTS.ja.md
 │   ├── README-Zh-CN.md · README-En.md · …
+│   ├── QualityBaseline/         # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
-│       ├── CodeConduct-Zh-CN.md · QualityBaseline-Zh-CN.md
+│       ├── CodeConduct-Zh-CN.md
 │       └── JavaScript&TypeScript/
 │           ├── CodingSpec-Zh-CN.md · CodingSpec-En.md · …
 │           ├── DESIGN.md · WebVariable/ · PreView/
@@ -798,9 +802,9 @@ OpenVibeCodingRules/
 ├── rules/
 │   ├── AGENTS.en.md · AGENTS.zh-TW.md · AGENTS.ru.md · AGENTS.ja.md
 │   ├── README-Zh-CN.md · README-En.md · …
+│   ├── QualityBaseline/               # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
 │       ├── CodeConduct-Zh-CN.md · …-En.md · …
-│       ├── QualityBaseline-Zh-CN.md · …-En.md · …
 │       └── <Lang>/
 │           ├── CodingSpec-Zh-CN.md · CodingSpec-En.md · …
 │           └── (JS/TS: DESIGN · WebVariable · PreView)
@@ -915,7 +919,7 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 |---------|-----------|
 | \`AGENTS.md\` | あらゆる AI 協働の開始前 |
 | \`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md\` | 範囲判断、過剰実装の回避 |
-| \`rules/CodingSpec/QualityBaseline/QualityBaseline-Zh-CN.md\` | スタイル門禁、層、API、品質、技術的負債、保守性 |
+| \`rules/QualityBaseline/QualityBaseline-Zh-CN.md\` | スタイル門禁、層、API、品質、技術的負債、保守性 |
 | \`rules/CodingSpec/<言語>/CodingSpec-Zh-CN.md\` | その言語の業務コード |
 | \`.../JavaScript&TypeScript/DESIGN.md\` | UI レイアウト・コンポーネント視覚 |
 | \`.../WebVariable/*.css\` | 色・余白・reset |
