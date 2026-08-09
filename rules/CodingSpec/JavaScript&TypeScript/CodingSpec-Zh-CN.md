@@ -112,6 +112,22 @@ alwaysApply: false
 
 - **方法论**：BEM 或与团队一致的 **CSS Modules / styled-system**；嵌套不宜过深（建议不超过 **3** 层无必要选择器链）。
 - **Token**：颜色、间距、字号引用 **项目内设计变量**（见 `DESIGN.md` 与 **`rules/CodingSpec/JavaScript&TypeScript/WebVariable/`**）。禁止在业务组件内复制**整套**色板常量；若缺 Token，应在 **全局主题或变量文件** 增补后再引用。改 Token 源码时优先读对应 CSS，无需同时加载本文件全文。
+- **字阶 + 行高（强制成对）**：凡设置字阶 `--fs-*`，**必须**同步设置权威表中对应的 `--lh-*`；二者相符相承、缺一不可。禁止只写 `font-size: var(--fs-14)` 而省略 `line-height`，禁止错配行高。配对见 `WebVariable/SubjectAuthority.md` §1.3。
+
+```css
+/* ✅ */
+.title {
+  font-size: var(--fs-20);
+  line-height: var(--lh-28);
+}
+
+/* ❌ 缺行高 / 错配 */
+.title-bad {
+  font-size: var(--fs-20);
+  line-height: var(--lh-22);
+}
+```
+
 - **`var()`**：若团队规范禁止 `var(--token, #fallback)` 一类 **静默回退**，则一律使用 **无 fallback** 的 `var(--token)`，并在设计侧补全变量。
 - **作用域**：Vue / UniApp 优先 `scoped` 或约定方案；React 使用 `*.module.css` 或约定-in-JS 的 **theme token**；**`:global` / `:deep`** 类穿透须注释原因，避免污染全局。
 
@@ -204,6 +220,7 @@ alwaysApply: false
 
 - [ ] 新增环境变量已加入类型声明
 - [ ] 样式使用项目 Token，无违规 fallback（若团队禁止）
+- [ ] 使用 `--fs-*` 处已成对设置对应 `--lh-*`（字阶与行高缺一不可）
 - [ ] 事件/回调命名符合团队约定（Vue/UniApp kebab-case / React onXxx / Angular @Output）
 - [ ] 副作用与监听器已清理（Vue/UniApp 生命周期 · React useEffect cleanup · Angular ngOnDestroy + takeUntil）
 - [ ] 列表渲染已提供稳定 key / trackBy

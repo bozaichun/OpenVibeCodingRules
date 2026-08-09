@@ -373,7 +373,8 @@
       }
 
       .card h3 {
-        font-size: var(--fs-18);
+        font-size: var(--fs-16);
+        line-height: var(--lh-24);
         font-weight: 600;
         color: var(--title);
         margin-bottom: var(--size-8);
@@ -381,8 +382,8 @@
 
       .card p {
         font-size: var(--fs-14);
+        line-height: var(--lh-22);
         color: var(--main-text);
-        line-height: 1.5;
       }
 
       .card-link {
@@ -1047,102 +1048,139 @@
     <hr class="section-divider" />
 
     <section class="section" id="typography">
-      <div class="section-label">02 / ThemeVariable · 字体</div>
-      <h2 class="section-title">字号阶梯（--fs-*）</h2>
+      <div class="section-label">02 / SystemVariable · 字阶行高</div>
+      <h2 class="section-title">字阶 + 行高（--fs-* ↔ --lh-*）</h2>
       <p class="spec-note">
-        与源码注释一致：/1 辅助文字 12px … /10 超大展示 68px。
+        与 SubjectAuthority §1.3 一致：字阶与行高强制成对。
       </p>
 
       <div class="type-sample">
         <div
           style="
             font-size: var(--fs-68);
+            line-height: var(--lh-76);
             font-weight: 600;
-            line-height: 1.15;
             color: var(--title);
           "
         >
           数据大屏超大标题
         </div>
-        <div class="type-meta">68px · /10 展示标题</div>
+        <div class="type-meta">--fs-68 ↔ --lh-76 · /10 展示超大标题</div>
       </div>
       <div class="type-sample">
         <div
           style="
             font-size: var(--fs-56);
+            line-height: var(--lh-64);
             font-weight: 600;
-            line-height: 1.15;
             color: var(--title);
           "
         >
           数据大屏主标题
         </div>
-        <div class="type-meta">56px · /9 展示标题</div>
+        <div class="type-meta">--fs-56 ↔ --lh-64 · /9 展示主标题</div>
       </div>
       <div class="type-sample">
         <div
           style="
             font-size: var(--fs-46);
+            line-height: var(--lh-54);
             font-weight: 600;
-            line-height: 1.2;
             color: var(--title);
           "
         >
           数据大屏展示标题
         </div>
-        <div class="type-meta">46px · /8 展示标题</div>
+        <div class="type-meta">--fs-46 ↔ --lh-54 · /8 展示标题</div>
       </div>
       <div class="type-sample">
         <div
-          style="font-size: var(--fs-30); font-weight: 600; color: var(--title)"
+          style="
+            font-size: var(--fs-38);
+            line-height: var(--lh-46);
+            font-weight: 600;
+            color: var(--title);
+          "
+        >
+          活动 / 营销主视觉
+        </div>
+        <div class="type-meta">--fs-38 ↔ --lh-46 · /7 巨大标题</div>
+      </div>
+      <div class="type-sample">
+        <div
+          style="
+            font-size: var(--fs-30);
+            line-height: var(--lh-38);
+            font-weight: 600;
+            color: var(--title);
+          "
         >
           首页 Banner 标题
         </div>
-        <div class="type-meta">30px · /7 超大标题</div>
+        <div class="type-meta">--fs-30 ↔ --lh-38 · /6 超大标题</div>
       </div>
       <div class="type-sample">
         <div
-          style="font-size: var(--fs-24); font-weight: 600; color: var(--title)"
+          style="
+            font-size: var(--fs-24);
+            line-height: var(--lh-32);
+            font-weight: 600;
+            color: var(--title);
+          "
         >
           登录页 / 欢迎页标题
         </div>
-        <div class="type-meta">24px · /6 特大标题</div>
+        <div class="type-meta">--fs-24 ↔ --lh-32 · /5 特大标题</div>
       </div>
       <div class="type-sample">
         <div
-          style="font-size: var(--fs-20); font-weight: 600; color: var(--title)"
+          style="
+            font-size: var(--fs-20);
+            line-height: var(--lh-28);
+            font-weight: 600;
+            color: var(--title);
+          "
         >
           页面主标题
         </div>
-        <div class="type-meta">20px · /5 大标题</div>
+        <div class="type-meta">--fs-20 ↔ --lh-28 · /4 大标题</div>
       </div>
       <div class="type-sample">
         <div
-          style="font-size: var(--fs-18); font-weight: 600; color: var(--title)"
-        >
-          页面区域标题
-        </div>
-        <div class="type-meta">18px · /4 中标题</div>
-      </div>
-      <div class="type-sample">
-        <div
-          style="font-size: var(--fs-16); font-weight: 600; color: var(--title)"
+          style="
+            font-size: var(--fs-16);
+            line-height: var(--lh-24);
+            font-weight: 600;
+            color: var(--title);
+          "
         >
           卡片标题 / 表单分组
         </div>
-        <div class="type-meta">16px · /3 小标题</div>
+        <div class="type-meta">--fs-16 ↔ --lh-24 · /3 小标题</div>
       </div>
       <div class="type-sample">
-        <div style="font-size: var(--fs-14); color: var(--main-text)">
+        <div
+          style="
+            font-size: var(--fs-14);
+            line-height: var(--lh-22);
+            color: var(--main-text);
+          "
+        >
           正文：段落文本、列表内容。
         </div>
-        <div class="type-meta">14px · /2 正文 · 字色 #595959</div>
+        <div class="type-meta">--fs-14 ↔ --lh-22 · /2 正文</div>
       </div>
       <div class="type-sample">
-        <div style="font-size: var(--fs-12); color: var(--secondary-text)">
+        <div
+          style="
+            font-size: var(--fs-12);
+            line-height: var(--lh-20);
+            color: var(--secondary-text);
+          "
+        >
           辅助文字：表单提示、标签。
         </div>
-        <div class="type-meta">12px · /1 辅助 · 字色 #8c8c8c</div>
+        <div class="type-meta">--fs-12 ↔ --lh-20 · /1 辅助</div>
       </div>
     </section>
 
