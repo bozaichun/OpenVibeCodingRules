@@ -1,6 +1,6 @@
 <a id="ovcr-lang"></a>
 
-> **Language / 语言**：[简体中文](./README.md#ovcr-lang) · [繁體中文](./rules/README/README-Zh-TW.md#ovcr-lang) · [English](./rules/README/README-En.md#ovcr-lang) · [Русский](./rules/README/README-Ru.md#ovcr-lang) · [日本語](./rules/README/README-Ja.md#ovcr-lang)
+> **Language / 语言**：[简体中文](../../README.md#ovcr-lang) · [繁體中文](./README-Zh-TW.md#ovcr-lang) · [English](./README-En.md#ovcr-lang) · [Русский](./README-Ru.md#ovcr-lang) · [日本語](./README-Ja.md#ovcr-lang)
 
 # OpenVibeCodingRules
 
@@ -44,7 +44,7 @@ OpenVibeCodingRules 是一套面向 **AI 辅助多语言开发（VibeCoding）**
 
 ## 使用说明
 
-1. **新手可先打开本仓库根目录的 [`README.html`](./README.html)**（浏览器直接打开），快速浏览项目概览、多语言规范入口与质量基线。
+1. **新手可先打开本仓库根目录的 [`README.html`](../../README.html)**（浏览器直接打开），快速浏览项目概览、多语言规范入口与质量基线。
 2. **详细文字说明见本文件**（`README.md`）。
 3. **业务项目**：将本仓库中的 `AGENTS.md` 与 `rules/` 复制到业务项目根目录，保持相对路径不变（`language/` · `script/` 仅本仓库 README.html / 构建使用，业务仓可不复制）。示例：
 
@@ -223,4 +223,4 @@ A：显式 `@AGENTS.md` 与对应语言 `CodingSpec.md`；任务中写明「遵�
 
 ## 许可证
 
-见 [LICENSE](./LICENSE)。
+见 [LICENSE](../../LICENSE)。
