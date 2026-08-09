@@ -13,7 +13,7 @@
 
 OpenVibeCodingRules 是一套面向 **AI 輔助多語言開發（VibeCoding）** 的規範倉庫，包含：
 
-- **行為準則**：控制 AI 如何思考、如何改程式碼（`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`）
+- **行為準則**：控制 AI 如何思考、如何改程式碼（`rules/CodeConduct/CodeConduct-Zh-CN.md`）
 - **品質基線**：全語言程式碼規範 / 品質 / 可維護性（`rules/QualityBaseline/QualityBaseline-Zh-CN.md`）
 - **按語言劃分的工程規範**（`rules/CodingSpec/<語言>/`）
 - **前端設計規範與 Token**：`DESIGN.md` · **WebVariable**（原 VariableFile）· PreView
@@ -55,12 +55,13 @@ demo/
 ├── rules/
 │   ├── AGENTS/          # AGENTS.en.md · …（译文）
 │   ├── README/          # README-{Tag}.md
+│   ├── CodeConduct/             # CodeConduct-{Tag}.md
 │   ├── QualityBaseline/         # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
-│       ├── CodeConduct/         # CodeConduct-{Tag}.md
 │       └── JavaScript&TypeScript/
 │           ├── CodingSpec-{Tag}.md
-│           ├── DESIGN.md · WebVariable/ · PreView/
+│           ├── DESIGN/                 # DESIGN-{Tag}.md
+│           ├── WebVariable/ · PreView/
 │           └── …
 ├── src/
 └── ...
@@ -83,9 +84,9 @@ OpenVibeCodingRules/
 ├── rules/
 │   ├── AGENTS/                        # AGENTS.en.md · zh-TW · ja · ru
 │   ├── README/                        # README-{Tag}.md 译文
+│   ├── CodeConduct/                   # CodeConduct-{Tag}.md
 │   ├── QualityBaseline/               # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
-│       ├── CodeConduct/               # CodeConduct-{Tag}.md
 │       └── <Lang>/
 │           ├── CodingSpec-{Tag}.md
 │           └── (JS/TS: DESIGN · WebVariable · PreView)
@@ -121,7 +122,7 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 ### 3. 在 Cursor / AI IDE 中啟用
 
 1. 確保根目錄存在 `AGENTS.md`
-2. `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md` 已 `alwaysApply: true`
+2. `rules/CodeConduct/CodeConduct-Zh-CN.md` 已 `alwaysApply: true`
 3. 按語言 `@` 引用對應 `CodingSpec.md`；前端 UI 再引用 `DESIGN.md` / WebVariable
 
 > 請遵循本專案 `AGENTS.md` 與 `rules/` 規範；先識別語言與技術棧，再編碼。
@@ -199,10 +200,10 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 | 檔案 | 何時查閱 |
 |------|---------|
 | `AGENTS.md` | 任何 AI 協作任務開始前 |
-| `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md` | 判斷範圍、避免過度實作 |
+| `rules/CodeConduct/CodeConduct-Zh-CN.md` | 判斷範圍、避免過度實作 |
 | `rules/QualityBaseline/QualityBaseline-Zh-CN.md` | 風格門禁、分層、介面、品質、技術債、可維護性 |
 | `rules/CodingSpec/<語言>/CodingSpec-Zh-CN.md` | 寫對應語言業務程式碼 |
-| `.../JavaScript&TypeScript/DESIGN.md` | UI 佈局、元件視覺 |
+| `.../JavaScript&TypeScript/DESIGN/DESIGN-Zh-CN.md` | UI 佈局、元件視覺 |
 | `.../WebVariable/*.css` | 改色值、間距、reset |
 
 **優先級**：行為 → `CodeConduct` · 品質門禁 → `QualityBaseline` · 怎麼寫 → 語言 `CodingSpec` · 長什麼樣 → `DESIGN` + WebVariable。

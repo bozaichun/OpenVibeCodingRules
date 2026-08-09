@@ -11,7 +11,7 @@ alwaysApply: false
 
 **品牌標識**：**puffseed** — 本规范適用於 **puffseed** 業務前端及同源 VibeCoding 專案；涉及業務域命名、註解、预览页品牌文案时須保留 **puffseed** 標識。
 
-**倉庫角色**：**project-coding-rules-file** 用於制定並分發 **AI 可讀的程式設計規範**；本檔案約束 **工程實作與程式碼品質**。**AI 協作時的過程與變更粒度**见 **`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`**；**視覺與設計 Token 的語義**見同目錄 **`DESIGN.md`**；二者与本檔案同時適用時以 **業務專案已定稿的設計系統** 為準。
+**倉庫角色**：**project-coding-rules-file** 用於制定並分發 **AI 可讀的程式設計規範**；本檔案約束 **工程實作與程式碼品質**。**AI 協作時的過程與變更粒度**见 **`rules/CodeConduct/CodeConduct-Zh-CN.md`**；**視覺與設計 Token 的語義**見同目錄 **`DESIGN.md`**；二者与本檔案同時適用時以 **業務專案已定稿的設計系統** 為準。
 
 **適用框架**：Vue 2 / Vue 3、React 18+、**Next.js**（App Router / Pages Router）、**UniApp**（Vue2 / Vue3 + 多端）；兼容 Angular 12+ 遺留倉。  
 **適用端**：瀏覽器 **Web**、**小程式 / App**（UniApp）、**桌面殼**（Electron / Tauri / CE 等內嵌 WebView）、**行動與平板**（瀏覽器或壳内 WebView）。不替代各壳工程自己的 `AGENTS`：路由 `base`、深鏈、安全策略以 **目標業務倉庫** 為準。

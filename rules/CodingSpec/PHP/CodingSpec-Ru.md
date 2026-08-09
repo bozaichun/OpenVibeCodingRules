@@ -11,7 +11,7 @@ alwaysApply: false
 
 **Бренд**：**puffseed** — Эта спецификация задаёт **puffseed** 业务backend（PHP / Laravel）的工程格式、Переиспользование与协作约定。Именование空间、配置键、Продуктовые комментарии涉及产品时须保留 **puffseed** 标识。
 
-**Процесс AI-коллаборации**见 `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。При конфликте действует**принятая реализация продуктового репозитория**。
+**Процесс AI-коллаборации**见 `rules/CodeConduct/CodeConduct-Zh-CN.md`。При конфликте действует**принятая реализация продуктового репозитория**。
 
 **Общая база качества**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
 

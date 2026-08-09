@@ -1267,7 +1267,7 @@
               <div class="tag" data-i18n="about.tag.conduct">行为</div>
               <h3>CodeConduct</h3>
               <p data-i18n="about.conduct.desc">先问再做、最小 diff、不做推测性实现。</p>
-              <a href="./rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md" data-i18n="about.open.conduct">打开规范 →</a>
+              <a href="./rules/CodeConduct/CodeConduct-Zh-CN.md" data-i18n="about.open.conduct">打开规范 →</a>
             </article>
             <article class="pillar reveal">
               <div class="tag" data-i18n="about.tag.quality">质量</div>
@@ -1286,7 +1286,7 @@
               <h3>DESIGN · WebVariable</h3>
               <p data-i18n="about.design.desc">前端 Token、布局与组件视觉；PreView 浏览器验收。</p>
               <a
-                href="./rules/CodingSpec/JavaScript&TypeScript/DESIGN.md"
+                href="./rules/CodingSpec/JavaScript&TypeScript/DESIGN/DESIGN-Zh-CN.md"
                 data-i18n="about.open.design"
                 >打开设计规范 →</a
               >
@@ -1401,9 +1401,9 @@
 ├── AGENTS.md
 ├── rules/
 │   ├── AGENTS/ · README/
+│   ├── CodeConduct/CodeConduct-Zh-CN.md
 │   ├── QualityBaseline/QualityBaseline-Zh-CN.md
 │   └── CodingSpec/
-│       ├── CodeConduct/CodeConduct-Zh-CN.md
 │       └── JavaScript&amp;TypeScript/CodingSpec-Zh-CN.md
 └── src/</pre>
             </article>
@@ -1716,7 +1716,7 @@
                   <td data-i18n="map.when.agents">任何 AI 协作任务开始前</td>
                 </tr>
                 <tr>
-                  <td><a href="./rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md">rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md</a></td>
+                  <td><a href="./rules/CodeConduct/CodeConduct-Zh-CN.md">rules/CodeConduct/CodeConduct-Zh-CN.md</a></td>
                   <td data-i18n="map.when.conduct">判断范围、避免过度实现</td>
                 </tr>
                 <tr>
@@ -1733,7 +1733,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <a href="./rules/CodingSpec/JavaScript&TypeScript/DESIGN.md"
+                    <a href="./rules/CodingSpec/JavaScript&TypeScript/DESIGN/DESIGN-Zh-CN.md"
                       >DESIGN.md</a
                     >
                   </td>
@@ -2027,10 +2027,10 @@
             return keys;
           }
 
-          // CodeConduct-*-Tag under CodingSpec/CodeConduct/
+          // CodeConduct-*-Tag 始终在 rules/CodeConduct/
           if (/CodeConduct/i.test(key)) {
-            pushUnique("rules/CodingSpec/CodeConduct/CodeConduct-" + fileTag + ".md");
-            pushUnique("rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md");
+            pushUnique("rules/CodeConduct/CodeConduct-" + fileTag + ".md");
+            pushUnique("rules/CodeConduct/CodeConduct-Zh-CN.md");
             return keys;
           }
 
@@ -2053,9 +2053,18 @@
             return keys;
           }
 
-          // CodingSpec / DESIGN / CodeConduct locale suffix swap
+          // DESIGN-*-Tag under JavaScript&TypeScript/DESIGN/
+          if (/(^|\/)DESIGN([-/]|\.md)/i.test(key) || /\/DESIGN\//i.test(key)) {
+            var designBase =
+              "rules/CodingSpec/JavaScript&TypeScript/DESIGN/DESIGN-";
+            pushUnique(designBase + fileTag + ".md");
+            pushUnique(designBase + "Zh-CN.md");
+            return keys;
+          }
+
+          // CodingSpec locale suffix swap
           var m = key.match(
-            /^(rules\/CodingSpec\/.+\/)(CodingSpec|DESIGN)-(Zh-CN|Zh-TW|En|Ja|Ru)(\.md)$/i
+            /^(rules\/CodingSpec\/.+\/)(CodingSpec)-(Zh-CN|Zh-TW|En|Ja|Ru)(\.md)$/i
           );
           if (m) {
             pushUnique(m[1] + m[2] + "-" + fileTag + m[4]);
@@ -2063,15 +2072,7 @@
             return keys;
           }
           m = key.match(
-            /^(rules\/CodingSpec\/CodeConduct\/)(CodeConduct)-(Zh-CN|Zh-TW|En|Ja|Ru)(\.md)$/i
-          );
-          if (m) {
-            pushUnique(m[1] + m[2] + "-" + fileTag + m[4]);
-            pushUnique(m[1] + m[2] + "-Zh-CN" + m[4]);
-            return keys;
-          }
-          m = key.match(
-            /^(rules\/QualityBaseline\/)(QualityBaseline)-(Zh-CN|Zh-TW|En|Ja|Ru)(\.md)$/i
+            /^(rules\/(?:CodeConduct|QualityBaseline)\/)(CodeConduct|QualityBaseline)-(Zh-CN|Zh-TW|En|Ja|Ru)(\.md)$/i
           );
           if (m) {
             pushUnique(m[1] + m[2] + "-" + fileTag + m[4]);
@@ -2080,20 +2081,22 @@
           }
 
           var bare = key.match(
-            /^(rules\/CodingSpec\/.+\/)(CodingSpec|DESIGN)(\.md)$/i
+            /^(rules\/CodingSpec\/.+\/)(CodingSpec)(\.md)$/i
           );
           if (bare) {
             pushUnique(bare[1] + bare[2] + "-" + fileTag + bare[3]);
             pushUnique(bare[1] + bare[2] + "-Zh-CN" + bare[3]);
-            if (bare[2].toLowerCase() === "design") pushUnique(bare[1] + "DESIGN.md");
             return keys;
           }
           if (
             /^rules\/QualityBaseline\.md$/i.test(key) ||
-            /^rules\/CodingSpec\/QualityBaseline\.md$/i.test(key)
+            /^rules\/CodeConduct\.md$/i.test(key) ||
+            /^rules\/CodingSpec\/QualityBaseline\.md$/i.test(key) ||
+            /^rules\/CodingSpec\/CodeConduct\.md$/i.test(key)
           ) {
-            pushUnique("rules/QualityBaseline/QualityBaseline-" + fileTag + ".md");
-            pushUnique("rules/QualityBaseline/QualityBaseline-Zh-CN.md");
+            var kind = /CodeConduct/i.test(key) ? "CodeConduct" : "QualityBaseline";
+            pushUnique("rules/" + kind + "/" + kind + "-" + fileTag + ".md");
+            pushUnique("rules/" + kind + "/" + kind + "-Zh-CN.md");
             return keys;
           }
 

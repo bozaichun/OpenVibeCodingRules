@@ -11,7 +11,7 @@ alwaysApply: false
 
 **Brand**: **puffseed** — This spec applies to **puffseed** product frontends and sibling VibeCoding projects. Keep the **puffseed** marker in domain naming, comments, and preview brand copy.
 
-**Repo role**: **project-coding-rules-file** defines and distributes **AI-readable coding standards**; this file constrains **engineering implementation and code quality**. **AI collaboration process & change granularity** → **`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`**. **Visual & design Token semantics** → sibling **`DESIGN.md`**. When both apply with this file, the **product repo’s settled design system** wins.
+**Repo role**: **project-coding-rules-file** defines and distributes **AI-readable coding standards**; this file constrains **engineering implementation and code quality**. **AI collaboration process & change granularity** → **`rules/CodeConduct/CodeConduct-Zh-CN.md`**. **Visual & design Token semantics** → **`DESIGN/DESIGN-{Tag}.md`**. When both apply with this file, the **product repo’s settled design system** wins.
 
 **Frameworks**: Vue 2 / Vue 3, React 18+, **Next.js** (App Router / Pages Router), **UniApp** (Vue2 / Vue3 + multi-end); Angular 12+ legacy repos supported.  
 **Targets**: browser **Web**, **mini-programs / App** (UniApp), **desktop shells** (Electron / Tauri / CE WebViews), **mobile & tablet** (browser or in-shell WebView). Does not replace each shell’s own `AGENTS`: route `base`, deep links, and security follow the **product repo**.
@@ -112,7 +112,7 @@ alwaysApply: false
 ## 4. Styles (with DESIGN)
 
 - **Method**: BEM or team CSS Modules / styled-system; avoid deep nesting (> **3** levels).
-- **Tokens**: colors, spacing, type from project design vars (`DESIGN.md` + **`WebVariable/`**). Do not copy full palettes into product components; add missing Tokens globally first. When editing Token CSS, prefer those files over loading this whole doc.
+- **Tokens**: colors, spacing, type from project design vars (`DESIGN/DESIGN-{Tag}.md` + **`WebVariable/`**). Do not copy full palettes into product components; add missing Tokens globally first. When editing Token CSS, prefer those files over loading this whole doc.
 - **Size + line-height (mandatory pair)**: every `--fs-*` needs the matching `--lh-*` from the authority table. Never size-only; never mismatch. See `WebVariable/SubjectAuthority.md` §1.3.
 
 ```css
@@ -184,7 +184,7 @@ alwaysApply: false
 
 - **UniApp**: manage H5 · mini-program · App via `pages.json` / `manifest.json` + `#ifdef`—do not assume full DOM everywhere.
 - **Desktop WebView / Electron / Tauri**: history/hash, file protocol, and `base` follow the product repo.
-- **Mobile / tablet**: touch targets, breakpoints, safe areas in **`DESIGN.md`**—do not assume desktop-only input.
+- **Mobile / tablet**: touch targets, breakpoints, safe areas in **`DESIGN/DESIGN-{Tag}.md`**—do not assume desktop-only input.
 - **Security**: do not trust URL params or `postMessage` / share payloads; XSS/CSP per project security rules.
 
 ---
@@ -286,9 +286,9 @@ const pageTitle = computed(() => { ... });
 
 ---
 
-## Split with `DESIGN.md`
+## Split with `DESIGN/DESIGN-{Tag}.md`
 
-| Topic | `CodingSpec.md` (this file) | `DESIGN.md` |
+| Topic | `CodingSpec.md` (this file) | `DESIGN/DESIGN-{Tag}.md` |
 |------|------------------------------|-------------|
 | AI coding mindset | `CodeConduct.md` | `CodeConduct.md` |
 | Token names & palette roles | How to reference; ban magic numbers | Variable index, usage, UI patterns (values in `WebVariable/`) |

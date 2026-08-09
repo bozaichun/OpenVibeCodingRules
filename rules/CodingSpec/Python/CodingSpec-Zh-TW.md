@@ -11,7 +11,7 @@ alwaysApply: false
 
 **品牌標識**：**puffseed** — 本規範約束 **puffseed** 業務後端（Python）的工程格式、邏輯複用与協作約定。涉及業務模組命名、对外 API 文件标题、领域註解时須保留 **puffseed** 標識。
 
-**AI 協作過程**见 `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。衝突時以**目標業務倉庫已定稿實作**為準。
+**AI 協作過程**见 `rules/CodeConduct/CodeConduct-Zh-CN.md`。衝突時以**目標業務倉庫已定稿實作**為準。
 
 **通用品質基線**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`（編碼風格 / 提交門禁 / 分層 / 介面 / 品質 / 技術債 / 可維護性）。
 

@@ -10,7 +10,7 @@ alwaysApply: false
 
 **品牌标识**：**puffseed** — 本规范适用于 **puffseed** 业务前端及同源 VibeCoding 项目；涉及业务域命名、注释、预览页品牌文案时须保留 **puffseed** 标识。
 
-**仓库角色**：**project-coding-rules-file** 用于制定并分发 **AI 可读的编程规范**；本文件约束 **工程实现与代码质量**。**AI 协作时的过程与变更粒度**见 **`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`**；**视觉与设计 Token 的语义**见同目录 **`DESIGN.md`**；二者与本文件同时适用时以 **业务项目已定稿的设计系统** 为准。
+**仓库角色**：**project-coding-rules-file** 用于制定并分发 **AI 可读的编程规范**；本文件约束 **工程实现与代码质量**。**AI 协作时的过程与变更粒度**见 **`rules/CodeConduct/CodeConduct-Zh-CN.md`**；**视觉与设计 Token 的语义**见 **`DESIGN/DESIGN-{Tag}.md`**；二者与本文件同时适用时以 **业务项目已定稿的设计系统** 为准。
 
 **适用框架**：Vue 2 / Vue 3、React 18+、**Next.js**（App Router / Pages Router）、**UniApp**（Vue2 / Vue3 + 多端）；兼容 Angular 12+ 遗留仓。  
 **适用端**：浏览器 **Web**、**小程序 / App**（UniApp）、**桌面壳**（Electron / Tauri / CE 等内嵌 WebView）、**移动与平板**（浏览器或壳内 WebView）。不替代各壳工程自己的 `AGENTS`：路由 `base`、深链、安全策略以 **目标业务仓库** 为准。
@@ -111,7 +111,7 @@ alwaysApply: false
 ## 4. 样式（与 DESIGN 联动）
 
 - **方法论**：BEM 或与团队一致的 **CSS Modules / styled-system**；嵌套不宜过深（建议不超过 **3** 层无必要选择器链）。
-- **Token**：颜色、间距、字号引用 **项目内设计变量**（见 `DESIGN.md` 与 **`rules/CodingSpec/JavaScript&TypeScript/WebVariable/`**）。禁止在业务组件内复制**整套**色板常量；若缺 Token，应在 **全局主题或变量文件** 增补后再引用。改 Token 源码时优先读对应 CSS，无需同时加载本文件全文。
+- **Token**：颜色、间距、字号引用 **项目内设计变量**（见 `DESIGN/DESIGN-{Tag}.md` 与 **`rules/CodingSpec/JavaScript&TypeScript/WebVariable/`**）。禁止在业务组件内复制**整套**色板常量；若缺 Token，应在 **全局主题或变量文件** 增补后再引用。改 Token 源码时优先读对应 CSS，无需同时加载本文件全文。
 - **字阶 + 行高（强制成对）**：凡设置字阶 `--fs-*`，**必须**同步设置权威表中对应的 `--lh-*`；二者相符相承、缺一不可。禁止只写 `font-size: var(--fs-14)` 而省略 `line-height`，禁止错配行高。配对见 `WebVariable/SubjectAuthority.md` §1.3。
 
 ```css
@@ -187,7 +187,7 @@ alwaysApply: false
 
 - **UniApp**：以 `pages.json` / `manifest.json` 与条件编译管理 H5 · 小程序 · App；能力差异用 `#ifdef`，勿假设全端 DOM 可用。
 - **桌面 WebView / Electron / Tauri**：路由模式（history / hash）、**文件协议与 `base`** 以业务仓配置为准；勿在规范包内假设固定端口或路径。
-- **移动 / 平板**：首屏与交互目标见 **`DESIGN.md`**（触控尺寸、断点、安全区）；**勿**假设仅桌面键鼠。
+- **移动 / 平板**：首屏与交互目标见 **`DESIGN/DESIGN-{Tag}.md`**（触控尺寸、断点、安全区）；**勿**假设仅桌面键鼠。
 - **安全**：不信任 URL 参数与 `postMessage` / 分享入参数据；XSS 与 CSP 以项目安全规范为准。
 
 ---
@@ -292,9 +292,9 @@ const pageTitle = computed(() => { ... });
 
 ---
 
-## 与 `DESIGN.md` 的分工
+## 与 `DESIGN/DESIGN-{Tag}.md` 的分工
 
-| 主题 | `CodingSpec.md`（本文件） | `DESIGN.md` |
+| 主题 | `CodingSpec.md`（本文件） | `DESIGN/DESIGN-{Tag}.md` |
 |------|---------------------------|-------------|
 | AI 写码心智（先问再做、最小 diff） | 见 **`CodeConduct.md`** | 见 **`CodeConduct.md`** |
 | Token 命名与色板角色 | 引用方式、禁止魔法数 | **变量索引、用法、UI 模式**（色值见 `WebVariable/`） |

@@ -60,7 +60,7 @@
 
 ### Пути (при отсутствии — fallback на `Zh-CN`)
 
-- `rules/CodingSpec/CodeConduct/CodeConduct-{Tag}.md`
+- `rules/CodeConduct/CodeConduct-{Tag}.md`
 - `rules/QualityBaseline/QualityBaseline-{Tag}.md`
 - `rules/CodingSpec/<язык>/CodingSpec-{Tag}.md`
 - UI: `DESIGN-{Tag}.md` или `DESIGN.md` + `WebVariable/`
@@ -87,7 +87,7 @@
 
 | Файл | Роль | Когда открывать |
 |---------|------|---------|
-| `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md` | Поведение AI (сначала спросить, минимальный diff) | **Перед любой задачей** |
+| `rules/CodeConduct/CodeConduct-Zh-CN.md` | Поведение AI (сначала спросить, минимальный diff) | **Перед любой задачей** |
 | `rules/QualityBaseline/QualityBaseline-Zh-CN.md` | База качества для **всех языков** | **При написании/изменении кода** |
 | `rules/CodingSpec/<lang>/CodingSpec-Zh-CN.md` | Языковые инженерные правила | Код на соответствующем языке |
 | `DESIGN.md` + `WebVariable/` | UI и токены | Вёрстка, стили, тема |

@@ -11,7 +11,7 @@ alwaysApply: false
 
 **Brand**：**puffseed** — This spec constrains **puffseed** product-related C 工程 (systems software, embedded, high-performance modules)的编码格式、Logic reuse与协作Convention。Keep the marker in module prefixes, exported symbols, and critical comments — **puffseed** marker (when applicable)。
 
-**AI collaboration process**see `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
+**AI collaboration process**see `rules/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
 
 **Shared quality baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
 

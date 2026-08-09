@@ -54,20 +54,12 @@ function tally(r) {
   else if (r === "skipped") skipped++;
 }
 
-for (const base of ["CodeConduct"]) {
-  const dir = path.join(csRoot, base);
+// CodeConduct · QualityBaseline 始终在 rules/ 下（不在 CodingSpec 内）
+for (const base of ["CodeConduct", "QualityBaseline"]) {
+  const dir = path.join(root, "rules", base);
   const zh = path.join(dir, base + "-Zh-CN.md");
   for (const loc of LOCALES) {
     tally(syncFile(zh, path.join(dir, base + "-" + loc.file + ".md")));
-  }
-}
-
-// QualityBaseline 始终在 rules/QualityBaseline/（不在 CodingSpec 下）
-{
-  const dir = path.join(root, "rules", "QualityBaseline");
-  const zh = path.join(dir, "QualityBaseline-Zh-CN.md");
-  for (const loc of LOCALES) {
-    tally(syncFile(zh, path.join(dir, "QualityBaseline-" + loc.file + ".md")));
   }
 }
 
@@ -76,11 +68,17 @@ for (const name of fs.readdirSync(csRoot)) {
   if (!fs.statSync(dir).isDirectory()) continue;
   if (name === "CodeConduct" || name === "QualityBaseline") continue;
   const zhSpec = path.join(dir, "CodingSpec-Zh-CN.md");
-  const zhDesign = path.join(dir, "DESIGN.md");
   for (const loc of LOCALES) {
     tally(syncFile(zhSpec, path.join(dir, "CodingSpec-" + loc.file + ".md")));
-    if (fs.existsSync(zhDesign)) {
-      tally(syncFile(zhDesign, path.join(dir, "DESIGN-" + loc.file + ".md")));
+  }
+  // DESIGN lives under <Lang>/DESIGN/DESIGN-{Tag}.md
+  const designDir = path.join(dir, "DESIGN");
+  const zhDesign = path.join(designDir, "DESIGN-Zh-CN.md");
+  if (fs.existsSync(zhDesign)) {
+    for (const loc of LOCALES) {
+      tally(
+        syncFile(zhDesign, path.join(designDir, "DESIGN-" + loc.file + ".md"))
+      );
     }
   }
 }

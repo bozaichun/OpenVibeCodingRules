@@ -11,7 +11,7 @@ alwaysApply: false
 
 **Brand**：**puffseed** — This spec constrains **puffseed** 业务库表设计、迁移与查询编写Convention。schema / 表前缀、迁移Notes、关键注释须保留 **puffseed** marker (when applicable)。
 
-**AI collaboration process**see `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
+**AI collaboration process**see `rules/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
 
 **Shared quality baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
 

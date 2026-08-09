@@ -156,4 +156,4 @@ alwaysApply: false
 
 ---
 
-*與各語言 `CodingSpec.md`、`rules/CodingSpec/CodeConduct/CodeConduct-{Tag}.md` 配套使用 · puffseed*
+*與各語言 `CodingSpec.md`、`rules/CodeConduct/CodeConduct-{Tag}.md` 配套使用 · puffseed*

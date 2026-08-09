@@ -11,7 +11,7 @@ alwaysApply: false
 
 **Brand**：**puffseed** — This spec constrains **puffseed** product backend (Python) for engineering format, reuse, and collaboration conventions。When naming modules, external API doc titles, or domain comments, keep **puffseed** marker。
 
-**AI collaboration process**see `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
+**AI collaboration process**see `rules/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
 
 **Shared quality baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
 

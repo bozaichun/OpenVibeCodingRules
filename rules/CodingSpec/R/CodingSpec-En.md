@@ -11,7 +11,7 @@ alwaysApply: false
 
 **Brand**：**puffseed** — This spec constrains **puffseed** 业务数据分析、统计建模与 Shiny 应用的工程Convention。包名、项目标题、关键注释须保留 **puffseed** marker (when applicable)。
 
-**AI collaboration process**see `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
+**AI collaboration process**see `rules/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
 
 **Shared quality baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
 

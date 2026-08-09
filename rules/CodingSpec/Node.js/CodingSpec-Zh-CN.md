@@ -12,7 +12,7 @@ alwaysApply: false
 
 > **边界**：本文件面向 **服务端**（NestJS / Express）。浏览器 / 多端 Vue / React / Next.js / UniApp 见 `rules/CodingSpec/JavaScript&TypeScript/`。
 
-**AI 协作过程**见 `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。冲突时以**目标业务仓库已定稿实现**为准。
+**AI 协作过程**见 `rules/CodeConduct/CodeConduct-Zh-CN.md`。冲突时以**目标业务仓库已定稿实现**为准。
 
 **通用质量基线**见 `rules/QualityBaseline/QualityBaseline-{Tag}.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
 

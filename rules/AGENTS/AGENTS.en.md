@@ -60,7 +60,7 @@ Agents must identify the **target product repo** language and framework first, t
 
 ### Paths (fall back to `Zh-CN` if missing)
 
-- `rules/CodingSpec/CodeConduct/CodeConduct-{Tag}.md`
+- `rules/CodeConduct/CodeConduct-{Tag}.md`
 - `rules/QualityBaseline/QualityBaseline-{Tag}.md`
 - `rules/CodingSpec/<lang>/CodingSpec-{Tag}.md`
 - Frontend UI: `DESIGN-{Tag}.md` or `DESIGN.md` + `WebVariable/`
@@ -87,10 +87,10 @@ Agents must identify the **target product repo** language and framework first, t
 
 | Spec file | Role | When to open |
 |---------|------|---------|
-| `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md` | AI coding behavior (ask first, minimal diff) | **Before any coding task** |
+| `rules/CodeConduct/CodeConduct-Zh-CN.md` | AI coding behavior (ask first, minimal diff) | **Before any coding task** |
 | `rules/QualityBaseline/QualityBaseline-Zh-CN.md` | **All-language** style / quality / maintainability baseline | **When writing or changing product code** |
 | `rules/CodingSpec/JavaScript&TypeScript/CodingSpec.md` | Frontend engineering (Vue / React / Next.js / UniApp) | Frontend product code |
-| `rules/CodingSpec/JavaScript&TypeScript/DESIGN.md` | UI design (Token · visual · layout) | **UI layout, styles, theme, responsive** |
+| `rules/CodingSpec/JavaScript&TypeScript/DESIGN/DESIGN-{Tag}.md` | UI design (Token · visual · layout) | **UI layout, styles, theme, responsive** |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/` | Frontend design tokens | Colors, spacing, type, reset |
 | `rules/CodingSpec/JavaScript&TypeScript/PreView/` | Light/dark visual preview | Open in browser (do not feed full HTML to AI) |
 | Other `CodingSpec/<lang>/CodingSpec.md` | Language-specific engineering rules | Matching language product code |
@@ -151,7 +151,7 @@ Each language spec covers **coding format**, **reuse**, **security & config**, *
 ## 2. Style system overview (frontend only)
 
 For **UI layout, styles, component visuals, theme colors**, follow  
-`rules/CodingSpec/JavaScript&TypeScript/DESIGN.md`; tokens come from **`WebVariable/`**.
+`rules/CodingSpec/JavaScript&TypeScript/DESIGN/DESIGN-{Tag}.md`; tokens come from **`WebVariable/`**.
 
 **Import order**: **ThemeVariable → SystemVariable → ProjectReset → app CSS**
 
@@ -161,7 +161,7 @@ For **UI layout, styles, component visuals, theme colors**, follow
 
 ## 3. AI coding behavior
 
-Follow `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`:
+Follow `rules/CodeConduct/CodeConduct-Zh-CN.md`:
 
 1. **Think, then code**: state assumptions, surface ambiguity, ask when unsure
 2. **Prefer simplicity**: least code that solves the problem; no speculative work

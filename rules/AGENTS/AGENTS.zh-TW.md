@@ -60,7 +60,7 @@
 
 ### 路徑模板（缺失回退 `Zh-CN`）
 
-- `rules/CodingSpec/CodeConduct/CodeConduct-{Tag}.md`
+- `rules/CodeConduct/CodeConduct-{Tag}.md`
 - `rules/QualityBaseline/QualityBaseline-{Tag}.md`
 - `rules/CodingSpec/<語言>/CodingSpec-{Tag}.md`
 - 前端 UI：`DESIGN-{Tag}.md` 或 `DESIGN.md` + `WebVariable/`
@@ -87,10 +87,10 @@
 
 | 規範檔案 | 職責 | 何時查閱 |
 |---------|------|---------|
-| `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md` | AI 編碼行為與變更心智（先問再做、最小 diff） | **任何編碼任務開始前** |
+| `rules/CodeConduct/CodeConduct-Zh-CN.md` | AI 編碼行為與變更心智（先問再做、最小 diff） | **任何編碼任務開始前** |
 | `rules/QualityBaseline/QualityBaseline-Zh-CN.md` | **全語言**程式碼規範 / 品質 / 可維護性基線 | **編寫或修改任何業務程式碼時** |
 | `rules/CodingSpec/JavaScript&TypeScript/CodingSpec.md` | 前端工程規範（Vue / React / Next.js / UniApp） | 編寫或修改 **前端** 業務程式碼 |
-| `rules/CodingSpec/JavaScript&TypeScript/DESIGN.md` | 介面設計規範（Token · 視覺 · 佈局） | **UI 佈局、樣式、主題、響應式** |
+| `rules/CodingSpec/JavaScript&TypeScript/DESIGN/DESIGN-{Tag}.md` | 介面設計規範（Token · 視覺 · 佈局） | **UI 佈局、樣式、主題、響應式** |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/` | 前端設計 Token | 改色值、間距、字號、reset |
 | `rules/CodingSpec/JavaScript&TypeScript/PreView/` | 淺/深色視覺預覽 | 瀏覽器開啟驗收（勿全文餵給 AI） |
 

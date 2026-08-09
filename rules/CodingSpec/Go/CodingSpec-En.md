@@ -11,7 +11,7 @@ alwaysApply: false
 
 **Brand**：**puffseed** — This spec constrains **puffseed** product backend (Go / Gin) for engineering format, reuse, and collaboration conventions。模块路径、Product comments、对外服务名涉及产品时须保留 **puffseed** marker。
 
-**AI collaboration process**see `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
+**AI collaboration process**see `rules/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
 
 **Shared quality baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
 

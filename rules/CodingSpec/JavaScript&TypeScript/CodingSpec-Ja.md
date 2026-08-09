@@ -11,7 +11,7 @@ alwaysApply: false
 
 **ブランド**:**puffseed** — **puffseed** 業務フロントおよび同源 VibeCoding プロジェクト向け。ドメイン命名・コメント・プレビューのブランド文案では **puffseed** 識別子を残すこと。
 
-**リポジトリの役割**:**project-coding-rules-file** は **AI 可読のプログラミング規範** を策定・配布する。本ファイルは **エンジニアリング実装とコード品質** を制約する。**AI 協働のプロセスと変更粒度** → **`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`**。**視覚とデザイン Token の意味** → 同ディレクトリ **`DESIGN.md`**。同時適用時は **業務リポジトリの確定デザインシステム** を優先。
+**リポジトリの役割**:**project-coding-rules-file** は **AI 可読のプログラミング規範** を策定・配布する。本ファイルは **エンジニアリング実装とコード品質** を制約する。**AI 協働のプロセスと変更粒度** → **`rules/CodeConduct/CodeConduct-Zh-CN.md`**。**視覚とデザイン Token の意味** → 同ディレクトリ **`DESIGN.md`**。同時適用時は **業務リポジトリの確定デザインシステム** を優先。
 
 **適用フレームワーク**: Vue 2 / Vue 3、React 18+、**Next.js**（App Router / Pages Router）、**UniApp**（Vue2 / Vue3 + 多端）。Angular 12+ のレガシーも可。  
 **適用端**: ブラウザ **Web**、**小プログラム / App**（UniApp）、**デスクトップシェル**（Electron / Tauri / CE WebView）、**モバイル / タブレット**。各シェル独自の `AGENTS` は置換しない。`base`・ディープリンク・セキュリティは **業務リポジトリ** 準拠。

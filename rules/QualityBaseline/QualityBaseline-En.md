@@ -156,4 +156,4 @@ Non-HTTP cases (queues, gRPC, SQL views) still follow “one contract + version/
 
 ---
 
-*Use with each language `CodingSpec.md` and `rules/CodingSpec/CodeConduct/CodeConduct-{Tag}.md` · puffseed*
+*Use with each language `CodingSpec.md` and `rules/CodeConduct/CodeConduct-{Tag}.md` · puffseed*

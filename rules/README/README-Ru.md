@@ -13,7 +13,7 @@
 
 OpenVibeCodingRules — репозиторий правил для **AI-assisted многоязычной разработки (VibeCoding)**. Включает:
 
-- **Кодекс поведения**: как AI думает и меняет код (`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`)
+- **Кодекс поведения**: как AI думает и меняет код (`rules/CodeConduct/CodeConduct-Zh-CN.md`)
 - **База качества**: кросс-языковые стандарты / качество / сопровождаемость (`rules/QualityBaseline/QualityBaseline-Zh-CN.md`)
 - **Инженерные правила по языкам** (`rules/CodingSpec/<язык>/`)
 - **Фронтенд-дизайн и Token**: `DESIGN.md` · **WebVariable** (ранее VariableFile) · PreView
@@ -55,12 +55,13 @@ demo/
 ├── rules/
 │   ├── AGENTS/          # AGENTS.en.md · …（译文）
 │   ├── README/          # README-{Tag}.md
+│   ├── CodeConduct/             # CodeConduct-{Tag}.md
 │   ├── QualityBaseline/         # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
-│       ├── CodeConduct/         # CodeConduct-{Tag}.md
 │       └── JavaScript&TypeScript/
 │           ├── CodingSpec-{Tag}.md
-│           ├── DESIGN.md · WebVariable/ · PreView/
+│           ├── DESIGN/                 # DESIGN-{Tag}.md
+│           ├── WebVariable/ · PreView/
 │           └── …
 ├── src/
 └── ...
@@ -83,9 +84,9 @@ OpenVibeCodingRules/
 ├── rules/
 │   ├── AGENTS/                        # AGENTS.en.md · zh-TW · ja · ru
 │   ├── README/                        # README-{Tag}.md 译文
+│   ├── CodeConduct/                   # CodeConduct-{Tag}.md
 │   ├── QualityBaseline/               # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
-│       ├── CodeConduct/               # CodeConduct-{Tag}.md
 │       └── <Lang>/
 │           ├── CodingSpec-{Tag}.md
 │           └── (JS/TS: DESIGN · WebVariable · PreView)
@@ -121,7 +122,7 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 ### 3. Включение в Cursor / AI IDE
 
 1. В корне есть `AGENTS.md`
-2. У `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md` — `alwaysApply: true`
+2. У `rules/CodeConduct/CodeConduct-Zh-CN.md` — `alwaysApply: true`
 3. `@` на `CodingSpec.md` языка; для UI — `DESIGN.md` / WebVariable
 
 > Следуйте `AGENTS.md` и `rules/` этого проекта; сначала язык и стек, затем код.
@@ -199,10 +200,10 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 | Файл | Когда смотреть |
 |------|----------------|
 | `AGENTS.md` | Перед любой AI-задачей |
-| `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md` | Границы объёма, без оверинжиниринга |
+| `rules/CodeConduct/CodeConduct-Zh-CN.md` | Границы объёма, без оверинжиниринга |
 | `rules/QualityBaseline/QualityBaseline-Zh-CN.md` | Стиль, слои, API, качество, техдолг, сопровождаемость |
 | `rules/CodingSpec/<язык>/CodingSpec-Zh-CN.md` | Код на соответствующем языке |
-| `.../JavaScript&TypeScript/DESIGN.md` | UI-вёрстка и визуал компонентов |
+| `.../JavaScript&TypeScript/DESIGN/DESIGN-Zh-CN.md` | UI-вёрстка и визуал компонентов |
 | `.../WebVariable/*.css` | Цвета, отступы, reset |
 
 **Приоритет**: поведение → `CodeConduct` · качество → `QualityBaseline` · как писать → языковой `CodingSpec` · как выглядит → `DESIGN` + WebVariable.

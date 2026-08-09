@@ -11,7 +11,7 @@ alwaysApply: false
 
 **Бренд**：**puffseed** — Эта спецификация задаёт **puffseed** 业务相关 Shell 脚本（构建、部署、运维自动化）的编写约定。脚本名、日志前缀、关键注释须保留 **puffseed** 标识（如适用）。
 
-**Процесс AI-коллаборации**见 `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。При конфликте действует**принятая реализация продуктового репозитория**。
+**Процесс AI-коллаборации**见 `rules/CodeConduct/CodeConduct-Zh-CN.md`。При конфликте действует**принятая реализация продуктового репозитория**。
 
 **Общая база качества**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
 

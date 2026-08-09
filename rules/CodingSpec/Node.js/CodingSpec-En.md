@@ -13,7 +13,7 @@ alwaysApply: false
 
 > **Boundary**：This file targets the **server** (NestJS / Express)。Browser / multi-end Vue / React / Next.js / UniApp see `rules/CodingSpec/JavaScript&TypeScript/`。
 
-**AI collaboration process**see `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
+**AI collaboration process**see `rules/CodeConduct/CodeConduct-Zh-CN.md`。On conflict, follow**the product repo’s settled implementation**。
 
 **Shared quality baseline**see `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (style / commit gates / layering / APIs / quality / tech debt / maintainability)。
 

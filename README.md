@@ -12,7 +12,7 @@
 
 OpenVibeCodingRules 是一套面向 **AI 辅助多语言开发（VibeCoding）** 的规范仓库，包含：
 
-- **行为准则**：控制 AI 如何思考、如何改代码（`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`）
+- **行为准则**：控制 AI 如何思考、如何改代码（`rules/CodeConduct/CodeConduct-Zh-CN.md`）
 - **质量基线**：全语言代码规范 / 质量 / 可维护性（`rules/QualityBaseline/QualityBaseline-Zh-CN.md`）
 - **按语言划分的工程规范**（`rules/CodingSpec/<语言>/`）
 - **前端设计规范与 Token**：`DESIGN.md` · **WebVariable**（原 VariableFile）· PreView
@@ -54,12 +54,13 @@ demo/
 ├── rules/
 │   ├── AGENTS/          # AGENTS.en.md · …（译文）
 │   ├── README/          # README-{Tag}.md
+│   ├── CodeConduct/             # CodeConduct-{Tag}.md
 │   ├── QualityBaseline/         # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
-│       ├── CodeConduct/         # CodeConduct-{Tag}.md
 │       └── JavaScript&TypeScript/
 │           ├── CodingSpec-{Tag}.md
-│           ├── DESIGN.md · WebVariable/ · PreView/
+│           ├── DESIGN/                 # DESIGN-{Tag}.md
+│           ├── WebVariable/ · PreView/
 │           └── …
 ├── src/
 └── ...
@@ -82,12 +83,12 @@ OpenVibeCodingRules/
 ├── rules/
 │   ├── AGENTS/                        # AGENTS.en.md · zh-TW · ja · ru
 │   ├── README/                        # README-{Tag}.md 译文
+│   ├── CodeConduct/                   # CodeConduct-{Tag}.md
 │   ├── QualityBaseline/               # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
-│       ├── CodeConduct/               # CodeConduct-{Tag}.md
 │       └── <Lang>/
 │           ├── CodingSpec-{Tag}.md
-│           └── (JS/TS: DESIGN · WebVariable · PreView)
+│           └── (JS/TS: DESIGN/ · WebVariable · PreView)
 └── LICENSE
 ```
 
@@ -120,7 +121,7 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 ### 3. 在 Cursor / AI IDE 中启用
 
 1. 确保根目录存在 `AGENTS.md`
-2. `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md` 已 `alwaysApply: true`
+2. `rules/CodeConduct/CodeConduct-Zh-CN.md` 已 `alwaysApply: true`
 3. 按语言 `@` 引用对应 `CodingSpec.md`；前端 UI 再引用 `DESIGN.md` / WebVariable
 
 > 请遵循本项目 `AGENTS.md` 与 `rules/` 规范；先识别语言与技术栈，再编码。
@@ -198,10 +199,10 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 | 文件 | 何时查阅 |
 |------|---------|
 | `AGENTS.md` | 任何 AI 协作任务开始前 |
-| `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md` | 判断范围、避免过度实现 |
+| `rules/CodeConduct/CodeConduct-Zh-CN.md` | 判断范围、避免过度实现 |
 | `rules/QualityBaseline/QualityBaseline-Zh-CN.md` | 风格门禁、分层、接口、质量、技术债、可维护性 |
 | `rules/CodingSpec/<语言>/CodingSpec-Zh-CN.md` | 写对应语言业务代码 |
-| `.../JavaScript&TypeScript/DESIGN.md` | UI 布局、组件视觉 |
+| `.../JavaScript&TypeScript/DESIGN/DESIGN-Zh-CN.md` | UI 布局、组件视觉 |
 | `.../WebVariable/*.css` | 改色值、间距、reset |
 
 **优先级**：行为 → `CodeConduct` · 质量门禁 → `QualityBaseline` · 怎么写 → 语言 `CodingSpec` · 长什么样 → `DESIGN` + WebVariable。

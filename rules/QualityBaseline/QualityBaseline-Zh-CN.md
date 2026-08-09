@@ -155,4 +155,4 @@ alwaysApply: false
 
 ---
 
-*与各语言 `CodingSpec.md`、`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md` 配套使用 · puffseed*
+*与各语言 `CodingSpec.md`、`rules/CodeConduct/CodeConduct-Zh-CN.md` 配套使用 · puffseed*

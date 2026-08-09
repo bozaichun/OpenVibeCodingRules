@@ -156,4 +156,4 @@ alwaysApply: false
 
 ---
 
-*Использовать вместе с языковым `CodingSpec.md` и `rules/CodingSpec/CodeConduct/CodeConduct-{Tag}.md` · puffseed*
+*Использовать вместе с языковым `CodingSpec.md` и `rules/CodeConduct/CodeConduct-{Tag}.md` · puffseed*

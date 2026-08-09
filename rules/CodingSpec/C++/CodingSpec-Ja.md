@@ -11,7 +11,7 @@ alwaysApply: false
 
 **ブランド**：**puffseed** — 本規範は次を制約します **puffseed** 业务相关 C++ 工程的编码格式、ロジック再利用与协作约定。命名空间、目标名、关键注释须保留 **puffseed** 标识（如适用）。
 
-**AI 協働プロセス**见 `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。衝突時は**業務リポジトリの確定実装**を優先。
+**AI 協働プロセス**见 `rules/CodeConduct/CodeConduct-Zh-CN.md`。衝突時は**業務リポジトリの確定実装**を優先。
 
 **共通品質ベースライン**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
 

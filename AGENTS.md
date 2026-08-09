@@ -60,10 +60,10 @@
 
 | 用途 | 路径模板 |
 |------|---------|
-| 行为准则 | `rules/CodingSpec/CodeConduct/CodeConduct-{Tag}.md` |
+| 行为准则 | `rules/CodeConduct/CodeConduct-{Tag}.md` |
 | 质量基线 | `rules/QualityBaseline/QualityBaseline-{Tag}.md` |
 | 语言工程规范 | `rules/CodingSpec/<编程语言>/CodingSpec-{Tag}.md` |
-| 前端设计（可选译文） | `rules/CodingSpec/JavaScript&TypeScript/DESIGN-{Tag}.md`；若无则用 `DESIGN.md` |
+| 前端设计（可选译文） | `rules/CodingSpec/JavaScript&TypeScript/DESIGN/DESIGN-{Tag}.md`（缺失回退 `Zh-CN`） |
 | 前端 Token / 预览 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/` · `PreView/`（与语种无关） |
 | 说明文档译文 | `rules/README/README-{Tag}.md`（`zh-CN` 亦可读根目录 `README.md`） |
 
@@ -96,10 +96,10 @@
 
 | 规范文件 | 职责 | 何时查阅 |
 |---------|------|---------|
-| `rules/CodingSpec/CodeConduct/CodeConduct-{Tag}.md` | AI 编码行为与变更心智（先问再做、最小 diff） | **任何编码任务开始前** |
+| `rules/CodeConduct/CodeConduct-{Tag}.md` | AI 编码行为与变更心智（先问再做、最小 diff） | **任何编码任务开始前** |
 | `rules/QualityBaseline/QualityBaseline-{Tag}.md` | **全语言**代码规范 / 质量 / 可维护性基线（风格门禁、分层、接口、类型、依赖、技术债） | **编写或修改任何业务代码时** |
 | `rules/CodingSpec/JavaScript&TypeScript/CodingSpec-{Tag}.md` | 前端工程规范（Vue / React / Next.js / UniApp） | 编写或修改 **前端** 业务代码 |
-| `rules/CodingSpec/JavaScript&TypeScript/DESIGN.md`（或 `DESIGN-{Tag}.md`） | 界面设计规范（Token · 视觉 · 布局） | **UI 布局、样式、主题、响应式** |
+| `rules/CodingSpec/JavaScript&TypeScript/DESIGN/DESIGN-{Tag}.md` | 界面设计规范（Token · 视觉 · 布局） | **UI 布局、样式、主题、响应式** |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/` | 前端设计 Token（原 VariableFile） | 改色值、间距、字号、reset |
 | `rules/CodingSpec/JavaScript&TypeScript/PreView/` | 浅/深色视觉预览 | 浏览器打开验收（勿全文喂给 AI） |
 | `rules/CodingSpec/Python/CodingSpec-{Tag}.md` | Python · FastAPI / Django | Python 业务代码 |
@@ -196,7 +196,7 @@
 ## 2. 样式系统概览（仅前端）
 
 涉及 **UI 布局、样式、组件视觉、主题色** 时，遵守  
-`rules/CodingSpec/JavaScript&TypeScript/DESIGN.md`，Token 以 **`WebVariable/`** 为准。
+`rules/CodingSpec/JavaScript&TypeScript/DESIGN/DESIGN-Zh-CN.md`，Token 以 **`WebVariable/`** 为准。
 
 ### 2.1 样式分层与 1:1 编写原则
 
@@ -245,7 +245,7 @@ import "./main.css";
 
 ## 3. AI 编码行为规范
 
-遵守 `rules/CodingSpec/CodeConduct/CodeConduct-{Tag}.md` 核心心智（Tag 见「入口与国际化语种匹配」；缺失回退 `Zh-CN`）：
+遵守 `rules/CodeConduct/CodeConduct-{Tag}.md` 核心心智（Tag 见「入口与国际化语种匹配」；缺失回退 `Zh-CN`）：
 
 1. **先思考，再编码**：明确假设、列出解读、不确定时提问
 2. **简洁优先**：最少代码解决问题，不做推测性工作
@@ -330,4 +330,4 @@ import "./main.css";
 
 ---
 
-*最后同步：AGENTS/ · README/ · QualityBaseline/QualityBaseline-{Tag}.md · CodingSpec/{CodeConduct,*/CodingSpec}-{Tag}.md · language/ · script/ · WebVariable · PreView · puffseed*
+*最后同步：AGENTS/ · README/ · CodeConduct/CodeConduct-{Tag}.md · QualityBaseline/QualityBaseline-{Tag}.md · CodingSpec/*/CodingSpec-{Tag}.md · language/ · script/ · WebVariable · PreView · puffseed*

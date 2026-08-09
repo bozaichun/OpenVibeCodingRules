@@ -13,7 +13,7 @@ OpenVibeCodingRules に従い AI コーディングの痕跡を抑え、独自�
 
 OpenVibeCodingRules は **AI 補助の多言語開発（VibeCoding）** 向け規範リポジトリです。含むもの：
 
-- **行動規範**：AI の思考とコード変更の仕方（`rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`）
+- **行動規範**：AI の思考とコード変更の仕方（`rules/CodeConduct/CodeConduct-Zh-CN.md`）
 - **品質ベースライン**：全言語の規範 / 品質 / 保守性（`rules/QualityBaseline/QualityBaseline-Zh-CN.md`）
 - **言語別のエンジニアリング規範**（`rules/CodingSpec/<言語>/`）
 - **フロント設計と Token**：`DESIGN.md` · **WebVariable**（旧 VariableFile）· PreView
@@ -55,12 +55,13 @@ demo/
 ├── rules/
 │   ├── AGENTS/          # AGENTS.en.md · …（译文）
 │   ├── README/          # README-{Tag}.md
+│   ├── CodeConduct/             # CodeConduct-{Tag}.md
 │   ├── QualityBaseline/         # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
-│       ├── CodeConduct/         # CodeConduct-{Tag}.md
 │       └── JavaScript&TypeScript/
 │           ├── CodingSpec-{Tag}.md
-│           ├── DESIGN.md · WebVariable/ · PreView/
+│           ├── DESIGN/                 # DESIGN-{Tag}.md
+│           ├── WebVariable/ · PreView/
 │           └── …
 ├── src/
 └── ...
@@ -83,9 +84,9 @@ OpenVibeCodingRules/
 ├── rules/
 │   ├── AGENTS/                        # AGENTS.en.md · zh-TW · ja · ru
 │   ├── README/                        # README-{Tag}.md 译文
+│   ├── CodeConduct/                   # CodeConduct-{Tag}.md
 │   ├── QualityBaseline/               # QualityBaseline-{Tag}.md
 │   └── CodingSpec/
-│       ├── CodeConduct/               # CodeConduct-{Tag}.md
 │       └── <Lang>/
 │           ├── CodingSpec-{Tag}.md
 │           └── (JS/TS: DESIGN · WebVariable · PreView)
@@ -121,7 +122,7 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 ### 3. Cursor / AI IDE で有効化
 
 1. ルートに `AGENTS.md`
-2. `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md` は `alwaysApply: true`
+2. `rules/CodeConduct/CodeConduct-Zh-CN.md` は `alwaysApply: true`
 3. 言語の `CodingSpec.md` を `@`；UI は `DESIGN.md` / WebVariable も
 
 > 本プロジェクトの `AGENTS.md` と `rules/` に従い、先に言語と技術スタックを識別してから実装。
@@ -199,10 +200,10 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 | ファイル | いつ見るか |
 |---------|-----------|
 | `AGENTS.md` | あらゆる AI 協働の開始前 |
-| `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md` | 範囲判断、過剰実装の回避 |
+| `rules/CodeConduct/CodeConduct-Zh-CN.md` | 範囲判断、過剰実装の回避 |
 | `rules/QualityBaseline/QualityBaseline-Zh-CN.md` | スタイル門禁、層、API、品質、技術的負債、保守性 |
 | `rules/CodingSpec/<言語>/CodingSpec-Zh-CN.md` | その言語の業務コード |
-| `.../JavaScript&TypeScript/DESIGN.md` | UI レイアウト・コンポーネント視覚 |
+| `.../JavaScript&TypeScript/DESIGN/DESIGN-Zh-CN.md` | UI レイアウト・コンポーネント視覚 |
 | `.../WebVariable/*.css` | 色・余白・reset |
 
 **優先度**：行動 → `CodeConduct` · 品質 → `QualityBaseline` · 書き方 → 言語 `CodingSpec` · 見た目 → `DESIGN` + WebVariable。

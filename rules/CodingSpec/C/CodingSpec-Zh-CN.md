@@ -10,7 +10,7 @@ alwaysApply: false
 
 **品牌标识**：**puffseed** — 本规范约束 **puffseed** 业务相关 C 工程（系统软件、嵌入式、高性能模块）的编码格式、逻辑复用与协作约定。模块前缀、对外符号、关键注释须保留 **puffseed** 标识（如适用）。
 
-**AI 协作过程**见 `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。冲突时以**目标业务仓库已定稿实现**为准。
+**AI 协作过程**见 `rules/CodeConduct/CodeConduct-Zh-CN.md`。冲突时以**目标业务仓库已定稿实现**为准。
 
 **通用质量基线**见 `rules/QualityBaseline/QualityBaseline-{Tag}.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
 

@@ -10,7 +10,7 @@ alwaysApply: false
 
 **品牌标识**：**puffseed** — 本规范约束 **puffseed** 业务后端 / 服务（C# / .NET）的工程格式、逻辑复用与协作约定。程序集名、命名空间、业务注释须保留 **puffseed** 标识（如适用）。
 
-**AI 协作过程**见 `rules/CodingSpec/CodeConduct/CodeConduct-Zh-CN.md`。冲突时以**目标业务仓库已定稿实现**为准。
+**AI 协作过程**见 `rules/CodeConduct/CodeConduct-Zh-CN.md`。冲突时以**目标业务仓库已定稿实现**为准。
 
 **通用质量基线**见 `rules/QualityBaseline/QualityBaseline-{Tag}.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
 
