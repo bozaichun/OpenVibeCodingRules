@@ -6,7 +6,7 @@
 
 | 语言 / 运行时 | 主流框架 / 场景 | 规范目录 |
 |--------------|----------------|---------|
-| **JavaScript & TypeScript**（前端） | Vue、React、Next.js | `rules/CodingSpec/JavaScript&TypeScript/` |
+| **JavaScript & TypeScript**（前端） | Vue、React、Next.js、**UniApp** | `rules/CodingSpec/JavaScript&TypeScript/` |
 | **Node.js**（后端） | NestJS、Express | `rules/CodingSpec/Node.js/` |
 | **Python** | FastAPI、Django | `rules/CodingSpec/Python/` |
 | **Java** | Spring Boot | `rules/CodingSpec/Java/` |
@@ -35,7 +35,7 @@
 
 | 模式 | 识别信号 | 支持技术栈 | 说明 |
 |------|---------|-----------|------|
-| **普通项目** | **无** `public/plugin.json` | 原生 HTML + CSS + JS · Vue · React · Next.js | 通用浏览器端应用 |
+| **普通项目** | **无** `public/plugin.json` | 原生 HTML + CSS + JS · Vue · React · Next.js · UniApp | 通用 Web / 多端应用 |
 | **uTools 生态插件** | **存在** `public/plugin.json` | **仅** React · Vue（2 / 3） | uTools 插件模板 |
 
 ### 0.2 语言 / 框架识别流程
@@ -53,7 +53,7 @@
 |---------|------|---------|
 | `rules/CodeConduct.md` | AI 编码行为与变更心智（先问再做、最小 diff） | **任何编码任务开始前** |
 | `rules/CodingSpec/QualityBaseline.md` | **全语言**代码规范 / 质量 / 可维护性基线（风格门禁、分层、接口、类型、依赖、技术债） | **编写或修改任何业务代码时** |
-| `rules/CodingSpec/JavaScript&TypeScript/CodingSpec.md` | 前端工程规范（Vue / React / Next.js） | 编写或修改 **前端** 业务代码 |
+| `rules/CodingSpec/JavaScript&TypeScript/CodingSpec.md` | 前端工程规范（Vue / React / Next.js / UniApp） | 编写或修改 **前端** 业务代码 |
 | `rules/CodingSpec/JavaScript&TypeScript/DESIGN.md` | 界面设计规范（Token · 视觉 · 布局） | **UI 布局、样式、主题、响应式** |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/` | 前端设计 Token（原 VariableFile） | 改色值、间距、字号、reset |
 | `rules/CodingSpec/JavaScript&TypeScript/PreView/` | 浅/深色视觉预览 | 浏览器打开验收（勿全文喂给 AI） |
@@ -112,12 +112,13 @@
 | Vue 3 | `vue@3`、`<script setup>` | JS&TS CodingSpec · Vue 3 |
 | React 18+ | `react`、Hooks | JS&TS CodingSpec · React |
 | Next.js | `next`、`app/` 或 `pages/` | JS&TS CodingSpec · Next.js |
+| UniApp | `pages.json`、`manifest.json`、`@dcloudio/uni-*` | JS&TS CodingSpec · UniApp |
 
 **跨框架共性（前端摘录）**
 
 - **语言**：TypeScript 优先；公共 API 须有明确类型。
-- **目录**：按业务域划分；路由集中配置。
-- **事件**：业务处理函数 `handle` 前缀；Vue 对外事件 kebab-case；React/Next `onXxx`。
+- **目录**：按业务域划分；路由集中配置（含 UniApp `pages.json`）。
+- **事件**：业务处理函数 `handle` 前缀；Vue / UniApp 对外事件 kebab-case；React/Next `onXxx`。
 - **样式**：引用 **WebVariable** Token，禁止业务组件硬编码整套色板。
 - **注释**：模板 `<!-- 区块说明 -->`；关键业务可用 `// puffseed：说明`。
 
@@ -178,6 +179,7 @@ import "./main.css";
 |--------|---------|
 | 原生 HTML/CSS/JS | `index.html` 中 `<link>` |
 | Vue 2 / Vue 3 | `main.js` / `main.ts` 中 `import` |
+| UniApp | `App.vue` / `uni.scss` 或入口引入（注意小程序 CSS 变量） |
 | React / Next.js | 入口或根 layout 中 `import` |
 
 ### 2.2 主题 / 系统变量要点
@@ -225,12 +227,12 @@ import "./main.css";
 
 ### 4.1 前端
 
-| 场景 | Vue 3 | React 18+ | Next.js |
-|------|-------|-----------|---------|
-| 组件 | `<script setup>` SFC | 函数组件 + Hooks | Server/Client Component 边界 |
-| 路由 | `vue-router` | React Router | `app/` 或 `pages/` 约定 |
-| 状态 | `ref` / Pinia | `useState` / Zustand 等 | 服务端数据 + 客户端状态分离 |
-| 样式 | SCSS scoped | CSS Modules | 同左 + 根 layout 引 WebVariable |
+| 场景 | Vue 3 | UniApp | React 18+ | Next.js |
+|------|-------|--------|-----------|---------|
+| 组件 | `<script setup>` SFC | Vue SFC + `view`/`text` 等 | 函数组件 + Hooks | Server/Client Component 边界 |
+| 路由 | `vue-router` | `pages.json` | React Router | `app/` 或 `pages/` 约定 |
+| 状态 | `ref` / Pinia | Pinia / Vuex | `useState` / Zustand 等 | 服务端数据 + 客户端状态分离 |
+| 样式 | SCSS scoped | Token + rpx / 条件编译 | CSS Modules | 同左 + 根 layout 引 WebVariable |
 
 ### 4.2 其他端（摘要）
 

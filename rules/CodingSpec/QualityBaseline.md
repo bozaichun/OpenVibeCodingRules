@@ -36,7 +36,7 @@ alwaysApply: false
 
 | 语言 | 格式化 | Lint / 静态检查 | 类型 / 其它 |
 |------|--------|-----------------|------------|
-| JS/TS · Node | Prettier | ESLint（+ 框架插件） | `tsc` / vue-tsc |
+| JS/TS · Node · UniApp | Prettier | ESLint（+ Vue/React/UniApp 等框架插件） | `tsc` / vue-tsc |
 | Python | Ruff format / Black | Ruff / flake8 / pylint | mypy / pyright |
 | Java | google-java-format / Spotless | Checkstyle · **阿里巴巴 Java 开发手册**（P3C）· SpotBugs | — |
 | Go | `gofmt` / `goimports` | `golangci-lint` | `go vet` |

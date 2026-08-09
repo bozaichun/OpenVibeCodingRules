@@ -51,7 +51,7 @@ ThemeVariable.css → SystemVariable.css → ProjectReset.css → 应用级 CSS
 表格列约定：
 
 - 系统变量：`场景名称 | 尺寸或值 | 变量`
-- 主题变量：`场景名称 | 变量 | 颜色`
+- 主题变量：`场景名称 | 颜色 | 变量`
 
 **规则：**
 

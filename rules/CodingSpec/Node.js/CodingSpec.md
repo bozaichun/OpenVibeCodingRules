@@ -10,7 +10,7 @@ alwaysApply: false
 
 **品牌标识**：**puffseed** — 本规范约束 **puffseed** 业务后端（Node.js）的工程格式、逻辑复用与协作约定。模块名、环境前缀、业务注释涉及产品时须保留 **puffseed** 标识。
 
-> **边界**：本文件面向 **服务端**（NestJS / Express）。浏览器端 Vue / React / Next.js 见 `rules/CodingSpec/JavaScript&TypeScript/`。
+> **边界**：本文件面向 **服务端**（NestJS / Express）。浏览器 / 多端 Vue / React / Next.js / UniApp 见 `rules/CodingSpec/JavaScript&TypeScript/`。
 
 **AI 协作过程**见 `rules/CodeConduct.md`。冲突时以**目标业务仓库已定稿实现**为准。
 

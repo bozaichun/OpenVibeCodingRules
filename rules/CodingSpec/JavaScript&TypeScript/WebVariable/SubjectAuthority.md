@@ -25,7 +25,8 @@
 |卡片列表间距|32px|--size-32|
 |页面边距|40px|--size-40|
 |单元间距|48px|--size-48|
-|圆角|100px|--size-100|
+|页头高度|56px|--size-56|
+|圆角、页脚高度|100px|--size-100|
 
 ### 1.2 图标尺寸
 
@@ -34,8 +35,8 @@
 |提示图标|12px|--wh-12|
 |字体图标|16px|--wh-16|
 |表格图标|20px|--wh-20|
-|卡片操作|24px|--wh-24|
-|常用操作|32px|--wh-32|
+|卡片小图标操作|24px|--wh-24|
+|常用按钮、大图标操作|32px|--wh-32|
 
 ### 1.3 字体
 
@@ -74,79 +75,79 @@
 
 ### 2.1 标准色
 
-|场景名称|变量|颜色|
+|场景名称|颜色|变量|
 |---|---|---|
-|主题色|--primary|#1890ff|
-|悬停色|--primary-hover|#40a9ff|
-|激活色|--primary-active|#2d85e4|
-|背景色|--primary-bg|#e9f3ff|
-|边框色|--primary-border|#bad0f8|
+|主题色|#1890ff|--primary|
+|悬停色|#40a9ff|--primary-hover|
+|激活色|#2d85e4|--primary-active|
+|背景色|#e9f3ff|--primary-bg|
+|边框色|#bad0f8|--primary-border|
 
 ### 2.2 功能色 - 成功色
 
-|场景名称|变量|颜色|
+|场景名称|颜色|变量|
 |---|---|---|
-|成功色|--success|#22bd14|
-|悬停色|--success-hover|#23cf13|
-|激活色|--success-active|#15af07|
-|背景色|--success-bg|#e8f5e9|
-|边框色|--success-border|#c8e6c9|
+|成功色|#22bd14|--success|
+|悬停色|#23cf13|--success-hover|
+|激活色|#15af07|--success-active|
+|背景色|#e8f5e9|--success-bg|
+|边框色|#c8e6c9|--success-border|
 
 ### 2.3 功能色 - 警告色
 
-|场景名称|变量|颜色|
+|场景名称|颜色|变量|
 |---|---|---|
-|警告色|--warning|#eba51b|
-|悬停色|--warning-hover|#fab120|
-|激活色|--warning-active|#db9200|
-|背景色|--warning-bg|#fff3e0|
-|边框色|--warning-border|#ffe0b2|
+|警告色|#eba51b|--warning|
+|悬停色|#fab120|--warning-hover|
+|激活色|#db9200|--warning-active|
+|背景色|#fff3e0|--warning-bg|
+|边框色|#ffe0b2|--warning-border|
 
 ### 2.4 功能色 - 信息色
 
-|场景名称|变量|颜色|
+|场景名称|颜色|变量|
 |---|---|---|
-|信息色|--info|#9c9c9c|
-|悬停色|--info-hover|#BBBBBB|
-|激活色|--info-active|#E4E4E8|
-|背景色|--info-bg|#F2F2F6|
-|边框色|--info-border|#e4e4e4|
+|信息色|#9c9c9c|--info|
+|悬停色|#BBBBBB|--info-hover|
+|激活色|#E4E4E8|--info-active|
+|背景色|#F2F2F6|--info-bg|
+|边框色|#e4e4e4|--info-border|
 
 ### 2.5 功能色 - 错误色
 
-|场景名称|变量|颜色|
+|场景名称|颜色|变量|
 |---|---|---|
-|错误色|--error|#f05e45|
-|悬停色|--error-hover|#fa755e|
-|激活色|--error-active|#eb3939|
-|背景色|--error-bg|#fbe9e7|
-|边框色|--error-border|#ffc9b8|
+|错误色|#f05e45|--error|
+|悬停色|#fa755e|--error-hover|
+|激活色|#eb3939|--error-active|
+|背景色|#fbe9e7|--error-bg|
+|边框色|#ffc9b8|--error-border|
 
 ### 2.6 辅助色
 
-|场景名称|变量|颜色|
+|场景名称|颜色|变量|
 |---|---|---|
-|悬停色|--hover|#F0F1F2|
-|边框色|--border|#e4e5e7|
-|分隔线|--divider|#f0f0f0|
-|背景色|--bg|#f3f4f6|
-|白色|--white|#ffffff|
-|黑色|--black|#000000|
+|悬停色|#F0F1F2|--hover|
+|边框色|#e4e5e7|--border|
+|分隔线|#f0f0f0|--divider|
+|背景色|#f3f4f6|--bg|
+|白色|#ffffff|--white|
+|黑色|#000000|--black|
 
 ### 2.7 文本色 - 浅色背景
 
-|场景名称|变量|颜色|
+|场景名称|颜色|变量|
 |---|---|---|
-|标题|--title|#262626|
-|主要文本|--main-text|#595959|
-|次要文本|--secondary-text|#8c8c8c|
-|禁用文本|--disabled-text|#bfbfbf|
+|标题|#262626|--title|
+|主要文本|#595959|--main-text|
+|次要文本|#8c8c8c|--secondary-text|
+|禁用文本|#bfbfbf|--disabled-text|
 
 ### 2.8 文本色 - 深色背景
 
-|场景名称|变量|颜色|
+|场景名称|颜色|变量|
 |---|---|---|
-|标题|--title-dark|#d9d9d9|
-|主要文本|--main-text-dark|#a6a6a6|
-|次要文本|--secondary-text-dark|#737373|
-|禁用文本|--disabled-text-dark|#4d4d4d|
+|标题|#d9d9d9|--title-dark|
+|主要文本|#a6a6a6|--main-text-dark|
+|次要文本|#737373|--secondary-text-dark|
+|禁用文本|#4d4d4d|--disabled-text-dark|

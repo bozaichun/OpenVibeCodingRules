@@ -17,7 +17,7 @@ OpenVibeCodingRules 是一套面向 **AI 辅助多语言开发（VibeCoding）**
 
 | 语言 | 框架 / 场景 |
 |------|------------|
-| JavaScript & TypeScript | Vue、React、Next.js |
+| JavaScript & TypeScript | Vue、React、Next.js、UniApp |
 | Node.js | NestJS、Express |
 | Python | FastAPI、Django |
 | Java | Spring Boot |
@@ -141,7 +141,7 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 
 | 模式 | 判断方式 | 支持技术栈 |
 |------|---------|-----------|
-| 普通项目 | 无 `public/plugin.json` | 原生 HTML · Vue · React · Next.js |
+| 普通项目 | 无 `public/plugin.json` | 原生 HTML · Vue · React · Next.js · UniApp |
 | uTools 生态插件 | 存在 `public/plugin.json` | 仅 React · Vue |
 
 ### 样式编写原则（前端 · 1:1）
@@ -215,9 +215,6 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 ---
 
 ## 常见问题
-
-**Q：VariableFile 去哪了？**  
-A：已更名为 **WebVariable**，位于 `rules/CodingSpec/JavaScript&TypeScript/WebVariable/`，专用于前端项目变量。
 
 **Q：可以把 WebVariable 复制到 `src/styles/` 吗？**  
 A：不建议。应通过入口引用，保证 Token 单一维护源。

@@ -14,7 +14,7 @@ alwaysApply: false
 # 界面设计规范（VibeCoding · puffseed）
 
 > **用途**：智能体在目标业务仓库中编写 UI 时的**设计规范来源**（**puffseed** 前端视觉体系）。  
-> **适用范围**：原生 HTML + CSS + JavaScript、Vue 2 / Vue 3、React 18+、**Next.js**、Angular 12+ 等浏览器端技术栈，以及 uTools 生态插件（React / Vue）。  
+> **适用范围**：原生 HTML + CSS + JavaScript、Vue 2 / Vue 3、React 18+、**Next.js**、**UniApp**、Angular 12+ 等技术栈，以及 uTools 生态插件（React / Vue）。  
 > **执行原则**：先识别目标仓库的项目模式（见 `AGENTS.md` §0）与实际框架，再按对应章节落地。预览页与品牌文案保持 **puffseed** / **puffseed-ui** 标识。
 
 ---
@@ -51,6 +51,7 @@ pages/ 或 views/        # 页面级样式（仅对应页面内）
 |--------|------------------|-------------|
 | 原生 HTML/CSS/JS | `<link>` 于 `index.html` | BEM / 页面级 `<style>` |
 | Vue 2 / Vue 3 | 入口 `main.js` / `main.ts` 中 `import` | `<style scoped>` / SCSS scoped |
+| UniApp | `App.vue` / `uni.scss` 或入口引入；小程序端注意 CSS 变量支持 | 页面/组件样式 + `rpx`；条件编译样式 |
 | React 18+ | `index.jsx` / `main.tsx` 中 `import` | CSS Modules / styled-components |
 | Angular 12+ | `angular.json` `styles` 数组 | 组件 `styleUrls` + `:host` |
 
@@ -171,11 +172,11 @@ import "./main.css";  // 应用级补充（如 #app）
 
 ## 5. 各框架样式落地对照
 
-| 场景 | Vue 3 | React 18+ / Next.js | Angular 12+ | 原生 JS |
-|------|-------|---------------------|-------------|---------|
-| 全局 Token | `main.ts` import WebVariable | 入口 / 根 layout import | `angular.json` styles | `<link>` in HTML |
-| 组件样式 | SCSS scoped | CSS Modules | 组件 SCSS + `:host` | 页面 CSS / BEM |
-| 动态样式 | `:style` / class 绑定 | `style` / `className` | `[ngStyle]` / `[class]` | `element.style` / classList |
+| 场景 | Vue 3 | UniApp | React 18+ / Next.js | Angular 12+ | 原生 JS |
+|------|-------|--------|---------------------|-------------|---------|
+| 全局 Token | `main.ts` import WebVariable | `App.vue` / `uni.scss` 映射 | 入口 / 根 layout import | `angular.json` styles | `<link>` in HTML |
+| 组件样式 | SCSS scoped | 页面/组件样式 + rpx | CSS Modules | 组件 SCSS + `:host` | 页面 CSS / BEM |
+| 动态样式 | `:style` / class 绑定 | `:style` / class + `#ifdef` | `style` / `className` | `[ngStyle]` / `[class]` | `element.style` / classList |
 
 ---
 
