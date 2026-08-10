@@ -63,7 +63,7 @@ pages/ 或 views/        # 頁面級樣式（僅對應頁面內）
 | 檔案 | 職責 |
 |------|------|
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/ThemeVariable.css` | **主題色與文本色**（唯一維護處） |
-| `rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css` | 間距、佈局、字號、圖示尺寸、複合邊框/陰影 |
+| `rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css` | 間距、佈局、字號、圖示尺寸、邊框寬度、複合邊框/陰影 |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css` | 全域重置、`html`/`body` 基礎樣式 |
 
 入口引入順序：
@@ -101,10 +101,11 @@ import "./main.css";  // 應用級補充（如 #app）
 
 | 類別 | 變數示例 | 用途 |
 |------|---------|------|
-| 間距 | `--size-8` · `--size-16` · `--size-24` · `--size-40` | 元素/模組/頁面邊距 |
+| 間距 | `--size-8` · `--size-16` · `--size-24` · `--size-48` | 元素/模組/單元間距 |
 | 佈局 | `--layout-header` · `--layout-footer` · `--layout-aside` · `--layout-content` | 頁頭/頁腳/側欄/版心 |
 | 字號 | `--fs-12` · `--fs-14` · `--fs-16` · `--fs-20` | 輔助/正文/小標題/大標題 |
-| 圖示 | `--wh-16` · `--wh-24` · `--wh-32` | 圖示與操作按鈕尺寸 |
+| 圖示 | `--wh-16` · `--wh-24` | 圖示與操作按鈕尺寸 |
+| 邊框寬度 | `--border-fine` · `--border-1` | 邊框線寬檔位 |
 | 複合邊框/陰影 | `--line` · `--solid` · `--shadow` · `--shadow-bottom` | 引用 `var(--border)` |
 
 色值等寬展示：`font-family: 'SF Mono', Consolas, Monaco, monospace`

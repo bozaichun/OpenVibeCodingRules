@@ -41,11 +41,11 @@
   /* /1.信息色 */
   --info: #9c9c9c;
   /* /2.悬停色 */
-  --info-hover: #BBBBBB;
+  --info-hover: #bbbbbb;
   /* /3.激活色 */
-  --info-active: #E4E4E8;
+  --info-active: #e4e4e8;
   /* /4.背景色 */
-  --info-bg: #F2F2F6;
+  --info-bg: #f2f2f6;
   /* /5.边框色 */
   --info-border: #e4e4e4;
 
@@ -63,7 +63,7 @@
 
   /*! 辅助色 */
   /* /1.悬停色 */
-  --hover: #F0F1F2;
+  --hover: #f0f1f2;
   /* /2.边框色 */
   --border: #e4e5e7;
   /* /3.分隔线 */

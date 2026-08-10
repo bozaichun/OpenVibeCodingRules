@@ -63,7 +63,7 @@ pages/ or views/        # page-only styles
 | File | Role |
 |------|------|
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/ThemeVariable.css` | **Theme & text colors** (single source) |
-| `rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css` | Spacing, layout, type, icon sizes, composite borders/shadows |
+| `rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css` | Spacing, layout, type, icon sizes, border widths, composite borders/shadows |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css` | Global reset, `html`/`body` basics |
 
 Import order:
@@ -101,10 +101,11 @@ Table lists **names and use**, not hex.
 
 | Category | Examples | Use |
 |------|---------|------|
-| Spacing | `--size-8` · `--size-16` · `--size-24` · `--size-40` | Element / module / page padding |
+| Spacing | `--size-8` · `--size-16` · `--size-24` · `--size-48` | Element / module / unit spacing |
 | Layout | `--layout-header` · `--layout-footer` · `--layout-aside` · `--layout-content` | Header / footer / aside / content width |
 | Type | `--fs-12` · `--fs-14` · `--fs-16` · `--fs-20` | Helper / body / small / large titles |
-| Icons | `--wh-16` · `--wh-24` · `--wh-32` | Icons and action buttons |
+| Icons | `--wh-16` · `--wh-24` | Icons and action buttons |
+| Border width | `--border-fine` · `--border-1` | Border width scale |
 | Borders/shadows | `--line` · `--solid` · `--shadow` · `--shadow-bottom` | Uses `var(--border)` |
 
 Monospace for hex samples: `font-family: 'SF Mono', Consolas, Monaco, monospace`

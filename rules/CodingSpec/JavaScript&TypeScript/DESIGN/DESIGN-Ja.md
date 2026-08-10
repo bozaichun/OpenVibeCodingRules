@@ -63,7 +63,7 @@ pages/ または views/    # ページ専用
 | ファイル | 役割 |
 |------|------|
 | `.../WebVariable/ThemeVariable.css` | **テーマ色とテキスト色**（唯一ソース） |
-| `.../WebVariable/SystemVariable.css` | 余白・レイアウト・字号・アイコン寸法・複合枠/影 |
+| `.../WebVariable/SystemVariable.css` | 余白・レイアウト・字号・アイコン・枠幅・複合枠/影 |
 | `.../WebVariable/ProjectReset.css` | グローバルリセット、`html`/`body` |
 
 導入順：
@@ -99,10 +99,11 @@ import "./main.css";
 
 | 区分 | 例 | 用途 |
 |------|---------|------|
-| 余白 | `--size-8` · `--size-16` · `--size-24` · `--size-40` | 要素/モジュール/ページ |
+| 余白 | `--size-8` · `--size-16` · `--size-24` · `--size-48` | 要素/モジュール/ユニット |
 | レイアウト | `--layout-header` · `--layout-footer` · `--layout-aside` · `--layout-content` | ヘッダー/フッター/サイドバー/版心 |
 | 字号 | `--fs-12` · `--fs-14` · `--fs-16` · `--fs-20` | 補助/本文/小見出し/大見出し |
-| アイコン | `--wh-16` · `--wh-24` · `--wh-32` | アイコンと操作 |
+| アイコン | `--wh-16` · `--wh-24` | アイコンと操作 |
+| 枠幅 | `--border-fine` · `--border-1` | ボーダー幅 |
 | 枠/影 | `--line` · `--solid` · `--shadow` | `var(--border)` 参照 |
 
 ---

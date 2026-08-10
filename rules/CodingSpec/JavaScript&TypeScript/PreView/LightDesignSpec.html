@@ -39,7 +39,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 var(--size-32);
+        padding: 0 var(--size-30);
         height: var(--layout-header);
         background: var(--white);
         border-bottom: var(--solid);
@@ -61,6 +61,7 @@
 
       .nav-links a {
         font-size: var(--fs-12);
+        line-height: var(--lh-20);
         color: var(--secondary-text);
         text-decoration: none;
       }
@@ -76,6 +77,7 @@
         padding: var(--size-4) var(--size-12);
         border-radius: 9999px;
         font-size: var(--fs-12);
+        line-height: var(--lh-20);
         text-decoration: none;
       }
 
@@ -88,7 +90,7 @@
       }
 
       .hero {
-        padding: var(--size-48) var(--size-32) var(--size-40);
+        padding: var(--size-48) var(--size-30) var(--size-48);
         text-align: center;
         background: var(--bg);
       }
@@ -105,7 +107,7 @@
         font-size: var(--fs-16);
         line-height: var(--lh-24);
         color: var(--secondary-text);
-        max-width: 640px;
+        max-width: calc(var(--layout-content) / 2 + var(--size-48));
         margin: 0 auto var(--size-24);
       }
 
@@ -154,7 +156,7 @@
       }
 
       .section {
-        padding: var(--size-48) var(--size-32);
+        padding: var(--size-48) var(--size-30);
         max-width: var(--layout-content);
         margin: 0 auto;
       }
@@ -186,7 +188,7 @@
       .section-dark {
         background: var(--black);
         color: var(--title-dark);
-        padding: var(--size-48) var(--size-32);
+        padding: var(--size-48) var(--size-30);
       }
 
       .section-dark .section-inner {
@@ -204,7 +206,7 @@
 
       .section-gray {
         background: var(--bg);
-        padding: var(--size-48) var(--size-32);
+        padding: var(--size-48) var(--size-30);
       }
 
       .section-gray .section-inner {
@@ -227,7 +229,7 @@
       }
 
       .color-swatch-block {
-        height: 72px;
+        height: calc(var(--size-48) + var(--size-24));
         width: 100%;
       }
 
@@ -416,7 +418,7 @@
 
       .form-group {
         margin-bottom: var(--size-20);
-        max-width: 400px;
+        max-width: calc(var(--size-48) * 8 + var(--size-16));
       }
 
       .form-label {
@@ -456,7 +458,7 @@
 
       .form-textarea {
         width: 100%;
-        min-height: 80px;
+        min-height: calc(var(--size-48) + var(--size-30));
         background: var(--white);
         color: var(--title);
         border: var(--solid);
@@ -490,7 +492,7 @@
         background: var(--primary);
         border-radius: var(--size-4);
         margin-bottom: var(--size-6);
-        height: 28px;
+        height: var(--size-30);
       }
 
       .spacing-value {
@@ -522,8 +524,8 @@
       }
 
       .radius-box {
-        width: 64px;
-        height: 64px;
+        width: var(--size-48);
+        height: var(--size-48);
         background: var(--primary);
         margin-bottom: var(--size-6);
       }
@@ -577,8 +579,8 @@
       }
 
       .icon-demo {
-        width: var(--wh-32);
-        height: var(--wh-32);
+        width: var(--size-30);
+        height: var(--size-30);
         background: var(--primary-bg);
         border: var(--solid);
         border-color: var(--primary-border);
@@ -680,7 +682,7 @@
       }
 
       .footer {
-        padding: var(--size-32);
+        padding: var(--size-30);
         min-height: var(--layout-footer);
         display: flex;
         align-items: center;
@@ -724,7 +726,7 @@
 
       .layout-shell-body {
         display: flex;
-        min-height: 120px;
+        min-height: calc(var(--size-48) + var(--size-48) + var(--size-24));
       }
 
       .layout-shell-aside {
@@ -815,7 +817,7 @@
         .section,
         .section-dark,
         .section-gray {
-          padding: var(--size-32) var(--size-20);
+          padding: var(--size-30) var(--size-20);
         }
 
         .layout-shell-body {
@@ -860,7 +862,7 @@
             font-family: var(--font-mono);
             font-size: var(--fs-12);
             background: var(--divider);
-            padding: 2px 6px;
+            padding: var(--border-1) var(--size-6);
             border-radius: var(--size-4);
           "
           >ThemeVariable.css</code
@@ -869,7 +871,7 @@
             font-family: var(--font-mono);
             font-size: var(--fs-12);
             background: var(--divider);
-            padding: 2px 6px;
+            padding: var(--border-1) var(--size-6);
             border-radius: var(--size-4);
           "
           >SystemVariable.css</code
@@ -1032,14 +1034,14 @@
           <div class="color-swatch-block" style="background: #bbbbbb"></div>
           <div class="color-swatch-info">
             <div class="color-swatch-name">悬停色</div>
-            <div class="color-swatch-hex">#BBBBBB</div>
+            <div class="color-swatch-hex">#bbbbbb</div>
           </div>
         </div>
         <div class="color-swatch">
           <div class="color-swatch-block" style="background: #e4e4e8"></div>
           <div class="color-swatch-info">
             <div class="color-swatch-name">激活色</div>
-            <div class="color-swatch-hex">#E4E4E8</div>
+            <div class="color-swatch-hex">#e4e4e8</div>
           </div>
         </div>
         <div class="color-swatch">
@@ -1049,7 +1051,7 @@
           ></div>
           <div class="color-swatch-info">
             <div class="color-swatch-name">背景色</div>
-            <div class="color-swatch-hex">#F2F2F6</div>
+            <div class="color-swatch-hex">#f2f2f6</div>
           </div>
         </div>
         <div class="color-swatch">
@@ -1112,7 +1114,7 @@
           ></div>
           <div class="color-swatch-info">
             <div class="color-swatch-name">悬停色</div>
-            <div class="color-swatch-hex">#F0F1F2</div>
+            <div class="color-swatch-hex">#f0f1f2</div>
           </div>
         </div>
         <div class="color-swatch">
@@ -1360,7 +1362,7 @@
         </div>
         <div class="button-item">
           <button type="button" class="btn-ghost">次要</button>
-          <div class="button-label">底 #F0F1F2<br />边 #e4e5e7</div>
+          <div class="button-label">底 #f0f1f2<br />边 #e4e5e7</div>
         </div>
       </div>
     </section>
@@ -1441,78 +1443,58 @@
       <div class="section-label">07 / SystemVariable · 间距与尺寸</div>
       <h2 class="section-title">元素间距（--size-*）</h2>
       <p class="spec-note">
-        与源码注释一致：如 /4 强关联 4px、/6 元素间距 8px、/13 页面边距 40px。
+        与 SubjectAuthority §1.1 一致：如 /2 强关联 4px、/4 元素间距 8px、/10 单元间距 48px。边框宽度见 §1.5 `--border-*`。
       </p>
       <div class="spacing-row">
         <div class="spacing-item">
-          <div class="spacing-block" style="width: var(--size-line)"></div>
-          <div class="spacing-value">0.5px</div>
-          <div class="spacing-desc">/1 边框线</div>
-        </div>
-        <div class="spacing-item">
           <div class="spacing-block" style="width: var(--size-0)"></div>
           <div class="spacing-value">0</div>
-          <div class="spacing-desc">/2 清空</div>
-        </div>
-        <div class="spacing-item">
-          <div class="spacing-block" style="width: var(--size-1)"></div>
-          <div class="spacing-value">1px</div>
-          <div class="spacing-desc">/3 常规线</div>
+          <div class="spacing-desc">/1 清空</div>
         </div>
         <div class="spacing-item">
           <div class="spacing-block" style="width: var(--size-4)"></div>
           <div class="spacing-value">4px</div>
-          <div class="spacing-desc">/4 强关联</div>
+          <div class="spacing-desc">/2 强关联</div>
         </div>
         <div class="spacing-item">
           <div class="spacing-block" style="width: var(--size-6)"></div>
           <div class="spacing-value">6px</div>
-          <div class="spacing-desc">/5 非关联</div>
+          <div class="spacing-desc">/3 非关联</div>
         </div>
         <div class="spacing-item">
           <div class="spacing-block" style="width: var(--size-8)"></div>
           <div class="spacing-value">8px</div>
-          <div class="spacing-desc">/6 元素间距</div>
+          <div class="spacing-desc">/4 元素间距</div>
         </div>
         <div class="spacing-item">
           <div class="spacing-block" style="width: var(--size-12)"></div>
           <div class="spacing-value">12px</div>
-          <div class="spacing-desc">/7 列间距</div>
+          <div class="spacing-desc">/5 列间距</div>
         </div>
         <div class="spacing-item">
           <div class="spacing-block" style="width: var(--size-16)"></div>
           <div class="spacing-value">16px</div>
-          <div class="spacing-desc">/8 栏目间距</div>
+          <div class="spacing-desc">/6 栏目间距</div>
         </div>
         <div class="spacing-item">
           <div class="spacing-block" style="width: var(--size-20)"></div>
           <div class="spacing-value">20px</div>
-          <div class="spacing-desc">/9 内容边距</div>
+          <div class="spacing-desc">/7 内容边距</div>
         </div>
         <div class="spacing-item">
           <div class="spacing-block" style="width: var(--size-24)"></div>
           <div class="spacing-value">24px</div>
-          <div class="spacing-desc">/10 模块间距</div>
+          <div class="spacing-desc">/8 模块间距</div>
         </div>
         <div class="spacing-item">
           <div class="spacing-block" style="width: var(--size-30)"></div>
           <div class="spacing-value">30px</div>
-          <div class="spacing-desc">/11 标语间距</div>
-        </div>
-        <div class="spacing-item">
-          <div class="spacing-block" style="width: var(--size-32)"></div>
-          <div class="spacing-value">32px</div>
-          <div class="spacing-desc">/12 卡片列表</div>
-        </div>
-        <div class="spacing-item">
-          <div class="spacing-block" style="width: var(--size-40)"></div>
-          <div class="spacing-value">40px</div>
-          <div class="spacing-desc">/13 页面边距</div>
+          <div class="spacing-desc">/9 标语/按钮</div>
         </div>
         <div class="spacing-item">
           <div class="spacing-block" style="width: var(--size-48)"></div>
           <div class="spacing-value">48px</div>
-          <div class="spacing-desc">/14 单元间距</div>
+          <div class="spacing-desc">/10 单元间距</div>
         </div>
       </div>
     </section>
@@ -1592,17 +1574,35 @@
         <div class="radius-item">
           <div
             class="radius-box"
-            style="border-radius: 9999px; width: 88px"
+            style="border-radius: 9999px; width: calc(var(--size-48) + var(--size-48) - var(--size-8))"
           ></div>
           <div class="radius-label">9999px</div>
           <div class="radius-desc">胶囊 pill</div>
         </div>
       </div>
-      <h2 class="section-title" style="margin-top: var(--size-32)">
+      <h2 class="section-title" style="margin-top: var(--size-30)">
+        边框尺寸（--border-*）
+      </h2>
+      <p class="spec-note" style="margin-bottom: var(--size-12)">
+        与 SubjectAuthority §1.5 一致；复合线型 `--line` / `--solid` 的宽度引用此档。
+      </p>
+      <div class="spacing-row">
+        <div class="spacing-item">
+          <div class="spacing-block" style="width: var(--border-fine)"></div>
+          <div class="spacing-value">0.5px</div>
+          <div class="spacing-desc">--border-fine</div>
+        </div>
+        <div class="spacing-item">
+          <div class="spacing-block" style="width: var(--border-1)"></div>
+          <div class="spacing-value">1px</div>
+          <div class="spacing-desc">--border-1</div>
+        </div>
+      </div>
+      <h2 class="section-title" style="margin-top: var(--size-30)">
         边框线（基于 #e4e5e7）
       </h2>
       <p class="spec-note" style="margin-bottom: var(--size-12)">
-        线型在变量中为 border-style + width + 颜色引用。
+        线型在变量中为 border-style + width（`--border-*`）+ 颜色引用。
       </p>
       <div
         style="
@@ -1636,7 +1636,7 @@
       >
         常规虚线：2px，色 #e4e5e7
       </div>
-      <h2 class="section-title" style="margin-top: var(--size-32)">
+      <h2 class="section-title" style="margin-top: var(--size-30)">
         阴影（rgba 数值与源码一致）
       </h2>
       <div class="elevation-grid">
@@ -1686,10 +1686,6 @@
         <div class="button-item">
           <div class="icon-demo wh-24">24</div>
           <div class="button-label">24px · 卡片操作</div>
-        </div>
-        <div class="button-item">
-          <div class="icon-demo wh-32">32</div>
-          <div class="button-label">32px · 常用操作</div>
         </div>
       </div>
     </section>

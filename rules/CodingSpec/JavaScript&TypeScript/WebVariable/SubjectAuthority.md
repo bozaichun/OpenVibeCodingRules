@@ -9,23 +9,19 @@
 
 ### 1.1 元素尺寸
 
-> `--size-*` 为通用尺寸 Token；仅允许用于以下属性：`width`、`height`、`border-radius`、`line-height`、`gap`、`padding`、`inset`、`right`、`left`、`top`、`bottom`、`margin`、`flex-shrink`、`opacity`、`flex`。禁止用于字阶、图标宽高、边框线型、阴影、以及页头/页脚/侧栏/版心等已有 `--layout-*` 专用变量的场景。
+> `--size-*` 为通用尺寸 Token；仅允许用于以下属性：`width`、`height`、`border-radius`、`line-height`、`gap`、`padding`、`inset`、`right`、`left`、`top`、`bottom`、`margin`、`flex-shrink`、`opacity`、`flex`。禁止用于字阶、图标宽高、边框宽度（`--border-*`）、边框线型、阴影、以及页头/页脚/侧栏/版心等已有专用变量的场景。
 
 |场景名称|尺寸|变量|
 |---|---|---|
 |清空元素|0px|--size-0|
-|边框线|0.5px|--size-line|
-|常规线|1px|--size-1|
 |强关联|4px|--size-4|
-|非关联|6px|--size-6|
+|非关联、边框圆角|6px|--size-6|
 |元素间距|8px|--size-8|
-|列间距|12px|--size-12|
+|列间距、边框圆角|12px|--size-12|
 |栏目间距|16px|--size-16|
 |内容边距|20px|--size-20|
 |模块间距|24px|--size-24|
-|标语间距|30px|--size-30|
-|卡片列表间距|32px|--size-32|
-|页面边距|40px|--size-40|
+|标语间距、按钮高度、图标尺寸|30px|--size-30|
 |单元间距|48px|--size-48|
 
 ### 1.2 布局尺寸
@@ -41,7 +37,7 @@
 
 ### 1.3 图标尺寸
 
-> `--wh-*` 为宽度和高度的结合体，对于图标类宽度 `width:var(--wh-*)`、宽度 `height:var(--wh-*)` 二者相辅相成，缺一不可，注意：仅在图标尺寸的情况下使用。
+> `--wh-*` 为宽度和高度的结合体，对于图标类宽度 `width:var(--wh-*)`、高度 `height:var(--wh-*)` 二者相辅相成，缺一不可，注意：仅在图标尺寸的情况下使用。
 
 |场景名称|尺寸|变量|
 |---|---|---|
@@ -49,7 +45,6 @@
 |字体图标|16px|--wh-16|
 |表格图标|20px|--wh-20|
 |卡片小图标操作|24px|--wh-24|
-|常用按钮、常规图标操作|32px|--wh-32|
 
 ### 1.4 字体（字阶 + 行高强制成对）
 
@@ -68,17 +63,26 @@
 |展示标题：数据大屏主标题|56px|--fs-56|--lh-64|
 |展示标题：数据大屏超大标题|68px|--fs-68|--lh-76|
 
-### 1.5 边框线
+### 1.5 边框尺寸
 
-> `--line` / `--solid` / `--dashed` 为边框线型复合 Token（含 style、width、color）；仅允许以完整值写入 `border`（或其等价写法如 `border-top` 等单边属性），禁止拆开单独用于 `border-style` / `border-width` / `border-color`，也禁止用于阴影或其他非边框场景。
+> `--border-*` 为边框宽度 Token；仅允许用于 `border-width`（及单边宽度属性），或作为复合边框 Token 中的宽度分量。禁止当作间距 `--size-*`、图标或阴影使用。
+
+|场景名称|尺寸|变量|
+|---|---|---|
+|边框线|0.5px|--border-fine|
+|常规线|1px|--border-1|
+
+### 1.6 边框线
+
+> `--line` / `--solid` / `--dashed` 为边框线型复合 Token（含 style、width、color）；宽度应引用 §1.5 的 `--border-*`。仅允许以完整值写入 `border`（或其等价写法如 `border-top` 等单边属性），禁止拆开单独用于 `border-style` / `border-width` / `border-color`，也禁止用于阴影或其他非边框场景。
 
 |场景名称|值|变量|
 |---|---|---|
-|基础实线|solid 0.5px var(--border)|--line|
-|常规实线|solid 1px var(--border)|--solid|
+|基础实线|solid var(--border-fine) var(--border)|--line|
+|常规实线|solid var(--border-1) var(--border)|--solid|
 |常规虚线|dashed 2px var(--border)|--dashed|
 
-### 1.6 阴影
+### 1.7 阴影
 
 > `--shadow*` 为阴影复合 Token；仅允许用于 `box-shadow` 属性（如 `box-shadow: var(--shadow)`），禁止用于 `text-shadow`、`filter`、`border` 或其他非阴影场景。
 
@@ -127,9 +131,9 @@
 |场景名称|颜色|变量|
 |---|---|---|
 |信息色|#9c9c9c|--info|
-|悬停色|#BBBBBB|--info-hover|
-|激活色|#E4E4E8|--info-active|
-|背景色|#F2F2F6|--info-bg|
+|悬停色|#bbbbbb|--info-hover|
+|激活色|#e4e4e8|--info-active|
+|背景色|#f2f2f6|--info-bg|
 |边框色|#e4e4e4|--info-border|
 
 ### 2.5 功能色 - 错误色
@@ -146,7 +150,7 @@
 
 |场景名称|颜色|变量|
 |---|---|---|
-|悬停色|#F0F1F2|--hover|
+|悬停色|#f0f1f2|--hover|
 |边框色|#e4e5e7|--border|
 |分隔线|#f0f0f0|--divider|
 |背景色|#f3f4f6|--bg|

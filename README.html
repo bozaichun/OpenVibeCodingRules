@@ -37,8 +37,8 @@
 
       * {
         box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+        margin: var(--size-0);
+        padding: var(--size-0);
       }
 
       html {
@@ -72,7 +72,7 @@
         line-height: var(--lh-20);
       }
 
-      /* —— Nav · 页头高度 --layout-header · 页面边距 --size-40 —— */
+      /* —— Nav · 页头高度 --layout-header · 页面边距 --size-48 —— */
       .nav {
         position: sticky;
         top: 0;
@@ -81,9 +81,10 @@
         align-items: center;
         gap: var(--size-24);
         height: var(--layout-header);
-        padding: 0 var(--size-40);
+        padding: 0 var(--size-48);
         background: rgba(255, 255, 255, 0.92);
         border-bottom: var(--solid);
+        box-shadow: var(--shadow-bottom);
         backdrop-filter: blur(var(--size-8));
       }
 
@@ -129,7 +130,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        height: var(--wh-32);
+        height: var(--size-30);
         padding: 0 var(--size-16);
         border-radius: var(--size-4);
         background: var(--primary);
@@ -149,9 +150,9 @@
         flex-shrink: 0;
         appearance: none;
         -webkit-appearance: none;
-        height: var(--wh-32);
+        height: var(--size-30);
         min-width: 0;
-        max-width: 140px;
+        max-width: calc(var(--size-48) * 3);
         /* 左：文字内边距；右：图标左侧间距 + 图标宽 + 图标右侧间距 */
         padding: 0 calc(var(--size-12) + var(--size-12) + var(--size-12)) 0
           var(--size-12);
@@ -160,7 +161,7 @@
         background-color: var(--white);
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2.5 4.25L6 7.75L9.5 4.25' stroke='%23262626' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
         background-repeat: no-repeat;
-        background-size: var(--size-12);
+        background-size: var(--wh-12);
         background-position: right var(--size-12) center;
         color: var(--title);
         font-size: var(--fs-12);
@@ -179,7 +180,7 @@
 
       /* —— Layout · 版心 --layout-content —— */
       .wrap {
-        width: min(var(--layout-content), calc(100% - var(--size-40) * 2));
+        width: min(var(--layout-content), calc(100% - var(--size-48) * 2));
         margin: 0 auto;
       }
 
@@ -248,6 +249,134 @@
         font-family: var(--font-mono);
       }
 
+      .token-scale {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: var(--size-12);
+        margin-top: var(--size-16);
+      }
+
+      .token-scale-item {
+        text-align: center;
+        min-width: var(--size-48);
+      }
+
+      .token-scale-bar {
+        margin: var(--size-0) auto var(--size-6);
+        height: var(--size-30);
+        background: var(--primary);
+        border-radius: var(--size-4);
+      }
+
+      .token-scale-name,
+      .token-scale-meta {
+        font-family: var(--font-mono);
+        font-size: var(--fs-12);
+        line-height: var(--lh-20);
+      }
+
+      .token-scale-name {
+        color: var(--title);
+        font-weight: 600;
+      }
+
+      .token-scale-meta {
+        color: var(--secondary-text);
+      }
+
+      .token-icon-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--size-24);
+        align-items: flex-end;
+        margin-top: var(--size-16);
+      }
+
+      .token-icon-item {
+        text-align: center;
+      }
+
+      .token-icon-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: var(--size-0) auto var(--size-6);
+        background: var(--primary-bg);
+        border: var(--solid);
+        border-color: var(--primary-border);
+        border-radius: var(--size-8);
+        color: var(--primary);
+        font-size: var(--fs-12);
+        line-height: var(--lh-20);
+      }
+
+      .token-border-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--size-12);
+        margin-top: var(--size-16);
+      }
+
+      .token-border-card {
+        padding: var(--size-16);
+        border-radius: var(--size-8);
+        background: var(--white);
+        font-size: var(--fs-12);
+        line-height: var(--lh-20);
+        color: var(--secondary-text);
+      }
+
+      .token-border-card strong {
+        display: block;
+        margin-bottom: var(--size-8);
+        color: var(--title);
+        font-family: var(--font-mono);
+        font-size: var(--fs-12);
+        line-height: var(--lh-20);
+      }
+
+      .token-border-card.is-line {
+        border: var(--line);
+      }
+
+      .token-border-card.is-solid {
+        border: var(--solid);
+      }
+
+      .token-border-card.is-dashed {
+        border: var(--dashed);
+      }
+
+      .token-shadow-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(calc(var(--size-48) * 3), 1fr));
+        gap: var(--size-16);
+        margin-top: var(--size-16);
+      }
+
+      .token-shadow-card {
+        padding: var(--size-20);
+        border-radius: var(--size-8);
+        background: var(--white);
+        border: var(--solid);
+      }
+
+      .token-shadow-card strong {
+        display: block;
+        margin-bottom: var(--size-6);
+        font-family: var(--font-mono);
+        font-size: var(--fs-12);
+        line-height: var(--lh-20);
+        color: var(--title);
+      }
+
+      .token-shadow-card span {
+        font-size: var(--fs-12);
+        line-height: var(--lh-20);
+        color: var(--secondary-text);
+      }
+
       .rule-callout {
         margin-top: var(--size-20);
         padding: var(--size-16) var(--size-20);
@@ -275,7 +404,7 @@
       .hero {
         position: relative;
         overflow: hidden;
-        padding: var(--size-48) 0 var(--size-40);
+        padding: var(--size-48) 0 var(--size-48);
         background: var(--hero-glow);
         border-bottom: var(--solid);
       }
@@ -283,7 +412,7 @@
       .hero-grid {
         display: grid;
         grid-template-columns: 1.2fr 0.8fr;
-        gap: var(--size-40);
+        gap: var(--size-48);
         align-items: end;
       }
 
@@ -324,7 +453,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        height: var(--size-40);
+        height: var(--size-48);
         padding: 0 var(--size-20);
         border-radius: var(--size-4);
         font-size: var(--fs-14);
@@ -336,7 +465,7 @@
       }
 
       .btn:hover {
-        transform: translateY(calc(var(--size-1) * -1));
+        transform: translateY(calc(var(--border-1) * -1));
       }
 
       .btn-primary {
@@ -494,7 +623,7 @@
       .lang-item:hover {
         border-color: var(--primary);
         color: inherit;
-        transform: translateY(calc(var(--size-1) * -2));
+        transform: translateY(calc(var(--border-1) * -2));
         box-shadow: var(--shadow);
       }
 
@@ -791,13 +920,17 @@
           grid-template-columns: 1fr;
         }
 
+        .token-border-row {
+          grid-template-columns: 1fr;
+        }
+
         .wrap {
-          width: calc(100% - var(--size-40));
+          width: calc(100% - var(--size-48));
         }
 
         .md-dialog {
           width: calc(100% - var(--size-24));
-          max-height: calc(100vh - var(--layout-header) - var(--size-32));
+          max-height: calc(100vh - var(--layout-header) - var(--size-30));
         }
 
         .md-dialog-toolbar {
@@ -838,13 +971,13 @@
         display: flex;
         flex-direction: column;
         width: min(var(--layout-content), 100%);
-        max-height: calc(100vh - var(--layout-header) - var(--size-40));
+        max-height: calc(100vh - var(--layout-header) - var(--size-48));
         background: var(--white);
         border: var(--solid);
         border-radius: var(--size-8);
         box-shadow: var(--shadow);
         overflow: hidden;
-        transform: translateY(10px) scale(0.98);
+        transform: translateY(var(--size-8)) scale(0.98);
         transition: transform 0.22s ease;
         position: relative;
         z-index: 1;
@@ -887,7 +1020,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        height: var(--size-32);
+        height: var(--size-30);
         padding: 0 var(--size-12);
         border-radius: var(--size-4);
         border: var(--solid);
@@ -907,7 +1040,7 @@
       }
 
       .md-dialog-actions .md-close {
-        width: var(--size-32);
+        width: var(--size-30);
         padding: 0;
         font-size: var(--fs-16);
         line-height: var(--lh-24);
@@ -949,7 +1082,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        height: var(--size-32);
+        height: var(--size-30);
         padding: 0 var(--size-12);
         border: 0;
         border-radius: var(--size-4);
@@ -971,7 +1104,7 @@
         flex: 1;
         min-height: 0;
         overflow: auto;
-        padding: var(--size-24) var(--size-24) var(--size-32);
+        padding: var(--size-24) var(--size-24) var(--size-30);
         background: var(--white);
       }
 
@@ -1177,8 +1310,8 @@
 
       .visually-hidden {
         position: absolute;
-        width: 1px;
-        height: 1px;
+        width: var(--border-1);
+        height: var(--border-1);
         padding: 0;
         margin: -1px;
         overflow: hidden;
@@ -1550,7 +1683,7 @@
       <section class="section">
         <div class="wrap" id="webvariable">
           <p class="section-label" data-i18n="webvariable.label">06 / WebVariable</p>
-          <h2 data-i18n="webvariable.title">前端 Token、布局与字阶行高</h2>
+          <h2 data-i18n="webvariable.title">前端 Token 全量速览</h2>
           <p class="lead" data-i18n="wv.lead" data-i18n-html>
             Token 权威表为
             <a
@@ -1760,6 +1893,146 @@
 .footer { min-height: var(--layout-footer); }
 
 /* ❌ 禁止用 --size-* 冒充页头/版心 */</pre>
+
+          <h3 style="margin-top: var(--size-30); font-size: var(--fs-16); line-height: var(--lh-24); color: var(--title)" data-i18n="wv.size.title">
+            元素尺寸 --size-*
+          </h3>
+          <p class="lead" data-i18n="wv.size.body">
+            通用间距与圆角档位；边框宽度请用 --border-*，布局骨架请用 --layout-*。
+          </p>
+          <div class="token-scale">
+            <div class="token-scale-item">
+              <div class="token-scale-bar" style="width: var(--size-0)"></div>
+              <div class="token-scale-name">--size-0</div>
+              <div class="token-scale-meta">0</div>
+            </div>
+            <div class="token-scale-item">
+              <div class="token-scale-bar" style="width: var(--size-4)"></div>
+              <div class="token-scale-name">--size-4</div>
+              <div class="token-scale-meta">4px</div>
+            </div>
+            <div class="token-scale-item">
+              <div class="token-scale-bar" style="width: var(--size-6)"></div>
+              <div class="token-scale-name">--size-6</div>
+              <div class="token-scale-meta">6px</div>
+            </div>
+            <div class="token-scale-item">
+              <div class="token-scale-bar" style="width: var(--size-8)"></div>
+              <div class="token-scale-name">--size-8</div>
+              <div class="token-scale-meta">8px</div>
+            </div>
+            <div class="token-scale-item">
+              <div class="token-scale-bar" style="width: var(--size-12)"></div>
+              <div class="token-scale-name">--size-12</div>
+              <div class="token-scale-meta">12px</div>
+            </div>
+            <div class="token-scale-item">
+              <div class="token-scale-bar" style="width: var(--size-16)"></div>
+              <div class="token-scale-name">--size-16</div>
+              <div class="token-scale-meta">16px</div>
+            </div>
+            <div class="token-scale-item">
+              <div class="token-scale-bar" style="width: var(--size-20)"></div>
+              <div class="token-scale-name">--size-20</div>
+              <div class="token-scale-meta">20px</div>
+            </div>
+            <div class="token-scale-item">
+              <div class="token-scale-bar" style="width: var(--size-24)"></div>
+              <div class="token-scale-name">--size-24</div>
+              <div class="token-scale-meta">24px</div>
+            </div>
+            <div class="token-scale-item">
+              <div class="token-scale-bar" style="width: var(--size-30)"></div>
+              <div class="token-scale-name">--size-30</div>
+              <div class="token-scale-meta">30px</div>
+            </div>
+            <div class="token-scale-item">
+              <div class="token-scale-bar" style="width: var(--size-48)"></div>
+              <div class="token-scale-name">--size-48</div>
+              <div class="token-scale-meta">48px</div>
+            </div>
+          </div>
+
+          <h3 style="margin-top: var(--size-30); font-size: var(--fs-16); line-height: var(--lh-24); color: var(--title)" data-i18n="wv.icon.title">
+            图标尺寸 --wh-*
+          </h3>
+          <div class="token-icon-row">
+            <div class="token-icon-item">
+              <div class="token-icon-box" style="width: var(--wh-12); height: var(--wh-12)">12</div>
+              <div class="token-scale-name">--wh-12</div>
+            </div>
+            <div class="token-icon-item">
+              <div class="token-icon-box" style="width: var(--wh-16); height: var(--wh-16)">16</div>
+              <div class="token-scale-name">--wh-16</div>
+            </div>
+            <div class="token-icon-item">
+              <div class="token-icon-box" style="width: var(--wh-20); height: var(--wh-20)">20</div>
+              <div class="token-scale-name">--wh-20</div>
+            </div>
+            <div class="token-icon-item">
+              <div class="token-icon-box" style="width: var(--wh-24); height: var(--wh-24)">24</div>
+              <div class="token-scale-name">--wh-24</div>
+            </div>
+          </div>
+
+          <h3 style="margin-top: var(--size-30); font-size: var(--fs-16); line-height: var(--lh-24); color: var(--title)" data-i18n="wv.border.title">
+            边框尺寸与线型
+          </h3>
+          <p class="lead" data-i18n="wv.border.body">
+            宽度用 --border-fine / --border-1；复合线型 --line / --solid / --dashed 整值写入 border。
+          </p>
+          <div class="token-scale" style="margin-bottom: var(--size-12)">
+            <div class="token-scale-item">
+              <div class="token-scale-bar" style="width: var(--border-fine)"></div>
+              <div class="token-scale-name">--border-fine</div>
+              <div class="token-scale-meta">0.5px</div>
+            </div>
+            <div class="token-scale-item">
+              <div class="token-scale-bar" style="width: var(--border-1)"></div>
+              <div class="token-scale-name">--border-1</div>
+              <div class="token-scale-meta">1px</div>
+            </div>
+          </div>
+          <div class="token-border-row">
+            <div class="token-border-card is-line">
+              <strong>--line</strong>
+              <span data-i18n="wv.border.line">基础实线 · border-fine</span>
+            </div>
+            <div class="token-border-card is-solid">
+              <strong>--solid</strong>
+              <span data-i18n="wv.border.solid">常规实线 · border-1</span>
+            </div>
+            <div class="token-border-card is-dashed">
+              <strong>--dashed</strong>
+              <span data-i18n="wv.border.dashed">常规虚线 · 2px</span>
+            </div>
+          </div>
+
+          <h3 style="margin-top: var(--size-30); font-size: var(--fs-16); line-height: var(--lh-24); color: var(--title)" data-i18n="wv.shadow.title">
+            阴影 --shadow*
+          </h3>
+          <div class="token-shadow-grid">
+            <div class="token-shadow-card" style="box-shadow: var(--shadow)">
+              <strong>--shadow</strong>
+              <span data-i18n="wv.shadow.base">基础阴影</span>
+            </div>
+            <div class="token-shadow-card" style="box-shadow: var(--shadow-top)">
+              <strong>--shadow-top</strong>
+              <span data-i18n="wv.shadow.top">上阴影</span>
+            </div>
+            <div class="token-shadow-card" style="box-shadow: var(--shadow-bottom)">
+              <strong>--shadow-bottom</strong>
+              <span data-i18n="wv.shadow.bottom">下阴影</span>
+            </div>
+            <div class="token-shadow-card" style="box-shadow: var(--shadow-left)">
+              <strong>--shadow-left</strong>
+              <span data-i18n="wv.shadow.left">左阴影</span>
+            </div>
+            <div class="token-shadow-card" style="box-shadow: var(--shadow-right)">
+              <strong>--shadow-right</strong>
+              <span data-i18n="wv.shadow.right">右阴影</span>
+            </div>
+          </div>
         </div>
       </section>
 
