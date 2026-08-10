@@ -151,7 +151,7 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 | 需求 | 修改文件 |
 |------|---------|
 | 主题色、功能色、文本色 | `WebVariable/ThemeVariable.css` |
-| 间距、字号、阴影 | `WebVariable/SystemVariable.css` |
+| 间距、布局、字号、阴影 | `WebVariable/SystemVariable.css` |
 | 全局 reset | `WebVariable/ProjectReset.css`（慎改） |
 
 修改后打开 `PreView/LightDesignSpec.html` 或 `DarkDesignSpec.html` 验收。

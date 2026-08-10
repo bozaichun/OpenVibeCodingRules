@@ -152,7 +152,7 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 | 需求 | 修改檔案 |
 |------|---------|
 | 主題色、功能色、文字色 | `WebVariable/ThemeVariable.css` |
-| 間距、字號、陰影 | `WebVariable/SystemVariable.css` |
+| 間距、佈局、字號、陰影 | `WebVariable/SystemVariable.css` |
 | 全域 reset | `WebVariable/ProjectReset.css`（慎改） |
 
 修改後開啟 `PreView/LightDesignSpec.html` 或 `DarkDesignSpec.html` 驗收。

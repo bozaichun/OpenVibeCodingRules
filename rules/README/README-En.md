@@ -152,7 +152,7 @@ Identify language / framework from deps (see `AGENTS.md` §1). For frontend repo
 | Need | Edit |
 |------|------|
 | Theme / semantic / text colors | `WebVariable/ThemeVariable.css` |
-| Spacing, type, shadows | `WebVariable/SystemVariable.css` |
+| Spacing, layout, type, shadows | `WebVariable/SystemVariable.css` |
 | Global reset | `WebVariable/ProjectReset.css` (change carefully) |
 
 Then verify in `PreView/LightDesignSpec.html` or `DarkDesignSpec.html`.

@@ -63,7 +63,7 @@ pages/ or views/        # page-only styles
 | File | Role |
 |------|------|
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/ThemeVariable.css` | **Theme & text colors** (single source) |
-| `rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css` | Spacing, type, icon sizes, composite borders/shadows |
+| `rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css` | Spacing, layout, type, icon sizes, composite borders/shadows |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css` | Global reset, `html`/`body` basics |
 
 Import order:
@@ -75,7 +75,7 @@ import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css";
 import "./main.css";  // app extras (e.g. #app)
 ```
 
-When extending Tokens: **colors** → `ThemeVariable.css`; **size/spacing** → `SystemVariable.css`; **reset** → `ProjectReset.css` only when truly global.
+When extending Tokens: **colors** → `ThemeVariable.css`; **size/spacing/layout** → `SystemVariable.css`; **reset** → `ProjectReset.css` only when truly global.
 
 ### 2.3 Plug-in styles
 
@@ -83,7 +83,7 @@ Default stack is **ThemeVariable.css + SystemVariable.css**. For alternate brand
 
 ### 2.4 Core variable index
 
-Colors: **`ThemeVariable.css`**. Spacing/type/borders: **`SystemVariable.css`**. Visual check: open **`PreView/LightDesignSpec.html`** · **`DarkDesignSpec.html`** (do not dump full HTML into AI context).
+Colors: **`ThemeVariable.css`**. Spacing/layout/type/borders: **`SystemVariable.css`**. Visual check: open **`PreView/LightDesignSpec.html`** · **`DarkDesignSpec.html`** (do not dump full HTML into AI context).
 
 Table lists **names and use**, not hex.
 
@@ -102,6 +102,7 @@ Table lists **names and use**, not hex.
 | Category | Examples | Use |
 |------|---------|------|
 | Spacing | `--size-8` · `--size-16` · `--size-24` · `--size-40` | Element / module / page padding |
+| Layout | `--layout-header` · `--layout-footer` · `--layout-aside` · `--layout-content` | Header / footer / aside / content width |
 | Type | `--fs-12` · `--fs-14` · `--fs-16` · `--fs-20` | Helper / body / small / large titles |
 | Icons | `--wh-16` · `--wh-24` · `--wh-32` | Icons and action buttons |
 | Borders/shadows | `--line` · `--solid` · `--shadow` · `--shadow-bottom` | Uses `var(--border)` |

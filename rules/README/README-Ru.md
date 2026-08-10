@@ -152,7 +152,7 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 | Нужно | Файл |
 |------|------|
 | Цвета темы / семантика / текст | `WebVariable/ThemeVariable.css` |
-| Отступы, кегль, тени | `WebVariable/SystemVariable.css` |
+| Отступы, макет, кегль, тени | `WebVariable/SystemVariable.css` |
 | Global reset | `WebVariable/ProjectReset.css` (осторожно) |
 
 После правок откройте `PreView/LightDesignSpec.html` или `DarkDesignSpec.html`.

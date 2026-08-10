@@ -203,7 +203,7 @@
 | 层级 | 文件 / 位置 | 内容 | 可否在业务项目中重复定义 |
 |------|-------------|------|------------------------|
 | 主题 Token | `WebVariable/ThemeVariable.css` | 标准色板 + 文本色 | **禁止** |
-| 系统 Token | `WebVariable/SystemVariable.css` | 间距 · 字号 · 图标 · 阴影 | **禁止** |
+| 系统 Token | `WebVariable/SystemVariable.css` | 间距 · 布局 · 字号 · 图标 · 阴影 | **禁止** |
 | 全局重置 | `WebVariable/ProjectReset.css` | 盒模型、`html`/`body` | **禁止** |
 | 应用补充 | 各仓库入口 CSS | 仅应用级补充 | 按需 |
 | 布局 / 页面 / 组件 | 对应模块内 | 1:1 作用域样式，引用 Token | 仅本模块内 |
@@ -233,7 +233,7 @@ import "./main.css";
 |------|---------|------|
 | 标准色 / 功能色 | `--primary` · `--success` · `--error` | ThemeVariable |
 | 文本色 | `--title` · `--main-text` · `--title-dark` | ThemeVariable |
-| 间距 / 字号·行高 / 阴影 | `--size-16` · `--fs-14`/`--lh-22`（成对） · `--shadow` | SystemVariable |
+| 间距 / 布局 / 字号·行高 / 阴影 | `--size-16` · `--layout-header` · `--fs-14`/`--lh-22`（成对） · `--shadow` | SystemVariable |
 
 ### 2.3 Token 扩展（规则拔插）
 

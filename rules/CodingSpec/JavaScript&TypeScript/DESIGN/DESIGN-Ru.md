@@ -63,7 +63,7 @@ pages/ или views/       # только страница
 | Файл | Роль |
 |------|------|
 | `ThemeVariable.css` | **Тема и текст** |
-| `SystemVariable.css` | Отступы, кегль, иконки, рамки/тени |
+| `SystemVariable.css` | Отступы, макет, кегль, иконки, рамки/тени |
 | `ProjectReset.css` | Глобальный reset |
 
 Порядок импорта:
@@ -75,7 +75,7 @@ import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css";
 import "./main.css";
 ```
 
-Расширение: цвета → ThemeVariable; размеры → SystemVariable; reset — только при глобальной нужде.
+Расширение: цвета → ThemeVariable; размеры/макет → SystemVariable; reset — только при глобальной нужде.
 
 ### 2.3 Подключаемые стили
 
@@ -93,6 +93,7 @@ import "./main.css";
 | Текст (свет) | `--title` · `--main-text` · … | Светлый фон |
 | Текст (тём) | `--title-dark` · … | Тёмный фон |
 | Отступы | `--size-8` · `--size-16` · `--size-24` · `--size-40` | Поля |
+| Макет | `--layout-header` · `--layout-footer` · `--layout-aside` · `--layout-content` | Шапка / подвал / сайдбар / контент |
 | Кегль | `--fs-12` · `--fs-14` · `--fs-16` · `--fs-20` | Типографика |
 | Иконки | `--wh-16` · `--wh-24` · `--wh-32` | Действия |
 | Рамки/тени | `--line` · `--solid` · `--shadow` | через `var(--border)` |

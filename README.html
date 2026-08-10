@@ -43,7 +43,7 @@
       html {
         scroll-behavior: smooth;
         /* 仅按页头高度避让，避免与 scroll-margin 叠加产生过大空白 */
-        scroll-padding-top: var(--size-56);
+        scroll-padding-top: var(--layout-header);
       }
 
       body {
@@ -71,7 +71,7 @@
         line-height: var(--lh-20);
       }
 
-      /* —— Nav · 页头高度 --size-56 · 页面边距 --size-40 —— */
+      /* —— Nav · 页头高度 --layout-header · 页面边距 --size-40 —— */
       .nav {
         position: sticky;
         top: 0;
@@ -79,7 +79,7 @@
         display: flex;
         align-items: center;
         gap: var(--size-24);
-        height: var(--size-56);
+        height: var(--layout-header);
         padding: 0 var(--size-40);
         background: rgba(255, 255, 255, 0.92);
         border-bottom: var(--solid);
@@ -176,9 +176,9 @@
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2.5 4.25L6 7.75L9.5 4.25' stroke='%231890ff' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
       }
 
-      /* —— Layout —— */
+      /* —— Layout · 版心 --layout-content —— */
       .wrap {
-        width: min(1120px, calc(100% - var(--size-40) * 2));
+        width: min(var(--layout-content), calc(100% - var(--size-40) * 2));
         margin: 0 auto;
       }
 
@@ -274,7 +274,7 @@
       .hero {
         position: relative;
         overflow: hidden;
-        padding: var(--size-56) 0 var(--size-40);
+        padding: var(--size-48) 0 var(--size-40);
         background: var(--hero-glow);
         border-bottom: var(--solid);
       }
@@ -706,9 +706,12 @@
         color: var(--secondary-text);
       }
 
-      /* —— Footer · 页面边距节奏 —— */
+      /* —— Footer · 页脚高度 --layout-footer —— */
       .footer {
-        padding: var(--size-40) 0;
+        min-height: var(--layout-footer);
+        display: flex;
+        align-items: center;
+        padding: 0;
         border-top: var(--solid);
         background: var(--white);
         font-size: var(--fs-12);
@@ -719,6 +722,7 @@
       .footer .wrap {
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
         justify-content: space-between;
         gap: var(--size-12);
       }
@@ -756,7 +760,7 @@
       @media (max-width: 900px) {
         .nav {
           height: auto;
-          min-height: var(--size-56);
+          min-height: var(--layout-header);
           padding: var(--size-12) var(--size-20);
           flex-wrap: wrap;
           gap: var(--size-12);
@@ -792,7 +796,7 @@
 
         .md-dialog {
           width: calc(100% - var(--size-24));
-          max-height: calc(100vh - var(--size-24));
+          max-height: calc(100vh - var(--layout-header) - var(--size-32));
         }
 
         .md-dialog-toolbar {
@@ -806,20 +810,22 @@
         }
       }
 
-      /* —— Markdown 弹窗阅读 —— */
+      /* —— Markdown 弹窗阅读 · 始终置顶于页头之上 —— */
       .md-overlay {
         position: fixed;
         inset: 0;
-        z-index: 100;
+        z-index: 10000;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
         padding: var(--size-24);
+        padding-top: calc(var(--layout-header) + var(--size-16));
         background: rgba(38, 38, 38, 0.45);
         backdrop-filter: blur(var(--size-4));
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.2s ease, visibility 0.2s ease;
+        isolation: isolate;
       }
 
       .md-overlay.is-open {
@@ -830,8 +836,8 @@
       .md-dialog {
         display: flex;
         flex-direction: column;
-        width: min(1120px, 100%);
-        max-height: calc(100vh - var(--size-48));
+        width: min(var(--layout-content), 100%);
+        max-height: calc(100vh - var(--layout-header) - var(--size-40));
         background: var(--white);
         border: var(--solid);
         border-radius: var(--size-8);
@@ -839,6 +845,8 @@
         overflow: hidden;
         transform: translateY(10px) scale(0.98);
         transition: transform 0.22s ease;
+        position: relative;
+        z-index: 1;
       }
 
       .md-overlay.is-open .md-dialog {
@@ -1153,6 +1161,12 @@
 
       body.md-lock {
         overflow: hidden;
+      }
+
+      /* 弹窗打开时压低粘性页头，避免盖住遮罩 */
+      body.md-lock .nav {
+        z-index: 1;
+        pointer-events: none;
       }
 
       a[href$=".md"],
@@ -1535,7 +1549,7 @@
       <section class="section">
         <div class="wrap" id="webvariable">
           <p class="section-label" data-i18n="webvariable.label">06 / WebVariable</p>
-          <h2 data-i18n="webvariable.title">前端 Token 与字阶行高</h2>
+          <h2 data-i18n="webvariable.title">前端 Token、布局与字阶行高</h2>
           <p class="lead" data-i18n="wv.lead" data-i18n-html>
             Token 权威表为
             <a
@@ -1693,6 +1707,58 @@
 }
 
 /* ❌ 禁止只设字阶或错配行高 */</pre>
+
+          <div class="rule-callout" style="margin-top: var(--size-24)">
+            <strong data-i18n="wv.layout.title">编码规则：布局尺寸 --layout-*</strong>
+            <p data-i18n="wv.layout.body" data-i18n-html>
+              页头/页脚用于 <code>height</code> / <code>min-height</code>，侧边栏用于
+              <code>width</code> / <code>min-width</code>，版心用于
+              <code>width</code> / <code>max-width</code>。禁止当作间距刻度
+              <code>--size-*</code> 使用。
+            </p>
+          </div>
+
+          <div class="table-wrap" style="margin-top: var(--size-20)">
+            <table>
+              <thead>
+                <tr>
+                  <th data-i18n="wv.th.token">变量</th>
+                  <th data-i18n="wv.th.size">尺寸</th>
+                  <th data-i18n="wv.th.scene">场景</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>--layout-header</code></td>
+                  <td>56px</td>
+                  <td data-i18n="wv.layout.header">页头高度</td>
+                </tr>
+                <tr>
+                  <td><code>--layout-footer</code></td>
+                  <td>168px</td>
+                  <td data-i18n="wv.layout.footer">页脚高度</td>
+                </tr>
+                <tr>
+                  <td><code>--layout-aside</code></td>
+                  <td>200px</td>
+                  <td data-i18n="wv.layout.aside">侧边栏宽度</td>
+                </tr>
+                <tr>
+                  <td><code>--layout-content</code></td>
+                  <td>1200px</td>
+                  <td data-i18n="wv.layout.content">版心</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <pre class="code-block" style="margin-top: var(--size-16)" data-i18n="wv.layout.code" data-i18n-html>/* ✅ 布局骨架 */
+.nav { height: var(--layout-header); }
+.aside { width: var(--layout-aside); }
+.main { max-width: var(--layout-content); }
+.footer { min-height: var(--layout-footer); }
+
+/* ❌ 禁止用 --size-* 冒充页头/版心 */</pre>
         </div>
       </section>
 
@@ -1751,7 +1817,7 @@
                       >SubjectAuthority</a
                     >
                   </td>
-                  <td data-i18n="map.when.wv">改色值、间距、字阶/行高；字阶须成对行高</td>
+                  <td data-i18n="map.when.wv">改色值、间距、布局、字阶/行高；字阶须成对行高</td>
                 </tr>
                 <tr>
                   <td>
@@ -1822,7 +1888,7 @@
             <summary data-i18n="faq.q2">字阶和行高可以只写一个吗？</summary>
             <p data-i18n="faq.a2" data-i18n-html>
               不可以。使用 <code>--fs-*</code> 时必须同步对应
-              <code>--lh-*</code>（见 SubjectAuthority §1.3），相符相承、缺一不可。
+              <code>--lh-*</code>（见 SubjectAuthority §1.4），相符相承、缺一不可。
             </p>
           </details>
           <details>
@@ -2373,6 +2439,11 @@
             .join("\n");
         }
 
+        function resetModalScroll() {
+          dialogBody.scrollTop = 0;
+          overlay.scrollTop = 0;
+        }
+
         function paintBody() {
           dialogBody.setAttribute("data-view", currentView);
           if (!currentRaw) return;
@@ -2384,6 +2455,7 @@
           } else {
             dialogBody.innerHTML = renderMarkdown(currentRaw, currentHref);
           }
+          requestAnimationFrame(resetModalScroll);
         }
 
         function setView(view) {
@@ -2399,6 +2471,7 @@
         function openModal() {
           overlay.hidden = false;
           overlay.setAttribute("aria-hidden", "false");
+          resetModalScroll();
           requestAnimationFrame(() => overlay.classList.add("is-open"));
           document.body.classList.add("md-lock");
           closeBtn.focus();
@@ -2430,6 +2503,7 @@
             (window.OVCR_I18N && window.OVCR_I18N.t("md.loading")) || "加载中…";
           dialogBody.innerHTML =
             '<p class="md-status">' + loadingText + "</p>";
+          resetModalScroll();
           openModal();
 
           try {
@@ -2441,9 +2515,11 @@
             // 渲染链接仍相对逻辑原文路径，避免跳进 language/md 目录
             currentHref = abs;
             paintBody();
+            resetModalScroll();
           } catch (err) {
             dialogBody.innerHTML =
               '<p class="md-status is-error">无法加载该文件。请确认存在 <code>script/md-bundle.js</code>（可执行 <code>node script/build-md-bundle.js</code> 重新生成）。</p>';
+            resetModalScroll();
           }
         }
 

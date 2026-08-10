@@ -113,7 +113,7 @@ alwaysApply: false
 
 - **方法论**：BEM 或与团队一致的 **CSS Modules / styled-system**；嵌套不宜过深（建議不超过 **3** 层无必要选择器链）。
 - **Token**：颜色、间距、字号引用 **專案内设计變數**（见 `DESIGN.md` 与 **`rules/CodingSpec/JavaScript&TypeScript/WebVariable/`**）。禁止在業務元件内复制**整套**色板常量；若缺 Token，应在 **全域主题或變數檔案** 增补后再引用。改 Token 源码时優先读对应 CSS，无需同时加载本檔案全文。
-- **字階 + 行高（強制成對）**：凡设置字階 `--fs-*`，**必须**同步设置权威表中对应的 `--lh-*`；二者相符相承、缺一不可。禁止只写 `font-size: var(--fs-14)` 而省略 `line-height`，禁止錯配行高。配对见 `WebVariable/SubjectAuthority.md` §1.3。
+- **字階 + 行高（強制成對）**：凡设置字階 `--fs-*`，**必须**同步设置权威表中对应的 `--lh-*`；二者相符相承、缺一不可。禁止只写 `font-size: var(--fs-14)` 而省略 `line-height`，禁止錯配行高。配对见 `WebVariable/SubjectAuthority.md` §1.4。
 
 ```css
 /* ✅ */

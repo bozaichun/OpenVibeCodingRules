@@ -62,7 +62,7 @@ pages/ 或 views/        # 页面级样式（仅对应页面内）
 | 文件 | 职责 |
 |------|------|
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/ThemeVariable.css` | **主题色与文本色**（唯一维护处） |
-| `rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css` | 间距、字号、图标尺寸、复合边框/阴影 |
+| `rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css` | 间距、布局、字号、图标尺寸、复合边框/阴影 |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css` | 全局重置、`html`/`body` 基础样式 |
 
 入口引入顺序：
@@ -74,7 +74,7 @@ import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css";
 import "./main.css";  // 应用级补充（如 #app）
 ```
 
-扩展 Token 时：**主题色/文本色** 写入 `ThemeVariable.css`；**尺寸/间距** 写入 `SystemVariable.css`；**重置规则** 仅在确有全局需求时改 `ProjectReset.css`。
+扩展 Token 时：**主题色/文本色** 写入 `ThemeVariable.css`；**尺寸/间距/布局** 写入 `SystemVariable.css`；**重置规则** 仅在确有全局需求时改 `ProjectReset.css`。
 
 ### 2.3 规则拔插机制
 
@@ -101,6 +101,7 @@ import "./main.css";  // 应用级补充（如 #app）
 | 类别 | 变量示例 | 用途 |
 |------|---------|------|
 | 间距 | `--size-8` · `--size-16` · `--size-24` · `--size-40` | 元素/模块/页面边距 |
+| 布局 | `--layout-header` · `--layout-footer` · `--layout-aside` · `--layout-content` | 页头/页脚/侧栏/版心 |
 | 字号 | `--fs-12` · `--fs-14` · `--fs-16` · `--fs-20` | 辅助/正文/小标题/大标题 |
 | 图标 | `--wh-16` · `--wh-24` · `--wh-32` | 图标与操作按钮尺寸 |
 | 复合边框/阴影 | `--line` · `--solid` · `--shadow` · `--shadow-bottom` | 引用 `var(--border)` |

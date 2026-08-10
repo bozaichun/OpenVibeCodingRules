@@ -113,7 +113,7 @@ alwaysApply: false
 
 - **Method**: BEM or team CSS Modules / styled-system; avoid deep nesting (> **3** levels).
 - **Tokens**: colors, spacing, type from project design vars (`DESIGN/DESIGN-{Tag}.md` + **`WebVariable/`**). Do not copy full palettes into product components; add missing Tokens globally first. When editing Token CSS, prefer those files over loading this whole doc.
-- **Size + line-height (mandatory pair)**: every `--fs-*` needs the matching `--lh-*` from the authority table. Never size-only; never mismatch. See `WebVariable/SubjectAuthority.md` §1.3.
+- **Size + line-height (mandatory pair)**: every `--fs-*` needs the matching `--lh-*` from the authority table. Never size-only; never mismatch. See `WebVariable/SubjectAuthority.md` §1.4.
 
 ```css
 /* ✅ */

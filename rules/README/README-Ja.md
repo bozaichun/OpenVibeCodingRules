@@ -152,7 +152,7 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 | 用途 | 編集ファイル |
 |------|-------------|
 | テーマ色・機能色・テキスト色 | `WebVariable/ThemeVariable.css` |
-| 余白・字号・影 | `WebVariable/SystemVariable.css` |
+| 余白・レイアウト・字号・影 | `WebVariable/SystemVariable.css` |
 | グローバル reset | `WebVariable/ProjectReset.css`（慎重に） |
 
 変更後は `PreView/LightDesignSpec.html` または `DarkDesignSpec.html` で確認。

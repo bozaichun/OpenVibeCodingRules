@@ -63,7 +63,7 @@ pages/ または views/    # ページ専用
 | ファイル | 役割 |
 |------|------|
 | `.../WebVariable/ThemeVariable.css` | **テーマ色とテキスト色**（唯一ソース） |
-| `.../WebVariable/SystemVariable.css` | 余白・字号・アイコン寸法・複合枠/影 |
+| `.../WebVariable/SystemVariable.css` | 余白・レイアウト・字号・アイコン寸法・複合枠/影 |
 | `.../WebVariable/ProjectReset.css` | グローバルリセット、`html`/`body` |
 
 導入順：
@@ -75,7 +75,7 @@ import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css";
 import "./main.css";
 ```
 
-拡張時：色 → ThemeVariable；寸法 → SystemVariable；リセット → 真にグローバルなときのみ ProjectReset。
+拡張時：色 → ThemeVariable；寸法/レイアウト → SystemVariable；リセット → 真にグローバルなときのみ ProjectReset。
 
 ### 2.3 抜挿メカニズム
 
@@ -100,6 +100,7 @@ import "./main.css";
 | 区分 | 例 | 用途 |
 |------|---------|------|
 | 余白 | `--size-8` · `--size-16` · `--size-24` · `--size-40` | 要素/モジュール/ページ |
+| レイアウト | `--layout-header` · `--layout-footer` · `--layout-aside` · `--layout-content` | ヘッダー/フッター/サイドバー/版心 |
 | 字号 | `--fs-12` · `--fs-14` · `--fs-16` · `--fs-20` | 補助/本文/小見出し/大見出し |
 | アイコン | `--wh-16` · `--wh-24` · `--wh-32` | アイコンと操作 |
 | 枠/影 | `--line` · `--solid` · `--shadow` | `var(--border)` 参照 |
