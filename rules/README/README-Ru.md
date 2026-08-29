@@ -22,7 +22,7 @@ OpenVibeCodingRules — репозиторий правил для **AI-assisted
 
 | Язык | Фреймворки / сценарии |
 |------|----------------------|
-| JavaScript & TypeScript | Vue, React, Next.js, UniApp |
+| JavaScript & TypeScript | Vue, React, Next.js, Nuxt.js, UniApp |
 | Node.js | NestJS, Express |
 | Python | FastAPI, Django |
 | Java | Spring Boot |
@@ -137,7 +137,7 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 
 | Режим | Как понять | Стек |
 |------|------------|------|
-| Обычный проект | Нет `public/plugin.json` | Native HTML · Vue · React · Next.js · UniApp |
+| Обычный проект | Нет `public/plugin.json` | Native HTML · Vue · React · Next.js · Nuxt.js · UniApp |
 | Плагин uTools | Есть `public/plugin.json` | Только React · Vue |
 
 ### Принципы стилей (frontend · 1:1)

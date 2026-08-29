@@ -1,8 +1,7 @@
 <!-- ovcr-locale-lock -->
 ---
 description: Правила кодирования при AI-разработке
-globs: *
-alwaysApply: true
+alwaysApply: false
 ---
 
 <!-- !!! Правила поведения при кодировании -->

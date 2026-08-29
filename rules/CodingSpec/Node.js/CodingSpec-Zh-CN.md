@@ -1,6 +1,6 @@
 ---
 description: Node.js 后端工程与代码规范（NestJS / Express · puffseed）
-globs: ["**/*.ts", "**/*.js", "**/nest-cli.json", "**/tsconfig*.json"]
+globs: ["src/**/*.ts","src/**/*.js","server/**/*.ts","server/**/*.js","backend/**/*.ts","backend/**/*.js","api/**/*.ts","api/**/*.js","routes/**/*.ts","routes/**/*.js","controllers/**/*.ts","controllers/**/*.js","services/**/*.ts","services/**/*.js","middlewares/**/*.ts","middlewares/**/*.js","**/nest-cli.json","**/tsconfig*.json","**/ecosystem.config.*","**/app.module.ts","**/main.ts","**/main.js"]
 alwaysApply: false
 ---
 

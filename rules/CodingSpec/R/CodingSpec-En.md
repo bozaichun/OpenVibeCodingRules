@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: R 数据科学与工程规范 (tidyverse / Shiny  · puffseed)
-globs: ["**/*.R", "**/*.r", "**/*.Rmd", "**/*.qmd", "**/DESCRIPTION", "**/renv.lock"]
 alwaysApply: false
 ---
 

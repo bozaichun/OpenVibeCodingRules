@@ -12,7 +12,7 @@
 
 | 言語 / ランタイム | 主なフレームワーク / 場面 | 規範ディレクトリ |
 |--------------|----------------|---------|
-| **JavaScript & TypeScript**（フロント） | Vue、React、Next.js、**UniApp** | `rules/CodingSpec/JavaScript&TypeScript/` |
+| **JavaScript & TypeScript**（フロント） | Vue、React、Next.js、**Nuxt.js**、**UniApp** | `rules/CodingSpec/JavaScript&TypeScript/` |
 | **Node.js**（バックエンド） | NestJS、Express | `rules/CodingSpec/Node.js/` |
 | **Python** | FastAPI、Django | `rules/CodingSpec/Python/` |
 | **Java** | Spring Boot | `rules/CodingSpec/Java/` |
@@ -71,7 +71,7 @@
 
 | モード | 識別信号 | 対応スタック | 説明 |
 |------|---------|-----------|------|
-| **通常プロジェクト** | **なし** `public/plugin.json` | HTML/CSS/JS · Vue · React · Next.js · UniApp | 汎用 Web / 多端 |
+| **通常プロジェクト** | **なし** `public/plugin.json` | HTML/CSS/JS · Vue · React · Next.js · Nuxt.js · UniApp | 汎用 Web / 多端 |
 | **uTools プラグイン** | **あり** `public/plugin.json` | **のみ** React · Vue（2 / 3） | uTools テンプレート |
 
 ### 0.2 識別フロー

@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: SQL 数据与建模规范（PostgreSQL / MySQL / SQL Server · puffseed）
-globs: ["**/*.sql", "**/migrations/**", "**/flyway/**", "**/liquibase/**"]
 alwaysApply: false
 ---
 

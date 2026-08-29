@@ -22,7 +22,7 @@ OpenVibeCodingRules は **AI 補助の多言語開発（VibeCoding）** 向け�
 
 | 言語 | フレームワーク / シーン |
 |------|------------------------|
-| JavaScript & TypeScript | Vue、React、Next.js、UniApp |
+| JavaScript & TypeScript | Vue、React、Next.js、Nuxt.js、UniApp |
 | Node.js | NestJS、Express |
 | Python | FastAPI、Django |
 | Java | Spring Boot |
@@ -137,7 +137,7 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 
 | 形態 | 判定 | 対応スタック |
 |------|------|-------------|
-| 通常プロジェクト | `public/plugin.json` なし | ネイティブ HTML · Vue · React · Next.js · UniApp |
+| 通常プロジェクト | `public/plugin.json` なし | ネイティブ HTML · Vue · React · Next.js · Nuxt.js · UniApp |
 | uTools プラグイン | `public/plugin.json` あり | React · Vue のみ |
 
 ### スタイル原則（フロント · 1:1）

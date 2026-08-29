@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: Go backendинженерные и кодовые стандарты（Gin · puffseed）
-globs: ["**/*.go", "**/go.mod", "**/go.sum"]
 alwaysApply: false
 ---
 

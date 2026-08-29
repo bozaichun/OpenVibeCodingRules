@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: Node.js 後端工程與程式碼規範（NestJS / Express · puffseed）
-globs: ["**/*.ts", "**/*.js", "**/nest-cli.json", "**/tsconfig*.json"]
 alwaysApply: false
 ---
 

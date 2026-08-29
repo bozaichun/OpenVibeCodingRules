@@ -12,7 +12,7 @@
 
 | Язык / runtime | Основные фреймворки / сценарии | Каталог спецификаций |
 |--------------|----------------|---------|
-| **JavaScript & TypeScript** (frontend) | Vue, React, Next.js, **UniApp** | `rules/CodingSpec/JavaScript&TypeScript/` |
+| **JavaScript & TypeScript** (frontend) | Vue, React, Next.js, **Nuxt.js**, **UniApp** | `rules/CodingSpec/JavaScript&TypeScript/` |
 | **Node.js** (backend) | NestJS, Express | `rules/CodingSpec/Node.js/` |
 | **Python** | FastAPI, Django | `rules/CodingSpec/Python/` |
 | **Java** | Spring Boot | `rules/CodingSpec/Java/` |
@@ -71,7 +71,7 @@
 
 | Режим | Признак | Стек | Примечание |
 |------|---------|-----------|------|
-| **Обычный проект** | **Нет** `public/plugin.json` | HTML/CSS/JS · Vue · React · Next.js · UniApp | Web / multi-end |
+| **Обычный проект** | **Нет** `public/plugin.json` | HTML/CSS/JS · Vue · React · Next.js · Nuxt.js · UniApp | Web / multi-end |
 | **Плагин uTools** | **Есть** `public/plugin.json` | **Только** React · Vue (2 / 3) | Шаблон uTools |
 
 ### 0.2 Порядок определения

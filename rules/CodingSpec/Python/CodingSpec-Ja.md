@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: Python バックエンドエンジニアリングとコード規範（FastAPI / Django · puffseed）
-globs: ["**/*.py", "**/pyproject.toml", "**/requirements*.txt", "**/manage.py"]
 alwaysApply: false
 ---
 

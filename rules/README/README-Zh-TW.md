@@ -22,7 +22,7 @@ OpenVibeCodingRules 是一套面向 **AI 輔助多語言開發（VibeCoding）**
 
 | 語言 | 框架 / 場景 |
 |------|------------|
-| JavaScript & TypeScript | Vue、React、Next.js、UniApp |
+| JavaScript & TypeScript | Vue、React、Next.js、Nuxt.js、UniApp |
 | Node.js | NestJS、Express |
 | Python | FastAPI、Django |
 | Java | Spring Boot |
@@ -137,7 +137,7 @@ import './rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css'
 
 | 模式 | 判斷方式 | 支援技術棧 |
 |------|---------|-----------|
-| 普通專案 | 無 `public/plugin.json` | 原生 HTML · Vue · React · Next.js · UniApp |
+| 普通專案 | 無 `public/plugin.json` | 原生 HTML · Vue · React · Next.js · Nuxt.js · UniApp |
 | uTools 生態外掛 | 存在 `public/plugin.json` | 僅 React · Vue |
 
 ### 樣式編寫原則（前端 · 1:1）

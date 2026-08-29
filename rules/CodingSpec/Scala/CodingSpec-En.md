@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: Scala engineering & coding standards (Play / http4s / ZIO  · puffseed)
-globs: ["**/*.scala", "**/build.sbt", "**/build.sc"]
 alwaysApply: false
 ---
 

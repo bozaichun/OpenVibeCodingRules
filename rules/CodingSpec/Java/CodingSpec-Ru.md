@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: Java backendинженерные и кодовые стандарты（Spring Boot · puffseed）
-globs: ["**/*.java", "**/pom.xml", "**/build.gradle*", "**/application*.yml", "**/application*.properties"]
 alwaysApply: false
 ---
 

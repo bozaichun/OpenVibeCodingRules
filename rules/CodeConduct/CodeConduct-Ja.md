@@ -1,8 +1,7 @@
 <!-- ovcr-locale-lock -->
 ---
 description: AI 支援開発で守るべきコーディング行動規範
-globs: *
-alwaysApply: true
+alwaysApply: false
 ---
 
 <!-- !!!コーディング行動規範 -->

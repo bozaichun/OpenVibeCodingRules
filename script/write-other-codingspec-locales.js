@@ -46,6 +46,17 @@ function applyMap(src, map) {
   return out;
 }
 
+/**
+ * Strip the `globs:` line from non-Zh-CN locale outputs.
+ * Rationale: only the Zh-CN CodingSpec per directory should auto-trigger via
+ * globs; locale routing is handled explicitly by AGENTS §0.2. This prevents
+ * every source-file edit from loading 4 extra translations simultaneously
+ * (~80% token waste per edit).
+ */
+function stripGlobs(md) {
+  return md.replace(/^globs:\s*[^\n]*\r?\n/gm, "");
+}
+
 function write(locale, rel, body) {
   // rel: rules/CodingSpec/<Lang>/CodingSpec-Zh-CN.md → CodingSpec-<Tag>.md
   const dest = rel.replace(
@@ -341,7 +352,7 @@ let n = 0;
 for (const rel of rels) {
   const zh = fs.readFileSync(resolveZhPath(rel), "utf8");
   for (const locale of locales) {
-    write(locale, rel, applyMap(zh, maps[locale]));
+    write(locale, rel, stripGlobs(applyMap(zh, maps[locale])));
     n++;
   }
 }

@@ -12,12 +12,13 @@
 | **`ThemeVariable.css`** | 主题色 · 功能色 · 辅助色 · 文本色（由权威表同步） | 由 Agent / 开发者按表生成，勿手改漂移 |
 | **`SystemVariable.css`** | 间距 · **布局 `--layout-*`** · 图标 · **字阶 `--fs-*` + 行高 `--lh-*`** · **边框宽度 `--border-*`** · 边框线 · 阴影（由权威表同步） | 同上 |
 | **`ProjectReset.css`** | 浏览器重置与 `html`/`body` 基础样式 | 仅全局 reset 需求时改；**不走** SubjectAuthority 表格 |
+| **`Animation.css`** | 全局动画工具类（淡入 / 滑入 / pulse / spin / 骨架屏等）；AI 编码优先复用，不重复造 `@keyframes` | UI / 动效需求时改；见文件头示例与 `DESIGN/DESIGN-{Tag}.md` §6.4 |
 | **`README.md`** | 本说明 | — |
 
 引入顺序（业务入口固定）：
 
 ```text
-ThemeVariable.css → SystemVariable.css → ProjectReset.css → 应用级 CSS
+ThemeVariable.css → SystemVariable.css → ProjectReset.css → Animation.css → 应用级 CSS
 ```
 
 视觉验收（浏览器打开，勿把 HTML 全文喂给 AI）：

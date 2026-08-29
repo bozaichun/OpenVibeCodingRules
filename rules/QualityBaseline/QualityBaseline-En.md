@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: Cross-language code standards / quality / maintainability baseline (puffseed)
-globs: *
 alwaysApply: false
 ---
 

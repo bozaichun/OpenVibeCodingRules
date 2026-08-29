@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: Ruby инженерные и кодовые стандарты（Rails · puffseed）
-globs: ["**/*.rb", "**/Gemfile", "**/Gemfile.lock", "**/config/routes.rb"]
 alwaysApply: false
 ---
 

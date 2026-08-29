@@ -1,20 +1,32 @@
-﻿---
+---
 description: UI 布局、样式、组件视觉、主题与响应式相关任务时查阅（跨浏览器端技术栈 · VibeCoding）
 globs:
-  - "**/*.vue"
-  - "**/*.scss"
-  - "**/*.less"
+  - "src/**/*.vue"
+  - "src/**/*.tsx"
+  - "src/**/*.jsx"
+  - "src/**/*.scss"
+  - "src/**/*.less"
   - "src/**/*.css"
-  - "**/layout/**"
-  - "**/components/**"
-  - "**/pages/**"
+  - "app.vue"
+  - "app/**/*.vue"
+  - "app/**/*.tsx"
+  - "app/**/*.jsx"
+  - "pages/**/*.vue"
+  - "pages/**/*.tsx"
+  - "pages/**/*.jsx"
+  - "components/**/*.vue"
+  - "components/**/*.tsx"
+  - "components/**/*.jsx"
+  - "layouts/**/*.vue"
+  - "layouts/**/*.tsx"
+  - "**/*.module.css"
 alwaysApply: false
 ---
 
 # 界面设计规范（VibeCoding · puffseed）
 
 > **用途**：智能体在目标业务仓库中编写 UI 时的**设计规范来源**（**puffseed** 前端视觉体系）。  
-> **适用范围**：原生 HTML + CSS + JavaScript、Vue 2 / Vue 3、React 18+、**Next.js**、**UniApp**、Angular 12+ 等技术栈，以及 uTools 生态插件（React / Vue）。  
+> **适用范围**：原生 HTML + CSS + JavaScript、Vue 2 / Vue 3、React 18+、**Next.js**、**Nuxt.js**、**UniApp**、Angular 12+ 等技术栈，以及 uTools 生态插件（React / Vue）。  
 > **执行原则**：先识别目标仓库的项目模式（见 `AGENTS.md` §0）与实际框架，再按对应章节落地。预览页与品牌文案保持 **puffseed** / **puffseed-ui** 标识。
 
 ---
@@ -41,6 +53,7 @@ rules/CodingSpec/JavaScript&TypeScript/WebVariable/     # 设计 Token 与全局
   ThemeVariable.css     # 主题色 / 文本色
   SystemVariable.css    # 间距 / 字号 / 阴影等系统变量
   ProjectReset.css      # 浏览器重置 + 根节点基础样式
+  Animation.css         # 全局动画工具类（入场 / 强调 / 加载 / 骨架屏）
 src/ 或 app/            # 框架入口引入上述 CSS
 layout/                 # 布局级样式（仅布局模块内）
 components/             # 可复用组件（scoped / CSS Modules）
@@ -51,8 +64,10 @@ pages/ 或 views/        # 页面级样式（仅对应页面内）
 |--------|------------------|-------------|
 | 原生 HTML/CSS/JS | `<link>` 于 `index.html` | BEM / 页面级 `<style>` |
 | Vue 2 / Vue 3 | 入口 `main.js` / `main.ts` 中 `import` | `<style scoped>` / SCSS scoped |
+| Nuxt.js | `app.vue` `<style>` 或 `nuxt.config.ts` 的 `css` 数组（SSR 端正确注入） | `<style scoped>` / 布局模块内 |
 | UniApp | `App.vue` / `uni.scss` 或入口引入；小程序端注意 CSS 变量支持 | 页面/组件样式 + `rpx`；条件编译样式 |
 | React 18+ | `index.jsx` / `main.tsx` 中 `import` | CSS Modules / styled-components |
+| Next.js | App Router 在 `app/layout.tsx` 中 `import`；Pages Router 在 `pages/_app.tsx` 中 `import` | CSS Modules / styled-jsx；布局模块内 |
 | Angular 12+ | `angular.json` `styles` 数组 | 组件 `styleUrls` + `:host` |
 
 **1:1 原则**：组件样式仅在组件内编写；页面模块样式仅在对应页面内编写；布局样式仅在布局模块内编写。**禁止**在业务组件中硬编码魔法色；一律引用 CSS 变量。**禁止**在业务项目中重复定义已在 WebVariable 中的 Token。
@@ -64,6 +79,7 @@ pages/ 或 views/        # 页面级样式（仅对应页面内）
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/ThemeVariable.css` | **主题色与文本色**（唯一维护处） |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css` | 间距、布局、字号、图标尺寸、边框宽度、复合边框/阴影 |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css` | 全局重置、`html`/`body` 基础样式 |
+| `rules/CodingSpec/JavaScript&TypeScript/WebVariable/Animation.css` | **全局动画工具类**：入场、强调、加载 spinner、骨架屏、滚动显现等；业务优先复用类名，**禁止**在组件内散写未登记的 `@keyframes` |
 
 入口引入顺序：
 
@@ -71,14 +87,15 @@ pages/ 或 views/        # 页面级样式（仅对应页面内）
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/ThemeVariable.css";
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css";
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css";
+import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/Animation.css";
 import "./main.css";  // 应用级补充（如 #app）
 ```
 
-扩展 Token 时：**主题色/文本色** 写入 `ThemeVariable.css`；**尺寸/间距/布局** 写入 `SystemVariable.css`；**重置规则** 仅在确有全局需求时改 `ProjectReset.css`。
+扩展 Token 时：**主题色/文本色** 写入 `ThemeVariable.css`；**尺寸/间距/布局** 写入 `SystemVariable.css`；**重置规则** 仅在确有全局需求时改 `ProjectReset.css`；**新增 keyframes / 动效工具类** 先补 `Animation.css`。
 
 ### 2.3 规则拔插机制
 
-当前默认启用 **通用界面设计规范**（`ThemeVariable.css` + `SystemVariable.css`）。开发者若需不同风格，可在 `rules/CodingSpec/JavaScript&TypeScript/WebVariable/` 或 `rules/CodingSpec/JavaScript&TypeScript/Extensions/` **追加**扩展 CSS 并在入口引入，**不修改核心文件**。详见 `AGENTS.md` §2.5。
+当前默认启用 **通用界面设计规范**（`ThemeVariable.css` + `SystemVariable.css` + `ProjectReset.css` + `Animation.css` 核心套件）。开发者若需不同风格，可在 `rules/CodingSpec/JavaScript&TypeScript/WebVariable/` 或 `rules/CodingSpec/JavaScript&TypeScript/Extensions/` **追加**扩展 CSS 并在入口引入，**不修改核心文件**。详见 `AGENTS.md` §2.5。
 
 ### 2.4 核心变量索引
 
@@ -201,12 +218,19 @@ import "./main.css";  // 应用级补充（如 #app）
 
 ### 6.3 新建页面 Checklist
 
-- [ ] WebVariable 已在入口引入
+- [ ] WebVariable 已在入口引入（Theme → System → Reset → Animation → 应用 CSS）
 - [ ] 页面样式仅在对应页面文件内
 - [ ] 复用组件样式在组件内，引用 Token
 - [ ] 640px 断点布局正常
 - [ ] 深浅色 / 深浅背景下 Token 对比度正常
 
+### 6.4 动画与动效
+
+- **优先复用 Animation.css 工具类**：入场用 `.fade-in / .slide-in-* / .appear-*`；加载用 `.pulse / .spin / .skeleton / .shimmer`；语义类在 **Animation.css** 中集中维护 `@keyframes`。
+- **新增动效**：若 Animation.css 暂无对应效果，应**先在 Animation.css 增补**类名与 keyframes，再在业务组件中引用类名；禁止业务组件内散写裸 `@keyframes`。
+- **过渡**：普通状态过渡 `transition: <属性> 0.15s~0.2s ease`；避免过长或高频动画影响性能；慎用 `will-change`，仅在性能瓶颈并明确原因时使用。
+- **SSR / RSC 场景**：Next.js / Nuxt.js 中，首屏入场类应在客户端 mount 后启用（或配合 `<ClientOnly>` / `'use client'`），避免水合 mismatch 导致跳闪。
+
 ---
 
-*最后同步：`rules/CodingSpec/JavaScript&TypeScript/WebVariable/` · `AGENTS.md` · `rules/CodingSpec/JavaScript&TypeScript/PreView/`*
+*最后同步：`rules/CodingSpec/JavaScript&TypeScript/WebVariable/`（含 Animation.css） · `AGENTS.md` · `rules/CodingSpec/JavaScript&TypeScript/PreView/`*

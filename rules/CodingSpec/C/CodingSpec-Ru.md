@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: C инженерные и кодовые стандарты（системы / embedded · puffseed）
-globs: ["**/*.c", "**/*.h", "**/Makefile", "**/CMakeLists.txt", "**/*.mk"]
 alwaysApply: false
 ---
 

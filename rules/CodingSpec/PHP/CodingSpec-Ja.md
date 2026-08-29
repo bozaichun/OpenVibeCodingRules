@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: PHP バックエンドエンジニアリングとコード規範（Laravel · puffseed）
-globs: ["**/*.php", "**/composer.json", "**/artisan"]
 alwaysApply: false
 ---
 

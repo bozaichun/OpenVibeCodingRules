@@ -46,6 +46,17 @@ function applyMap(src, map) {
   return out;
 }
 
+/**
+ * Strip the `globs:` line from non-canonical (non-Zh-CN) locale outputs.
+ * Rationale: only the Zh-CN CodingSpec should glob-trigger AI loads; other
+ * locales are resolved by AGENTS §0.2 routing instructions. Keeping globs on
+ * translations caused every *.ts/*.vue edit to load 5× CodingSpec files
+ * (~80% token waste).
+ */
+function stripGlobs(md) {
+  return md.replace(/^globs:\s*[^\n]*\r?\n/gm, "");
+}
+
 const zh = fs.readFileSync(resolveZhCodingSpec(), "utf8");
 const en = fs
   .readFileSync(
@@ -166,7 +177,7 @@ const s2t = {
   "文件": "檔案",
 };
 
-write("zh-TW", applyMap(zh, s2t));
+write("zh-TW", stripGlobs(applyMap(zh, s2t)));
 
 function wrapLocalized(meta, enBody) {
   const idx = enBody.indexOf("\n## 1. ");
@@ -176,8 +187,7 @@ function wrapLocalized(meta, enBody) {
 
 const metas = {
   ru: `---
-description: Фронтенд-инженерия и стандарты кода (Vue / React / Next.js / UniApp, TS first, multi-end · puffseed)
-globs: ["**/*.vue", "**/*.nvue", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/pages.json", "**/manifest.json", "src/**/*.html", "**/*.less", "**/*.scss", "src/**/*.css", "**/*.module.css"]
+description: Фронтенд-инженерия и стандарты кода (Vue / React / Next.js / Nuxt.js / UniApp, TS first, multi-end · puffseed)
 alwaysApply: false
 ---
 
@@ -189,7 +199,7 @@ alwaysApply: false
 
 **Роль репозитория**:**project-coding-rules-file** задаёт и распространяет **AI-читаемые правила**; этот файл ограничивает **инженерную реализацию и качество кода**. **Процесс AI-коллаборации и гранулярность изменений** → **\`rules/CodeConduct/CodeConduct-Zh-CN.md\`**. **Семантика визуала и Token** → соседний **\`DESIGN.md\`**. При совместном применении побеждает **утверждённая дизайн-система продуктового репозитория**.
 
-**Фреймворки**: Vue 2 / Vue 3, React 18+, **Next.js** (App Router / Pages Router), **UniApp** (Vue2 / Vue3 + multi-end); поддерживаются legacy Angular 12+.  
+**Фреймворки**: Vue 2 / Vue 3, React 18+, **Next.js** (App Router / Pages Router), **Nuxt.js** (Pages Router / App Router / SSR / SSG), **UniApp** (Vue2 / Vue3 + multi-end); поддерживаются legacy Angular 12+.
 **Цели**: браузерный **Web**, **мини-программы / App** (UniApp), **десктоп-оболочки** (Electron / Tauri / CE WebView), **mobile & tablet**. Не заменяет собственные \`AGENTS\` оболочки: \`base\` маршрутов, deep link и security — по **продуктовому репо**.
 
 **Общая база качества** → \`rules/QualityBaseline/QualityBaseline-Zh-CN.md\` (стиль / commit-гейты / слои / API / качество / техдолг / сопровождаемость).
@@ -197,8 +207,7 @@ alwaysApply: false
 > Ниже — полная инженерная спецификация на английском (термины унифицированы; структура совпадает с zh-CN).`,
 
   ja: `---
-description: フロントエンジニアリングとコード規範（Vue / React / Next.js / UniApp、TS 優先、多端 · puffseed）
-globs: ["**/*.vue", "**/*.nvue", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/pages.json", "**/manifest.json", "src/**/*.html", "**/*.less", "**/*.scss", "src/**/*.css", "**/*.module.css"]
+description: フロントエンジニアリングとコード規範（Vue / React / Next.js / Nuxt.js / UniApp、TS 優先、多端 · puffseed）
 alwaysApply: false
 ---
 
@@ -210,7 +219,7 @@ alwaysApply: false
 
 **リポジトリの役割**:**project-coding-rules-file** は **AI 可読のプログラミング規範** を策定・配布する。本ファイルは **エンジニアリング実装とコード品質** を制約する。**AI 協働のプロセスと変更粒度** → **\`rules/CodeConduct/CodeConduct-Zh-CN.md\`**。**視覚とデザイン Token の意味** → 同ディレクトリ **\`DESIGN.md\`**。同時適用時は **業務リポジトリの確定デザインシステム** を優先。
 
-**適用フレームワーク**: Vue 2 / Vue 3、React 18+、**Next.js**（App Router / Pages Router）、**UniApp**（Vue2 / Vue3 + 多端）。Angular 12+ のレガシーも可。  
+**適用フレームワーク**: Vue 2 / Vue 3、React 18+、**Next.js**（App Router / Pages Router）、**Nuxt.js**（Pages Router / App Router / SSR / SSG）、**UniApp**（Vue2 / Vue3 + 多端）。Angular 12+ のレガシーも可。
 **適用端**: ブラウザ **Web**、**小プログラム / App**（UniApp）、**デスクトップシェル**（Electron / Tauri / CE WebView）、**モバイル / タブレット**。各シェル独自の \`AGENTS\` は置換しない。\`base\`・ディープリンク・セキュリティは **業務リポジトリ** 準拠。
 
 **共通品質ベースライン** → \`rules/QualityBaseline/QualityBaseline-Zh-CN.md\`（スタイル / 提出ゲート / 層 / API / 品質 / 技術的負債 / 保守性）。
@@ -219,7 +228,7 @@ alwaysApply: false
 };
 
 for (const [locale, meta] of Object.entries(metas)) {
-  write(locale, wrapLocalized(meta, en));
+  write(locale, wrapLocalized(stripGlobs(meta), en));
 }
 
 console.log("jsts locales done");

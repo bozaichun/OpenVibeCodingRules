@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
-description: Фронтенд-инженерия и стандарты кода (Vue / React / Next.js / UniApp, TS first, multi-end · puffseed)
-globs: ["**/*.vue", "**/*.nvue", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/pages.json", "**/manifest.json", "src/**/*.html", "**/*.less", "**/*.scss", "src/**/*.css", "**/*.module.css"]
+description: Фронтенд-инженерия и стандарты кода (Vue / React / Next.js / Nuxt.js / UniApp, TS first, multi-end · puffseed)
 alwaysApply: false
 ---
 
@@ -13,7 +12,7 @@ alwaysApply: false
 
 **Роль репозитория**:**project-coding-rules-file** задаёт и распространяет **AI-читаемые правила**; этот файл ограничивает **инженерную реализацию и качество кода**. **Процесс AI-коллаборации и гранулярность изменений** → **`rules/CodeConduct/CodeConduct-Zh-CN.md`**. **Семантика визуала и Token** → соседний **`DESIGN.md`**. При совместном применении побеждает **утверждённая дизайн-система продуктового репозитория**.
 
-**Фреймворки**: Vue 2 / Vue 3, React 18+, **Next.js** (App Router / Pages Router), **UniApp** (Vue2 / Vue3 + multi-end); поддерживаются legacy Angular 12+.  
+**Фреймворки**: Vue 2 / Vue 3, React 18+, **Next.js** (App Router / Pages Router), **Nuxt.js** (Pages / App Router / SSR / SSG), **UniApp** (Vue2 / Vue3 + multi-end); поддерживаются legacy Angular 12+.  
 **Цели**: браузерный **Web**, **мини-программы / App** (UniApp), **десктоп-оболочки** (Electron / Tauri / CE WebView), **mobile & tablet**. Не заменяет собственные `AGENTS` оболочки: `base` маршрутов, deep link и security — по **продуктовому репо**.
 
 **Общая база качества** → `rules/QualityBaseline/QualityBaseline-Zh-CN.md` (стиль / commit-гейты / слои / API / качество / техдолг / сопровождаемость).
@@ -65,7 +64,18 @@ alwaysApply: false
 - **Env**: only `NEXT_PUBLIC_` on the client; secrets server-only.
 - **Styles**: global Tokens from **`WebVariable/`**; component CSS Modules / agreed system—no hardcoded full palettes.
 
-### 1.6 UniApp (multi-end · Vue)
+### 1.6 Nuxt.js (Vue SSR · Pages / App Router)
+
+- **Signals**: dependency **`nuxt`**; dirs typically `app/` (Nuxt 3+ App Router), `pages/` (Pages Router), `components/`, `composables/`; `nuxt.config.ts` present; convention over configuration.
+- **Routing**: App Router uses `app/` conventions (`app.vue`, `error.vue`, `layouts/`); Pages Router keeps `pages/` file-based routing—**do not mix both for one feature domain**.
+- **Server / Client**: default **SSR / SSG**; browser-only APIs & interactivity wrapped in `<ClientOnly>` or `useClientOnly()`; server logic lives in `server/api/`, `server/middleware/`, `server/plugins/`.
+- **Data fetching**: prefer `useFetch` / `useAsyncData` / `$fetch` on the server; SEO via `useSeoMeta` / `useHead`; caching per repo conventions.
+- **Reuse**: auto-imports from `composables/`, `utils/`; cross-page logic split by **puffseed** domain into `composables/useXxx.ts`—no kitchen-sink utils.
+- **Env vars**: only `NUXT_PUBLIC_` prefixed vars exposed to the client; secrets belong in `runtimeConfig.private` (server-only) declared in `nuxt.config.ts`.
+- **Styles**: global Tokens still from **`WebVariable/`** (import in `app.vue` `<style>` or via `nuxt.config.ts` `css` array); component-level `<style scoped>`; **never** hardcode full palettes.
+- **Build modes**: SSR (`nuxt build`) · SSG (`nuxt generate`) · ISR (`routeRules`) follow the repo scripts; **never** mix mode-specific APIs across features.
+
+### 1.7 UniApp (multi-end · Vue)
 
 - **Signals**: root `pages.json`, `manifest.json`; `@dcloudio/uni-*` / `uni-app`; common `pages/`, `components/`, `static/`, `uni_modules/`.
 - **Vue**: Vue 3 + Vite first (`<script setup lang="ts">`); Vue 2 legacy keeps Options API—do not mix in one feature.
@@ -79,7 +89,7 @@ alwaysApply: false
 - **Styles**: page/component 1:1; Tokens only; comment reasons for `scoped` / deep selectors.
 - **Security**: do not trust route / scan / share inputs; store secrets per repo—no plaintext `storage`.
 
-### 1.7 Angular 12+
+### 1.8 Angular 12+
 
 - **Components**: `@Component({ selector, templateUrl, styleUrls })`; kebab-case selectors; `*.component.ts/html/scss` naming.
 - **Modules**: feature / shared / lazy route modules per conventions.
@@ -133,6 +143,8 @@ alwaysApply: false
 
 - **`var()`**: if the team bans silent fallbacks like `var(--token, #fallback)`, use bare `var(--token)` and complete variables in design.
 - **Scope**: Vue / UniApp prefer `scoped`; React `*.module.css` or themed-in-JS; comment reasons for `:global` / `:deep`.
+- **Animation & motion toolkit (Animation.css)**: for transitions, fades/slides, skeleton shimmer, etc. — **prefer reusing utility classes and `@keyframes` from `WebVariable/Animation.css` first**. If a motion Token is missing, register it globally with a semantic name in `Animation.css` before consuming it in components; **do not scatter inline `@keyframes` inside business components**. Default transition duration **0.15s – 0.2s**, capped at **0.35s** for complex choreography. In SSR / Nuxt / Next RSC contexts, ensure **no first-frame flash before hydration** (avoid class-toggled layout jumps that fire before `useLayoutEffect` / mounted).
+- **CSS import order (mandatory)**: `ThemeVariable.css → SystemVariable.css → ProjectReset.css → Animation.css → App / component styles`. Any new global CSS kit must be inserted after `Animation.css` and before product styles, and must be synced to the team authority document.
 
 ---
 

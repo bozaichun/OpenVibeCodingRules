@@ -1,6 +1,6 @@
 ---
-description: 前端工程与代码规范（Vue / React / Next.js / UniApp，TS 优先，多端 · puffseed）
-globs: ["**/*.vue", "**/*.nvue", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/pages.json", "**/manifest.json", "src/**/*.html", "**/*.less", "**/*.scss", "src/**/*.css", "**/*.module.css"]
+description: 前端工程与代码规范（Vue / React / Next.js / Nuxt.js / UniApp，TS 优先，多端 · puffseed）
+globs: ["src/**/*.vue","src/**/*.nvue","src/**/*.ts","src/**/*.tsx","src/**/*.js","src/**/*.jsx","src/**/*.html","src/**/*.less","src/**/*.scss","src/**/*.css","app.vue","app/**/*.vue","app/**/*.tsx","app/**/*.jsx","pages/**/*.vue","pages/**/*.tsx","pages/**/*.jsx","server/**/*.ts","server/**/*.js","components/**/*.vue","components/**/*.tsx","components/**/*.jsx","composables/**/*.ts","layouts/**/*.vue","layouts/**/*.tsx","plugins/**/*.ts","plugins/**/*.js","middleware/**/*.ts","middleware/**/*.js","**/pages.json","**/manifest.json","**/next.config.*","**/nuxt.config.*","**/vite.config.*","**/webpack.config.*","**/vue.config.*","**/middleware.ts","**/middleware.js","**/*.module.css"]
 alwaysApply: false
 ---
 
@@ -12,7 +12,7 @@ alwaysApply: false
 
 **仓库角色**：**project-coding-rules-file** 用于制定并分发 **AI 可读的编程规范**；本文件约束 **工程实现与代码质量**。**AI 协作时的过程与变更粒度**见 **`rules/CodeConduct/CodeConduct-Zh-CN.md`**；**视觉与设计 Token 的语义**见 **`DESIGN/DESIGN-{Tag}.md`**；二者与本文件同时适用时以 **业务项目已定稿的设计系统** 为准。
 
-**适用框架**：Vue 2 / Vue 3、React 18+、**Next.js**（App Router / Pages Router）、**UniApp**（Vue2 / Vue3 + 多端）；兼容 Angular 12+ 遗留仓。  
+**适用框架**：Vue 2 / Vue 3、React 18+、**Next.js**（App Router / Pages Router）、**Nuxt.js**（Pages Router / App Router / SSR / SSG）、**UniApp**（Vue2 / Vue3 + 多端）；兼容 Angular 12+ 遗留仓。  
 **适用端**：浏览器 **Web**、**小程序 / App**（UniApp）、**桌面壳**（Electron / Tauri / CE 等内嵌 WebView）、**移动与平板**（浏览器或壳内 WebView）。不替代各壳工程自己的 `AGENTS`：路由 `base`、深链、安全策略以 **目标业务仓库** 为准。
 
 **通用质量基线**见 `rules/QualityBaseline/QualityBaseline-{Tag}.md`（编码风格 / 提交门禁 / 分层 / 接口 / 质量 / 技术债 / 可维护性）。
@@ -62,7 +62,18 @@ alwaysApply: false
 - **环境变量**：仅 `NEXT_PUBLIC_` 暴露到客户端；密钥仅服务端可读。
 - **样式**：全局 Token 仍从 **`WebVariable/`** 引入；组件级用 CSS Modules / 约定方案，禁止硬编码整套色板。
 
-### 1.6 UniApp（多端 · Vue 语法）
+### 1.6 Nuxt.js（Vue SSR · Pages / App Router）
+
+- **识别信号**：依赖 **`nuxt`**；目录常见 `app/`（Nuxt 3+ App Router）、`pages/`（Pages Router）、`components/`、`composables/`；存在 `nuxt.config.ts`；约定大于配置。
+- **路由**：App Router 用 `app/` + 约定文件（`app.vue`、`error.vue`、`layouts/`）；Pages Router 沿用 `pages/` 自动路由；**同一功能域勿混用**。
+- **Server / Client**：默认 **SSR / SSG**；浏览器 API / 交互用 `<ClientOnly>` 或 `useClientOnly()`；服务端逻辑放在 `server/api/`、`server/middleware/`、`server/plugins/`。
+- **数据获取**：服务端优先 `useFetch` / `useAsyncData` / `$fetch`；SEO 用 `useSeoMeta` / `useHead`；缓存与去重按仓库约定。
+- **逻辑复用**：自动导入 `composables/`、`utils/`；跨页面逻辑按 **puffseed** 业务域拆 `composables/useXxx.ts`，避免「全家桶」堆积。
+- **环境变量**：仅 `NUXT_PUBLIC_` 前缀暴露到客户端；密钥放 `runtimeConfig.private`（服务端只读），并在 `nuxt.config.ts` 的 `runtimeConfig` 中声明。
+- **样式**：全局 Token 仍从 **`WebVariable/`** 引入（`app.vue` `<style>` 或 `nuxt.config.ts` `css` 数组）；组件级 `<style scoped>`；禁止硬编码整套色板。
+- **构建模式**：SSR（`nuxt build`）· SSG（`nuxt generate`）· ISR（`routeRules`）以仓库脚本为准；勿混用模式特有 API。
+
+### 1.7 UniApp（多端 · Vue 语法）
 
 - **识别信号**：根目录 `pages.json`、`manifest.json`；依赖 `@dcloudio/uni-*` / `uni-app`；目录常见 `pages/`、`components/`、`static/`、`uni_modules/`。
 - **Vue 版本**：Vue 3 + Vite 优先（`<script setup lang="ts">`）；Vue 2 遗留仓沿用 Options API，勿在同一功能域混用两套写法。
@@ -76,7 +87,7 @@ alwaysApply: false
 - **样式**：页面 / 组件样式 1:1；引用 Token，禁止硬编码整套色板；`scoped` 与深度选择器慎用并注释原因。
 - **安全**：不信任路由参数与扫码/分享入参；存储敏感信息用仓库约定方案，勿明文落 `storage`。
 
-### 1.7 Angular 12+
+### 1.8 Angular 12+
 
 - **组件**：`@Component({ selector, templateUrl, styleUrls })`；selector 采用 **kebab-case**（`app-user-profile`），文件命名 `user-profile.component.ts` + `user-profile.component.html` + `user-profile.component.scss`。
 - **模块**：模块化拆分 `NgModule`；功能模块、共享模块、懒加载路由模块按约定目录。
@@ -130,6 +141,8 @@ alwaysApply: false
 
 - **`var()`**：若团队规范禁止 `var(--token, #fallback)` 一类 **静默回退**，则一律使用 **无 fallback** 的 `var(--token)`，并在设计侧补全变量。
 - **作用域**：Vue / UniApp 优先 `scoped` 或约定方案；React 使用 `*.module.css` 或约定-in-JS 的 **theme token**；**`:global` / `:deep`** 类穿透须注释原因，避免污染全局。
+- **动画与动效套件（Animation.css）**：过渡/淡入滑入/骨架屏 shimmer 等通用动效，**优先复用 `WebVariable/Animation.css` 中的工具类与 `@keyframes`**；若缺少动画 Token，须先在 `Animation.css` 中以语义化名称全局注册，再由业务引用，**禁止在业务组件内散落内联 `@keyframes`**。默认过渡时长 **0.15s ~ 0.2s**，复杂场景不超过 **0.35s**；SSR / Nuxt / Next RSC 场景下注意 **hydration 前首帧不闪**（避免在 `useLayoutEffect` / mounted 前由 class 切换触发样式跳动）。
+- **CSS 引入顺序（强制）**：`ThemeVariable.css → SystemVariable.css → ProjectReset.css → Animation.css → 业务/组件样式`。任何新增的全局 CSS 套件必须插入到 `Animation.css` 之后、业务样式之前，并在团队权威文档同步。
 
 ---
 
@@ -228,6 +241,7 @@ alwaysApply: false
 - [ ] 桌面壳 / 多 base / UniApp 多端场景已与业务仓路由与条件编译策略一致
 - [ ] **Vue 2** 场景已确认版本特性（`Vue.extend` / Composition API 可用性）
 - [ ] **React 18 / Next.js** 场景已确认是否为 SSR / RSC 环境（use client / use server 边界）
+- [ ] **Nuxt.js** 场景已确认 Router 范式（App / Pages）与渲染模式（SSR / SSG / ISR），`<ClientOnly>` 与 `runtimeConfig` 使用符合约定
 - [ ] **UniApp** 场景：页面已登记 `pages.json`；优先 `uni.*`；非 H5 未误用 DOM；条件编译有注释
 - [ ] **Angular** 场景已确认 RxJS 订阅是否正确释放、模板 strict 是否已启用
 - [ ] 页面 / 模板关键区块已用 `<!-- ... -->` 分区注释

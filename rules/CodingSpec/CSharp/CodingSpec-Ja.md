@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: C# エンジニアリングとコード規範（ASP.NET Core · puffseed）
-globs: ["**/*.cs", "**/*.csproj", "**/*.sln", "**/appsettings*.json"]
 alwaysApply: false
 ---
 

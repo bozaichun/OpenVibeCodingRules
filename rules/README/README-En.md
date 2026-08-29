@@ -22,7 +22,7 @@ OpenVibeCodingRules is a standards repo for **AI-assisted multilingual developme
 
 | Language | Frameworks / scenarios |
 |----------|------------------------|
-| JavaScript & TypeScript | Vue, React, Next.js, UniApp |
+| JavaScript & TypeScript | Vue, React, Next.js, Nuxt.js, UniApp |
 | Node.js | NestJS, Express |
 | Python | FastAPI, Django |
 | Java | Spring Boot |
@@ -137,7 +137,7 @@ Identify language / framework from deps (see `AGENTS.md` §1). For frontend repo
 
 | Mode | How to tell | Stacks |
 |------|-------------|--------|
-| Normal project | No `public/plugin.json` | Native HTML · Vue · React · Next.js · UniApp |
+| Normal project | No `public/plugin.json` | Native HTML · Vue · React · Next.js · Nuxt.js · UniApp |
 | uTools plugin | Has `public/plugin.json` | React · Vue only |
 
 ### Styling principles (frontend · 1:1)

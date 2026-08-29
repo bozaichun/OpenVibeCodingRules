@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: Swift инженерные и кодовые стандарты（SwiftUI / Vapor · puffseed）
-globs: ["**/*.swift", "**/Package.swift", "**/*.xcodeproj/**", "**/*.xcworkspace/**"]
 alwaysApply: false
 ---
 

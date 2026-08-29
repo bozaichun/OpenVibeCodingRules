@@ -1,21 +1,13 @@
-﻿<!-- ovcr-locale-lock -->
+<!-- ovcr-locale-lock -->
 ---
 description: UI 佈局、樣式、元件視覺、主題與響應式相關任務時查閱（跨瀏覽器端技術棧 · VibeCoding）
-globs:
-  - "**/*.vue"
-  - "**/*.scss"
-  - "**/*.less"
-  - "src/**/*.css"
-  - "**/layout/**"
-  - "**/components/**"
-  - "**/pages/**"
 alwaysApply: false
 ---
 
 # 介面設計規範（VibeCoding · puffseed）
 
 > **用途**：智能體在目標業務倉庫中編寫 UI 時的**設計規範來源**（**puffseed** 前端視覺體系）。  
-> **適用範圍**：原生 HTML + CSS + JavaScript、Vue 2 / Vue 3、React 18+、**Next.js**、**UniApp**、Angular 12+ 等技術棧，以及 uTools 生態外掛（React / Vue）。  
+> **適用範圍**：原生 HTML + CSS + JavaScript、Vue 2 / Vue 3、React 18+、**Next.js**、**Nuxt.js**、**UniApp**、Angular 12+ 等技術棧，以及 uTools 生態外掛（React / Vue）。  
 > **執行原則**：先識別目標倉庫的專案模式（見 `AGENTS.md` §0）與實際框架，再按對應章節落地。預覽頁與品牌文案保持 **puffseed** / **puffseed-ui** 標識。
 
 ---
@@ -65,6 +57,7 @@ pages/ 或 views/        # 頁面級樣式（僅對應頁面內）
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/ThemeVariable.css` | **主題色與文本色**（唯一維護處） |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css` | 間距、佈局、字號、圖示尺寸、邊框寬度、複合邊框/陰影 |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css` | 全域重置、`html`/`body` 基礎樣式 |
+| `rules/CodingSpec/JavaScript&TypeScript/WebVariable/Animation.css` | **全域動效工具類**：入場、強調、載入 spinner、骨架屏、滾動顯現等；優先複用類名，**禁止**在元件內散寫未登記的 `@keyframes` |
 
 入口引入順序：
 
@@ -72,10 +65,11 @@ pages/ 或 views/        # 頁面級樣式（僅對應頁面內）
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/ThemeVariable.css";
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css";
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css";
+import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/Animation.css";
 import "./main.css";  // 應用級補充（如 #app）
 ```
 
-擴展 Token 時：**主題色/文本色** 寫入 `ThemeVariable.css`；**尺寸/間距/佈局** 寫入 `SystemVariable.css`；**重置規則** 僅在確有全域需求時改 `ProjectReset.css`。
+擴展 Token 時：**主題色/文本色** 寫入 `ThemeVariable.css`；**尺寸/間距/佈局** 寫入 `SystemVariable.css`；**重置規則** 僅在確有全域需求時改 `ProjectReset.css`；**新 keyframes / 動效工具** 先補 `Animation.css`。
 
 ### 2.3 規則拔插機制
 

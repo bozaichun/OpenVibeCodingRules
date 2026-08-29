@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: Shell 脚本工程规范（Bash / POSIX · puffseed）
-globs: ["**/*.sh", "**/*.bash", "**/scripts/**", "**/.github/workflows/**"]
 alwaysApply: false
 ---
 

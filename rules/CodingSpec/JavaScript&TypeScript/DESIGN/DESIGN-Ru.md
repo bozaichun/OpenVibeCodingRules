@@ -1,21 +1,13 @@
-﻿<!-- ovcr-locale-lock -->
+<!-- ovcr-locale-lock -->
 ---
 description: Справка по UI-вёрстке, стилям, визуалу компонентов, теме и адаптивности (кросс-стеки · VibeCoding)
-globs:
-  - "**/*.vue"
-  - "**/*.scss"
-  - "**/*.less"
-  - "src/**/*.css"
-  - "**/layout/**"
-  - "**/components/**"
-  - "**/pages/**"
 alwaysApply: false
 ---
 
 # Нормы дизайна интерфейса (VibeCoding · puffseed)
 
 > **Назначение**: источник дизайн-норм для агента при UI в продуктовом репозитории (визуальная система **puffseed**).  
-> **Область**: vanilla HTML + CSS + JavaScript, Vue 2 / Vue 3, React 18+, **Next.js**, **UniApp**, Angular 12+, плагины uTools (React / Vue).  
+> **Область**: vanilla HTML + CSS + JavaScript, Vue 2 / Vue 3, React 18+, **Next.js**, **Nuxt.js**, **UniApp**, Angular 12+, плагины uTools (React / Vue).  
 > **Правило**: сначала режим проекта (`AGENTS.md` §0) и фреймворк, затем нужные разделы. В превью и брендинге сохранять **puffseed** / **puffseed-ui**.
 
 ---
@@ -65,6 +57,7 @@ pages/ или views/       # только страница
 | `ThemeVariable.css` | **Тема и текст** |
 | `SystemVariable.css` | Отступы, макет, кегль, иконки, толщина рамки, рамки/тени |
 | `ProjectReset.css` | Глобальный reset |
+| `Animation.css` | **Глобальные утилиты анимации**: вход / акцент / лоадеры / скелет / проявление при скролле; предпочитать переиспользование классов; незарегистрированные `@keyframes` в коде **запрещены** |
 
 Порядок импорта:
 
@@ -72,10 +65,11 @@ pages/ или views/       # только страница
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/ThemeVariable.css";
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css";
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css";
+import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/Animation.css";
 import "./main.css";
 ```
 
-Расширение: цвета → ThemeVariable; размеры/макет → SystemVariable; reset — только при глобальной нужде.
+Расширение: цвета → ThemeVariable; размеры/макет → SystemVariable; reset — только при глобальной нужде; новые keyframes/утилиты сначала в Animation.css.
 
 ### 2.3 Подключаемые стили
 

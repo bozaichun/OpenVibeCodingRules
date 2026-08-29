@@ -1,8 +1,7 @@
 <!-- ovcr-locale-lock -->
 ---
 description: Coding conduct for AI-assisted development
-globs: *
-alwaysApply: true
+alwaysApply: false
 ---
 
 <!-- !!! Coding conduct -->

@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: Rust engineering & coding standards (Axum / Actix  · puffseed)
-globs: ["**/*.rs", "**/Cargo.toml", "**/Cargo.lock"]
 alwaysApply: false
 ---
 

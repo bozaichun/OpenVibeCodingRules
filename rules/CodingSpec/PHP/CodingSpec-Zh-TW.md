@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: PHP 後端工程與程式碼規範（Laravel · puffseed）
-globs: ["**/*.php", "**/composer.json", "**/artisan"]
 alwaysApply: false
 ---
 

@@ -1,21 +1,13 @@
-﻿<!-- ovcr-locale-lock -->
+<!-- ovcr-locale-lock -->
 ---
 description: Consult for UI layout, styles, component visuals, theme, and responsive work (cross browser stacks · VibeCoding)
-globs:
-  - "**/*.vue"
-  - "**/*.scss"
-  - "**/*.less"
-  - "src/**/*.css"
-  - "**/layout/**"
-  - "**/components/**"
-  - "**/pages/**"
 alwaysApply: false
 ---
 
 # UI design spec (VibeCoding · puffseed)
 
 > **Purpose**: Design source for agents building UI in the product repo (**puffseed** frontend visual system).  
-> **Scope**: Vanilla HTML + CSS + JavaScript, Vue 2 / Vue 3, React 18+, **Next.js**, **UniApp**, Angular 12+, and uTools plugins (React / Vue).  
+> **Scope**: Vanilla HTML + CSS + JavaScript, Vue 2 / Vue 3, React 18+, **Next.js**, **Nuxt.js**, **UniApp**, Angular 12+, and uTools plugins (React / Vue).  
 > **Rule**: Detect project mode (`AGENTS.md` §0) and framework first, then apply the matching sections. Keep **puffseed** / **puffseed-ui** in preview and brand copy.
 
 ---
@@ -65,6 +57,7 @@ pages/ or views/        # page-only styles
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/ThemeVariable.css` | **Theme & text colors** (single source) |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css` | Spacing, layout, type, icon sizes, border widths, composite borders/shadows |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css` | Global reset, `html`/`body` basics |
+| `rules/CodingSpec/JavaScript&TypeScript/WebVariable/Animation.css` | **Global animation utilities**: entrance / emphasis / loaders / skeleton / scroll-reveal; reuse class names first; **never** drop unregistered `@keyframes` inside product components |
 
 Import order:
 
@@ -72,10 +65,11 @@ Import order:
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/ThemeVariable.css";
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css";
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css";
+import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/Animation.css";
 import "./main.css";  // app extras (e.g. #app)
 ```
 
-When extending Tokens: **colors** → `ThemeVariable.css`; **size/spacing/layout** → `SystemVariable.css`; **reset** → `ProjectReset.css` only when truly global.
+When extending Tokens: **colors** → `ThemeVariable.css`; **size/spacing/layout** → `SystemVariable.css`; **reset** → `ProjectReset.css` only when truly global; **new keyframes / utilities** → `Animation.css` first.
 
 ### 2.3 Plug-in styles
 

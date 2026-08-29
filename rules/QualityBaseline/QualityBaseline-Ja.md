@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: 多言語共通のコード規範 / 品質 / 保守性ベースライン（puffseed）
-globs: *
 alwaysApply: false
 ---
 

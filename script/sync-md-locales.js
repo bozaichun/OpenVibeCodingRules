@@ -22,7 +22,7 @@ function ensureDir(p) {
   fs.mkdirSync(path.dirname(p), { recursive: true });
 }
 
-function syncFile(src, dest) {
+function syncFile(src, dest, { stripGlobsLine = false, demoteAlwaysApply = false } = {}) {
   if (!fs.existsSync(src)) return "missing";
   if (fs.existsSync(dest)) {
     const cur = fs.readFileSync(dest, "utf8");
@@ -30,7 +30,21 @@ function syncFile(src, dest) {
     if (!force) return "skipped";
   }
   ensureDir(dest);
-  fs.writeFileSync(dest, fs.readFileSync(src), "utf8");
+  let data = fs.readFileSync(src, "utf8");
+  if (stripGlobsLine) {
+    // Non-canonical (non-Zh-CN) locales must NOT trigger via globs: routing
+    // is handled by AGENTS §0.2. A `globs:*` or globs array here would cause
+    // every edit to load 5× copies of CodeConduct / QualityBaseline / DESIGN
+    // / CodingSpec at once → 4/5 of the tokens are pure waste.
+    data = data.replace(/^globs:\s*[^\n]*\r?\n/gm, "");
+  }
+  if (demoteAlwaysApply) {
+    // Only canonical Zh-CN should be alwaysApply=true (a single authoritative
+    // copy loaded unconditionally). Translated copies must never auto-load
+    // without explicit locale routing.
+    data = data.replace(/^alwaysApply:\s*true\s*$/gm, "alwaysApply: false");
+  }
+  fs.writeFileSync(dest, data, "utf8");
   return "written";
 }
 
@@ -58,8 +72,9 @@ function tally(r) {
 for (const base of ["CodeConduct", "QualityBaseline"]) {
   const dir = path.join(root, "rules", base);
   const zh = path.join(dir, base + "-Zh-CN.md");
+  const demote = base === "CodeConduct"; // CodeConduct 译文必须 alwaysApply:false
   for (const loc of LOCALES) {
-    tally(syncFile(zh, path.join(dir, base + "-" + loc.file + ".md")));
+    tally(syncFile(zh, path.join(dir, base + "-" + loc.file + ".md"), { stripGlobsLine: true, demoteAlwaysApply: demote }));
   }
 }
 
@@ -69,7 +84,7 @@ for (const name of fs.readdirSync(csRoot)) {
   if (name === "CodeConduct" || name === "QualityBaseline") continue;
   const zhSpec = path.join(dir, "CodingSpec-Zh-CN.md");
   for (const loc of LOCALES) {
-    tally(syncFile(zhSpec, path.join(dir, "CodingSpec-" + loc.file + ".md")));
+    tally(syncFile(zhSpec, path.join(dir, "CodingSpec-" + loc.file + ".md"), { stripGlobsLine: true }));
   }
   // DESIGN lives under <Lang>/DESIGN/DESIGN-{Tag}.md
   const designDir = path.join(dir, "DESIGN");
@@ -77,7 +92,7 @@ for (const name of fs.readdirSync(csRoot)) {
   if (fs.existsSync(zhDesign)) {
     for (const loc of LOCALES) {
       tally(
-        syncFile(zhDesign, path.join(designDir, "DESIGN-" + loc.file + ".md"))
+        syncFile(zhDesign, path.join(designDir, "DESIGN-" + loc.file + ".md"), { stripGlobsLine: true })
       );
     }
   }
@@ -90,7 +105,7 @@ if (fs.existsSync(rootReadme)) {
 }
 for (const loc of LOCALES) {
   tally(
-    syncFile(zhReadme, path.join(root, "rules/README", "README-" + loc.file + ".md"))
+    syncFile(zhReadme, path.join(root, "rules/README", "README-" + loc.file + ".md"), { stripGlobsLine: true })
   );
 }
 

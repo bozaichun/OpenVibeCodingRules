@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
-description: 前端工程與程式碼規範（Vue / React / Next.js / UniApp，TS 優先，多端 · puffseed）
-globs: ["**/*.vue", "**/*.nvue", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/pages.json", "**/manifest.json", "src/**/*.html", "**/*.less", "**/*.scss", "src/**/*.css", "**/*.module.css"]
+description: 前端工程與程式碼規範（Vue / React / Next.js / Nuxt.js / UniApp，TS 優先，多端 · puffseed）
 alwaysApply: false
 ---
 
@@ -13,7 +12,7 @@ alwaysApply: false
 
 **倉庫角色**：**project-coding-rules-file** 用於制定並分發 **AI 可讀的程式設計規範**；本檔案約束 **工程實作與程式碼品質**。**AI 協作時的過程與變更粒度**见 **`rules/CodeConduct/CodeConduct-Zh-CN.md`**；**視覺與設計 Token 的語義**見同目錄 **`DESIGN.md`**；二者与本檔案同時適用時以 **業務專案已定稿的設計系統** 為準。
 
-**適用框架**：Vue 2 / Vue 3、React 18+、**Next.js**（App Router / Pages Router）、**UniApp**（Vue2 / Vue3 + 多端）；兼容 Angular 12+ 遺留倉。  
+**適用框架**：Vue 2 / Vue 3、React 18+、**Next.js**（App Router / Pages Router）、**Nuxt.js**（Pages Router / App Router / SSR / SSG）、**UniApp**（Vue2 / Vue3 + 多端）；兼容 Angular 12+ 遺留倉。  
 **適用端**：瀏覽器 **Web**、**小程式 / App**（UniApp）、**桌面殼**（Electron / Tauri / CE 等內嵌 WebView）、**行動與平板**（瀏覽器或壳内 WebView）。不替代各壳工程自己的 `AGENTS`：路由 `base`、深鏈、安全策略以 **目標業務倉庫** 為準。
 
 **通用品質基線**见 `rules/QualityBaseline/QualityBaseline-Zh-CN.md`（編碼風格 / 提交門禁 / 分層 / 介面 / 品質 / 技術債 / 可維護性）。
@@ -63,7 +62,18 @@ alwaysApply: false
 - **環境變數**：仅 `NEXT_PUBLIC_` 暴露到客户端；密钥仅服务端可读。
 - **樣式**：全域 Token 仍从 **`WebVariable/`** 引入；元件级用 CSS Modules / 约定方案，禁止硬編碼整套色板。
 
-### 1.6 UniApp（多端 · Vue 语法）
+### 1.6 Nuxt.js（Vue SSR · Pages / App Router）
+
+- **識別信號**：依賴 **`nuxt`**；目錄常見 `app/`（Nuxt 3+ App Router）、`pages/`（Pages Router）、`components/`、`composables/`；存在 `nuxt.config.ts`；約定大於配置。
+- **路由**：App Router 用 `app/` + 約定檔案（`app.vue`、`error.vue`、`layouts/`）；Pages Router 沿用 `pages/` 自動路由；**同一功能域勿混用**。
+- **Server / Client**：預設 **SSR / SSG**；瀏覽器 API / 交互用 `<ClientOnly>` 或 `useClientOnly()`；服務端邏輯放在 `server/api/`、`server/middleware/`、`server/plugins/`。
+- **資料獲取**：服務端優先 `useFetch` / `useAsyncData` / `$fetch`；SEO 用 `useSeoMeta` / `useHead`；快取與去重按倉庫約定。
+- **邏輯複用**：自動匯入 `composables/`、`utils/`；跨頁面邏輯按 **puffseed** 業務域拆 `composables/useXxx.ts`，避免「全家桶」堆積。
+- **環境變數**：僅 `NUXT_PUBLIC_` 前綴暴露到客戶端；金鑰放 `runtimeConfig.private`（服務端唯讀），並在 `nuxt.config.ts` 的 `runtimeConfig` 中宣告。
+- **樣式**：全域 Token 仍從 **`WebVariable/`** 引入（`app.vue` `<style>` 或 `nuxt.config.ts` `css` 陣列）；元件級 `<style scoped>`；禁止硬編碼整套色板。
+- **建置模式**：SSR（`nuxt build`）· SSG（`nuxt generate`）· ISR（`routeRules`）以倉庫指令碼為準；勿混用模式特有 API。
+
+### 1.7 UniApp（多端 · Vue 语法）
 
 - **識別信號**：根目录 `pages.json`、`manifest.json`；依赖 `@dcloudio/uni-*` / `uni-app`；目录常见 `pages/`、`components/`、`static/`、`uni_modules/`。
 - **Vue 版本**：Vue 3 + Vite 優先（`<script setup lang="ts">`）；Vue 2 遺留倉沿用 Options API，勿在同一功能域混用两套写法。
@@ -77,7 +87,7 @@ alwaysApply: false
 - **樣式**：页面 / 元件樣式 1:1；引用 Token，禁止硬編碼整套色板；`scoped` 与深度选择器慎用并註解原因。
 - **安全**：不信任路由参数与扫码/分享入参；存储敏感信息用倉庫约定方案，勿明文落 `storage`。
 
-### 1.7 Angular 12+
+### 1.8 Angular 12+
 
 - **元件**：`@Component({ selector, templateUrl, styleUrls })`；selector 采用 **kebab-case**（`app-user-profile`），檔案命名 `user-profile.component.ts` + `user-profile.component.html` + `user-profile.component.scss`。
 - **模組**：模組化拆分 `NgModule`；功能模組、共享模組、懶加載路由模組按约定目录。
@@ -129,8 +139,10 @@ alwaysApply: false
 }
 ```
 
-- **`var()`**：若团队规范禁止 `var(--token, #fallback)` 一类 **静默回退**，则一律使用 **无 fallback** 的 `var(--token)`，并在设计侧补全變數。
-- **作用域**：Vue / UniApp 優先 `scoped` 或约定方案；React 使用 `*.module.css` 或约定-in-JS 的 **theme token**；**`:global` / `:deep`** 类穿透须註解原因，避免污染全域。
+- **`var()`**：若团队规范禁止 `var(--token, #fallback)` 一类 **靜默回退**，则一律使用 **无 fallback** 的 `var(--token)`，并在设计侧补全變數。
+- **作用域**：Vue / UniApp 優先 `scoped` 或约定方案；React 使用 `*.module.css` 或约定-in-JS 的 **theme token**；**`:global` / `:deep`** 类穿透須註解原因，避免污染全域。
+- **動畫與動效套件（Animation.css）**：過渡/淡入滑入/骨架屏 shimmer 等通用動效，**優先複用 `WebVariable/Animation.css` 中的工具類與 `@keyframes`**；若缺少動畫 Token，須先在 `Animation.css` 中以語義化名稱全域註冊，再由業務引用，**禁止在業務元件內散落內聯 `@keyframes`**。預設過渡時長 **0.15s ~ 0.2s**，複雜場景不超過 **0.35s**；SSR / Nuxt / Next RSC 場景下注意 **hydration 前首幀不閃**（避免在 `useLayoutEffect` / mounted 前由 class 切換觸發樣式跳動）。
+- **CSS 引入順序（強制）**：`ThemeVariable.css → SystemVariable.css → ProjectReset.css → Animation.css → 業務/元件樣式`。任何新增的全域 CSS 套件必須插入到 `Animation.css` 之後、業務樣式之前，並在團隊權威文件同步。
 
 ---
 

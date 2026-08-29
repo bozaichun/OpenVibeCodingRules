@@ -1,8 +1,7 @@
 <!-- ovcr-locale-lock -->
 ---
 description: AI 編碼開發時需遵守的編碼準則
-globs: *
-alwaysApply: true
+alwaysApply: false
 ---
 
 <!-- !!!編碼行為準則 -->

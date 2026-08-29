@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: 多語言通用程式碼規範 / 品質 / 可維護性基線（puffseed）
-globs: *
 alwaysApply: false
 ---
 

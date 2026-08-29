@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: Go バックエンドエンジニアリングとコード規範（Gin · puffseed）
-globs: ["**/*.go", "**/go.mod", "**/go.sum"]
 alwaysApply: false
 ---
 

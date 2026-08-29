@@ -10,7 +10,7 @@
 
 | 语言 / 运行时 | 主流框架 / 场景 | 规范目录 |
 |--------------|----------------|---------|
-| **JavaScript & TypeScript**（前端） | Vue、React、Next.js、**UniApp** | `rules/CodingSpec/JavaScript&TypeScript/` |
+| **JavaScript & TypeScript**（前端） | Vue、React、Next.js、**Nuxt.js**、**UniApp** | `rules/CodingSpec/JavaScript&TypeScript/` |
 | **Node.js**（后端） | NestJS、Express | `rules/CodingSpec/Node.js/` |
 | **Python** | FastAPI、Django | `rules/CodingSpec/Python/` |
 | **Java** | Spring Boot | `rules/CodingSpec/Java/` |
@@ -77,7 +77,7 @@
 
 | 模式 | 识别信号 | 支持技术栈 | 说明 |
 |------|---------|-----------|------|
-| **普通项目** | **无** `public/plugin.json` | 原生 HTML + CSS + JS · Vue · React · Next.js · UniApp | 通用 Web / 多端应用 |
+| **普通项目** | **无** `public/plugin.json` | 原生 HTML + CSS + JS · Vue · React · Next.js · Nuxt.js · UniApp | 通用 Web / 多端应用 |
 | **uTools 生态插件** | **存在** `public/plugin.json` | **仅** React · Vue（2 / 3） | uTools 插件模板 |
 
 ### 0.2 语言 / 框架识别流程
@@ -98,7 +98,7 @@
 |---------|------|---------|
 | `rules/CodeConduct/CodeConduct-{Tag}.md` | AI 编码行为与变更心智（先问再做、最小 diff） | **任何编码任务开始前** |
 | `rules/QualityBaseline/QualityBaseline-{Tag}.md` | **全语言**代码规范 / 质量 / 可维护性基线（风格门禁、分层、接口、类型、依赖、技术债） | **编写或修改任何业务代码时** |
-| `rules/CodingSpec/JavaScript&TypeScript/CodingSpec-{Tag}.md` | 前端工程规范（Vue / React / Next.js / UniApp） | 编写或修改 **前端** 业务代码 |
+| `rules/CodingSpec/JavaScript&TypeScript/CodingSpec-{Tag}.md` | 前端工程规范（Vue / React / Next.js / Nuxt.js / UniApp） | 编写或修改 **前端** 业务代码 |
 | `rules/CodingSpec/JavaScript&TypeScript/DESIGN/DESIGN-{Tag}.md` | 界面设计规范（Token · 视觉 · 布局） | **UI 布局、样式、主题、响应式** |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/` | 前端设计 Token（原 VariableFile） | 改色值、间距、字号、reset |
 | `rules/CodingSpec/JavaScript&TypeScript/PreView/` | 浅/深色视觉预览 | 浏览器打开验收（勿全文喂给 AI） |
@@ -157,6 +157,7 @@
 | Vue 3 | `vue@3`、`<script setup>` | JS&TS CodingSpec · Vue 3 |
 | React 18+ | `react`、Hooks | JS&TS CodingSpec · React |
 | Next.js | `next`、`app/` 或 `pages/` | JS&TS CodingSpec · Next.js |
+| Nuxt.js | `nuxt`、`app/` 或 `pages/`、`nuxt.config.ts` | JS&TS CodingSpec · Nuxt.js |
 | UniApp | `pages.json`、`manifest.json`、`@dcloudio/uni-*` | JS&TS CodingSpec · UniApp |
 
 **跨框架共性（前端摘录）**
@@ -205,18 +206,20 @@
 | 主题 Token | `WebVariable/ThemeVariable.css` | 标准色板 + 文本色 | **禁止** |
 | 系统 Token | `WebVariable/SystemVariable.css` | 间距 · 布局 · 字号 · 图标 · 阴影 | **禁止** |
 | 全局重置 | `WebVariable/ProjectReset.css` | 盒模型、`html`/`body` | **禁止** |
+| 全局动画 | `WebVariable/Animation.css` | 入场 / 强调 / 加载 / 骨架屏工具类（优先复用，不重复造 @keyframes） | 动效需求时增补 |
 | 应用补充 | 各仓库入口 CSS | 仅应用级补充 | 按需 |
 | 布局 / 页面 / 组件 | 对应模块内 | 1:1 作用域样式，引用 Token | 仅本模块内 |
 
-**1:1 原则**：组件 / 页面 / 布局样式各写在其作用域内。**全局 Token 与 reset 仅在 `WebVariable/` 维护。**
+**1:1 原则**：组件 / 页面 / 布局样式各写在其作用域内。**全局 Token / reset / 动画仅在 `WebVariable/` 维护。**
 
-**WebVariable 引入顺序**：**ThemeVariable → SystemVariable → ProjectReset → 应用 CSS**
+**WebVariable 引入顺序**：**ThemeVariable → SystemVariable → ProjectReset → Animation → 应用 CSS**
 
 ```javascript
 // 路径按业务仓库相对位置调整
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/ThemeVariable.css";
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css";
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css";
+import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/Animation.css";
 import "./main.css";
 ```
 
@@ -224,8 +227,10 @@ import "./main.css";
 |--------|---------|
 | 原生 HTML/CSS/JS | `index.html` 中 `<link>` |
 | Vue 2 / Vue 3 | `main.js` / `main.ts` 中 `import` |
+| Nuxt.js | `app.vue` `<style>` 或 `nuxt.config.ts` 的 `css` 数组（注意 SSR CSS 注入） |
 | UniApp | `App.vue` / `uni.scss` 或入口引入（注意小程序 CSS 变量） |
-| React / Next.js | 入口或根 layout 中 `import` |
+| React 18+ | `index.jsx` / `main.tsx` 中 `import` |
+| Next.js | `app/layout.tsx`（App Router）或 `pages/_app.tsx`（Pages Router）根 layout `import` |
 
 ### 2.2 主题 / 系统变量要点
 
@@ -237,7 +242,7 @@ import "./main.css";
 
 ### 2.3 Token 扩展（规则拔插）
 
-- **核心套件**：`ThemeVariable.css` + `SystemVariable.css` + `ProjectReset.css`
+- **核心套件**：`ThemeVariable.css` + `SystemVariable.css` + `ProjectReset.css` + `Animation.css`
 - **扩展套件**：可在 `WebVariable/` 或 `Extensions/` **追加** CSS，入口追加引入，**不修改核心文件**
 - 未明确要求时，AI **仅使用核心套件**
 
@@ -272,12 +277,12 @@ import "./main.css";
 
 ### 4.1 前端
 
-| 场景 | Vue 3 | UniApp | React 18+ | Next.js |
-|------|-------|--------|-----------|---------|
-| 组件 | `<script setup>` SFC | Vue SFC + `view`/`text` 等 | 函数组件 + Hooks | Server/Client Component 边界 |
-| 路由 | `vue-router` | `pages.json` | React Router | `app/` 或 `pages/` 约定 |
-| 状态 | `ref` / Pinia | Pinia / Vuex | `useState` / Zustand 等 | 服务端数据 + 客户端状态分离 |
-| 样式 | SCSS scoped | Token + rpx / 条件编译 | CSS Modules | 同左 + 根 layout 引 WebVariable |
+| 场景 | Vue 3 | Nuxt.js | UniApp | React 18+ | Next.js |
+|------|-------|---------|--------|-----------|---------|
+| 组件 | `<script setup>` SFC | Vue SFC + `<ClientOnly>` 客户端边界 | Vue SFC + `view`/`text` 等 | 函数组件 + Hooks | Server/Client Component 边界 |
+| 路由 | `vue-router` | `pages/` 文件路由 或 `app/` 约定 | `pages.json` | React Router | `app/` 或 `pages/` 约定 |
+| 状态 | `ref` / Pinia | `useState`（同构安全）/ Pinia | Pinia / Vuex | `useState` / Zustand 等 | 服务端数据 + 客户端状态分离 |
+| 样式 | SCSS scoped | `app.vue` 或 `nuxt.config.ts` `css` 数组引 WebVariable | Token + rpx / 条件编译 | CSS Modules | 同左 + 根 layout 引 WebVariable |
 
 ### 4.2 其他端（摘要）
 
@@ -312,7 +317,7 @@ import "./main.css";
 - [ ] 分层正确（控制层薄、业务在 service）；目录落点符合约定
 - [ ] 接口变更：信封/错误码/版本一致，**文档已同步**；写操作考虑幂等
 - [ ] 强类型与入口校验到位；无未登记技术债 / 临时代码
-- [ ] 前端仓：已识别普通项目 / uTools；**WebVariable** 已引入且未重复定义 Token
+- [ ] 前端仓：已识别普通项目 / uTools；Next/Nuxt 已确认 Router 范式（App/Pages）与渲染模式；**WebVariable** 已引入且未重复定义 Token
 - [ ] 样式 1:1（前端）；无密钥硬编码；副作用 / 资源已清理或事务 / 鉴权正确
 - [ ] 关键业务路径注释含 **puffseed**；新人可据注释与 README 上手
 - [ ] UI 视觉正常（可对照 PreView）

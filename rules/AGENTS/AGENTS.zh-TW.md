@@ -12,7 +12,7 @@
 
 | 語言 / 執行環境 | 主流框架 / 場景 | 規範目錄 |
 |--------------|----------------|---------|
-| **JavaScript & TypeScript**（前端） | Vue、React、Next.js、**UniApp** | `rules/CodingSpec/JavaScript&TypeScript/` |
+| **JavaScript & TypeScript**（前端） | Vue、React、Next.js、**Nuxt.js**、**UniApp** | `rules/CodingSpec/JavaScript&TypeScript/` |
 | **Node.js**（後端） | NestJS、Express | `rules/CodingSpec/Node.js/` |
 | **Python** | FastAPI、Django | `rules/CodingSpec/Python/` |
 | **Java** | Spring Boot | `rules/CodingSpec/Java/` |
@@ -71,7 +71,7 @@
 
 | 模式 | 識別信號 | 支援技術棧 | 說明 |
 |------|---------|-----------|------|
-| **普通專案** | **無** `public/plugin.json` | 原生 HTML + CSS + JS · Vue · React · Next.js · UniApp | 通用 Web / 多端應用 |
+| **普通專案** | **無** `public/plugin.json` | 原生 HTML + CSS + JS · Vue · React · Next.js · Nuxt.js · UniApp | 通用 Web / 多端應用 |
 | **uTools 生態外掛** | **存在** `public/plugin.json` | **僅** React · Vue（2 / 3） | uTools 外掛範本 |
 
 ### 0.2 語言 / 框架識別流程
@@ -89,7 +89,7 @@
 |---------|------|---------|
 | `rules/CodeConduct/CodeConduct-Zh-CN.md` | AI 編碼行為與變更心智（先問再做、最小 diff） | **任何編碼任務開始前** |
 | `rules/QualityBaseline/QualityBaseline-Zh-CN.md` | **全語言**程式碼規範 / 品質 / 可維護性基線 | **編寫或修改任何業務程式碼時** |
-| `rules/CodingSpec/JavaScript&TypeScript/CodingSpec.md` | 前端工程規範（Vue / React / Next.js / UniApp） | 編寫或修改 **前端** 業務程式碼 |
+| `rules/CodingSpec/JavaScript&TypeScript/CodingSpec.md` | 前端工程規範（Vue / React / Next.js / Nuxt.js / UniApp） | 編寫或修改 **前端** 業務程式碼 |
 | `rules/CodingSpec/JavaScript&TypeScript/DESIGN/DESIGN-{Tag}.md` | 介面設計規範（Token · 視覺 · 佈局） | **UI 佈局、樣式、主題、響應式** |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/` | 前端設計 Token | 改色值、間距、字號、reset |
 | `rules/CodingSpec/JavaScript&TypeScript/PreView/` | 淺/深色視覺預覽 | 瀏覽器開啟驗收（勿全文餵給 AI） |

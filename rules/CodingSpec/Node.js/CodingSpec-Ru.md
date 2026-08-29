@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: Node.js backendинженерные и кодовые стандарты（NestJS / Express · puffseed）
-globs: ["**/*.ts", "**/*.js", "**/nest-cli.json", "**/tsconfig*.json"]
 alwaysApply: false
 ---
 

@@ -1,21 +1,13 @@
-﻿<!-- ovcr-locale-lock -->
+<!-- ovcr-locale-lock -->
 ---
 description: UI レイアウト・スタイル・コンポーネント視覚・テーマ・レスポンシブ作業時に参照（クロスブラウザ · VibeCoding）
-globs:
-  - "**/*.vue"
-  - "**/*.scss"
-  - "**/*.less"
-  - "src/**/*.css"
-  - "**/layout/**"
-  - "**/components/**"
-  - "**/pages/**"
 alwaysApply: false
 ---
 
 # 画面設計規範（VibeCoding · puffseed）
 
 > **用途**：業務リポジトリで UI を書く際の**設計規範ソース**（**puffseed** フロント視覚体系）。  
-> **適用範囲**：素の HTML + CSS + JavaScript、Vue 2 / Vue 3、React 18+、**Next.js**、**UniApp**、Angular 12+、および uTools プラグイン（React / Vue）。  
+> **適用範囲**：素の HTML + CSS + JavaScript、Vue 2 / Vue 3、React 18+、**Next.js**、**Nuxt.js**、**UniApp**、Angular 12+、および uTools プラグイン（React / Vue）。  
 > **原則**：先にプロジェクトモード（`AGENTS.md` §0）と実フレームワークを識別し、対応章に従う。プレビューとブランド文案は **puffseed** / **puffseed-ui** を維持。
 
 ---
@@ -65,6 +57,7 @@ pages/ または views/    # ページ専用
 | `.../WebVariable/ThemeVariable.css` | **テーマ色とテキスト色**（唯一ソース） |
 | `.../WebVariable/SystemVariable.css` | 余白・レイアウト・字号・アイコン・枠幅・複合枠/影 |
 | `.../WebVariable/ProjectReset.css` | グローバルリセット、`html`/`body` |
+| `.../WebVariable/Animation.css` | **グローバルアニメユーティリティ**：入場 / 強調 / ローダー / スケルトン / スクロール出現；クラス名優先再利用；未登録 `@keyframes` を業務内直書きは **禁止** |
 
 導入順：
 
@@ -72,10 +65,11 @@ pages/ または views/    # ページ専用
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/ThemeVariable.css";
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/SystemVariable.css";
 import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/ProjectReset.css";
+import "../rules/CodingSpec/JavaScript&TypeScript/WebVariable/Animation.css";
 import "./main.css";
 ```
 
-拡張時：色 → ThemeVariable；寸法/レイアウト → SystemVariable；リセット → 真にグローバルなときのみ ProjectReset。
+拡張時：色 → ThemeVariable；寸法/レイアウト → SystemVariable；リセット → 真にグローバルなときのみ ProjectReset；新規キーフレームは先に Animation.css。
 
 ### 2.3 抜挿メカニズム
 

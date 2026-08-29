@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: C エンジニアリングとコード規範（システム / 組み込み · puffseed）
-globs: ["**/*.c", "**/*.h", "**/Makefile", "**/CMakeLists.txt", "**/*.mk"]
 alwaysApply: false
 ---
 

@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: Dart инженерные и кодовые стандарты（Flutter · puffseed）
-globs: ["**/*.dart", "**/pubspec.yaml", "**/analysis_options.yaml"]
 alwaysApply: false
 ---
 

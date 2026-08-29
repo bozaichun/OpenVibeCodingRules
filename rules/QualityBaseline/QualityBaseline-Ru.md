@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: Кросс-языковая база стандартов кода / качества / сопровождаемости (puffseed)
-globs: *
 alwaysApply: false
 ---
 

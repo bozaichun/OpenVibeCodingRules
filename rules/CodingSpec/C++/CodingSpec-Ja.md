@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: C++ エンジニアリングとコード規範（現代 C++ · puffseed）
-globs: ["**/*.cpp", "**/*.cc", "**/*.cxx", "**/*.hpp", "**/*.hh", "**/*.hxx", "**/CMakeLists.txt", "**/conanfile.*", "**/vcpkg.json"]
 alwaysApply: false
 ---
 

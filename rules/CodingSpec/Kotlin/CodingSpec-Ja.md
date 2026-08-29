@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: Kotlin エンジニアリングとコード規範（Ktor / Spring / Android · puffseed）
-globs: ["**/*.kt", "**/*.kts", "**/build.gradle.kts"]
 alwaysApply: false
 ---
 

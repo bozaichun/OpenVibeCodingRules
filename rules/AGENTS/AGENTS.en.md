@@ -12,7 +12,7 @@ This file is the **global convention for AI-assisted multilingual app developmen
 
 | Language / runtime | Main frameworks / scenarios | Spec directory |
 |--------------|----------------|---------|
-| **JavaScript & TypeScript** (frontend) | Vue, React, Next.js, **UniApp** | `rules/CodingSpec/JavaScript&TypeScript/` |
+| **JavaScript & TypeScript** (frontend) | Vue, React, Next.js, **Nuxt.js**, **UniApp** | `rules/CodingSpec/JavaScript&TypeScript/` |
 | **Node.js** (backend) | NestJS, Express | `rules/CodingSpec/Node.js/` |
 | **Python** | FastAPI, Django | `rules/CodingSpec/Python/` |
 | **Java** | Spring Boot | `rules/CodingSpec/Java/` |
@@ -71,7 +71,7 @@ Agents must identify the **target product repo** language and framework first, t
 
 | Mode | Signal | Supported stacks | Notes |
 |------|---------|-----------|------|
-| **Normal project** | **No** `public/plugin.json` | Native HTML + CSS + JS · Vue · React · Next.js · UniApp | General web / multi-end |
+| **Normal project** | **No** `public/plugin.json` | Native HTML + CSS + JS · Vue · React · Next.js · Nuxt.js · UniApp | General web / multi-end |
 | **uTools plugin** | **Has** `public/plugin.json` | **Only** React · Vue (2 / 3) | uTools plugin template |
 
 ### 0.2 Language / framework detection flow
@@ -89,7 +89,7 @@ Agents must identify the **target product repo** language and framework first, t
 |---------|------|---------|
 | `rules/CodeConduct/CodeConduct-Zh-CN.md` | AI coding behavior (ask first, minimal diff) | **Before any coding task** |
 | `rules/QualityBaseline/QualityBaseline-Zh-CN.md` | **All-language** style / quality / maintainability baseline | **When writing or changing product code** |
-| `rules/CodingSpec/JavaScript&TypeScript/CodingSpec.md` | Frontend engineering (Vue / React / Next.js / UniApp) | Frontend product code |
+| `rules/CodingSpec/JavaScript&TypeScript/CodingSpec.md` | Frontend engineering (Vue / React / Next.js / Nuxt.js / UniApp) | Frontend product code |
 | `rules/CodingSpec/JavaScript&TypeScript/DESIGN/DESIGN-{Tag}.md` | UI design (Token · visual · layout) | **UI layout, styles, theme, responsive** |
 | `rules/CodingSpec/JavaScript&TypeScript/WebVariable/` | Frontend design tokens | Colors, spacing, type, reset |
 | `rules/CodingSpec/JavaScript&TypeScript/PreView/` | Light/dark visual preview | Open in browser (do not feed full HTML to AI) |

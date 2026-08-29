@@ -1,0 +1,465 @@
+/*!!! 全局动画样式
+ * 来源整理（GitHub 开源动画，MIT / 常见 CSS 实践精简适配）：
+ * - animate-css/animate.css  https://github.com/animate-css/animate.css
+ * - tobiasahlin/SpinKit       https://github.com/tobiasahlin/SpinKit（spin）
+ * - skeleton / shimmer 常见写法（sync-skeleton / ghostly 等同类思路）
+ *
+ * 用法约定：
+ * 1. 基础类 anim + 效果类，例如：class="anim anim-fade-in"
+ * 2. 可叠加：anim-infinite / anim-fast / anim-slow / anim-delay-1
+ * 3. 也可用 CSS 变量覆盖：--anim-duration / --anim-delay / --anim-repeat
+ *
+ * ========== 使用示例 ==========
+ *
+ * HTML / Vue 模板：
+ *   <h2 class="anim anim-fade-in-up anim-delay-1">标题淡入上移</h2>
+ *   <button class="anim anim-pulse anim-infinite">脉冲提示</button>
+ *   <div class="anim-skeleton" style="width: 200px; height: 16px;"></div>
+ *
+ * 纯 CSS 引用 keyframes：
+ *   .hero-title {
+ *     animation: anim-fade-in-up var(--anim-duration, 0.6s) ease both;
+ *   }
+ *
+ * =================================
+ */
+
+:root {
+  --anim-duration: 0.6s;
+  --anim-delay: 0s;
+  --anim-repeat: 1;
+  --anim-ease: ease;
+  --anim-skeleton-base: #ebebeb;
+  --anim-skeleton-shine: #f5f5f5;
+}
+
+/* 基础驱动类：挂到需要动画的元素上 */
+.anim {
+  animation-duration: var(--anim-duration);
+  animation-delay: var(--anim-delay);
+  animation-iteration-count: var(--anim-repeat);
+  animation-timing-function: var(--anim-ease);
+  animation-fill-mode: both;
+}
+
+/* ---------- 工具：速度 / 延时 / 循环 ---------- */
+.anim-faster {
+  --anim-duration: 0.4s;
+}
+.anim-fast {
+  --anim-duration: 0.5s;
+}
+.anim-slow {
+  --anim-duration: 1.2s;
+}
+.anim-slower {
+  --anim-duration: 2s;
+}
+
+.anim-delay-1 {
+  --anim-delay: 0.2s;
+}
+.anim-delay-2 {
+  --anim-delay: 0.4s;
+}
+.anim-delay-3 {
+  --anim-delay: 0.6s;
+}
+.anim-delay-4 {
+  --anim-delay: 0.8s;
+}
+.anim-delay-5 {
+  --anim-delay: 1s;
+}
+
+.anim-infinite {
+  --anim-repeat: infinite;
+}
+.anim-repeat-2 {
+  --anim-repeat: 2;
+}
+.anim-repeat-3 {
+  --anim-repeat: 3;
+}
+
+/* ---------- 淡入 / 淡出（animate.css fading） ---------- */
+@keyframes anim-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.anim-fade-in {
+  animation-name: anim-fade-in;
+}
+
+@keyframes anim-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.anim-fade-out {
+  animation-name: anim-fade-out;
+}
+
+@keyframes anim-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.anim-fade-in-up {
+  animation-name: anim-fade-in-up;
+}
+
+@keyframes anim-fade-in-down {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.anim-fade-in-down {
+  animation-name: anim-fade-in-down;
+}
+
+@keyframes anim-fade-in-left {
+  from {
+    opacity: 0;
+    transform: translate3d(-24px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.anim-fade-in-left {
+  animation-name: anim-fade-in-left;
+}
+
+@keyframes anim-fade-in-right {
+  from {
+    opacity: 0;
+    transform: translate3d(24px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.anim-fade-in-right {
+  animation-name: anim-fade-in-right;
+}
+
+/* ---------- 滑入（animate.css sliding） ---------- */
+@keyframes anim-slide-in-up {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+.anim-slide-in-up {
+  animation-name: anim-slide-in-up;
+}
+
+@keyframes anim-slide-in-down {
+  from {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+.anim-slide-in-down {
+  animation-name: anim-slide-in-down;
+}
+
+@keyframes anim-slide-in-left {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+.anim-slide-in-left {
+  animation-name: anim-slide-in-left;
+}
+
+@keyframes anim-slide-in-right {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+.anim-slide-in-right {
+  animation-name: anim-slide-in-right;
+}
+
+/* ---------- 缩放 ---------- */
+@keyframes anim-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale3d(0.85, 0.85, 0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+.anim-zoom-in {
+  animation-name: anim-zoom-in;
+}
+
+@keyframes anim-zoom-out {
+  from {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+  to {
+    opacity: 0;
+    transform: scale3d(0.85, 0.85, 0.85);
+  }
+}
+.anim-zoom-out {
+  animation-name: anim-zoom-out;
+}
+
+/* ---------- 注意力（animate.css attention seekers） ---------- */
+@keyframes anim-pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+.anim-pulse {
+  animation-name: anim-pulse;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes anim-bounce {
+  from,
+  20%,
+  53%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0);
+  }
+  40%,
+  43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -18px, 0) scaleY(1.08);
+  }
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -9px, 0) scaleY(1.04);
+  }
+  80% {
+    transform: translate3d(0, 0, 0) scaleY(0.96);
+  }
+  90% {
+    transform: translate3d(0, -3px, 0) scaleY(1.01);
+  }
+}
+.anim-bounce {
+  animation-name: anim-bounce;
+  transform-origin: center bottom;
+}
+
+@keyframes anim-shake {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-6px, 0, 0);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(6px, 0, 0);
+  }
+}
+.anim-shake {
+  animation-name: anim-shake;
+}
+
+@keyframes anim-heartbeat {
+  from {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.12);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.12);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+.anim-heartbeat {
+  animation-name: anim-heartbeat;
+  animation-timing-function: ease-in-out;
+}
+
+/* ---------- 悬浮 / 呼吸（UI 装饰） ---------- */
+@keyframes anim-float {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+.anim-float {
+  animation-name: anim-float;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes anim-breathe {
+  from {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.55;
+  }
+}
+.anim-breathe {
+  animation-name: anim-breathe;
+  animation-timing-function: ease-in-out;
+}
+
+/* ---------- 旋转加载（SpinKit 思路） ---------- */
+@keyframes anim-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.anim-spin {
+  animation-name: anim-spin;
+  animation-timing-function: linear;
+}
+
+/* ---------- 骨架屏闪光（skeleton shimmer） ---------- */
+@keyframes anim-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.anim-shimmer,
+.anim-skeleton {
+  background-image: linear-gradient(
+    90deg,
+    var(--anim-skeleton-base) 25%,
+    var(--anim-skeleton-shine) 37%,
+    var(--anim-skeleton-base) 63%
+  );
+  background-size: 200% 100%;
+  background-color: var(--anim-skeleton-base);
+  animation-name: anim-shimmer;
+  animation-duration: 1.4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.anim-skeleton {
+  display: block;
+  border-radius: var(--size-8, 8px);
+  color: transparent !important;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ---------- 光标闪烁（打字机） ---------- */
+@keyframes anim-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.anim-blink {
+  animation-name: anim-blink;
+  animation-timing-function: step-end;
+}
+
+/* ---------- 无障碍：减少动态效果 ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .anim,
+  .anim-shimmer,
+  .anim-skeleton,
+  .anim-blink {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/*
+ * ========== 实战示例（可直接复制） ==========
+ *
+ * 1) 页头标题入场
+ * <h1 class="anim anim-fade-in-up">波仔椿</h1>
+ *
+ * 2) 按钮持续脉冲吸引点击
+ * <button type="button" class="anim anim-pulse anim-infinite anim-slow">立即查看</button>
+ *
+ * 3) 加载图标旋转
+ * <i class="iconfont icon-Iterate anim anim-spin anim-infinite" aria-hidden="true"></i>
+ *
+ * 4) 列表骨架占位
+ * <div class="anim-skeleton" style="width: 100%; height: 20px; margin-bottom: 8px;"></div>
+ * <div class="anim-skeleton" style="width: 72%; height: 20px;"></div>
+ *
+ * 5) 组件内用 keyframes（SCSS）
+ * .drawer-panel {
+ *   animation: anim-slide-in-right 0.26s ease both;
+ * }
+ */

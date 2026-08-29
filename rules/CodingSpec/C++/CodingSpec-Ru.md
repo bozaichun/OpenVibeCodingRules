@@ -1,7 +1,6 @@
 <!-- ovcr-locale-lock -->
 ---
 description: C++ инженерные и кодовые стандарты（Современный C++ · puffseed）
-globs: ["**/*.cpp", "**/*.cc", "**/*.cxx", "**/*.hpp", "**/*.hh", "**/*.hxx", "**/CMakeLists.txt", "**/conanfile.*", "**/vcpkg.json"]
 alwaysApply: false
 ---
 
